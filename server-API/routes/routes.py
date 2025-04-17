@@ -1,6 +1,7 @@
 from database.schemas import list_serial, individual_serial
 from database.database import posts_collection
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException 
+from kafkaproducer import send_topic
 from database.posts import Post
 import sys
 import os
@@ -8,8 +9,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from logger_config import log
 
-#salvare rezultate dupa modul AI
-#trimite comentarii raw dupa scraping
+#salvare rezultate dupa modul AI in db
+#trimite comentarii raw dupa scraping in db
 
 router = APIRouter()
 
@@ -105,10 +106,14 @@ async def get_analysis(uuid: str, post_link: str, model: str):
             log.info(f"[ SERVER API ][ Post exists, sending data to Preprocessor for model: {model} ]")
             preproc_payload = {
                 "uuid": uuid,
+                "post_link": post_link,
                 "model": model,
                 "comments": post.get("comments", [])
             }
             log.info(f"[ SERVER API ][ Preprocessing Payload: {preproc_payload} ]")
+
+            send_topic('to_preprocessing', preproc_payload)
+
             return {"status": "processing", "message": "Sent to preprocessor"}
 
         else:
@@ -119,6 +124,9 @@ async def get_analysis(uuid: str, post_link: str, model: str):
                 "model": model
             }
             log.info(f"[ SERVER API ][ Preprocessing Payload: {scraper_payload} ]")
+
+            send_topic('to_scraper', scraper_payload)
+            
             return {"status": "scraping", "message": "Sent to scraper"}
 
     except Exception as e:
