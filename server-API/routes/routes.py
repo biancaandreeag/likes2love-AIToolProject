@@ -1,7 +1,7 @@
 from database.schemas import list_serial, individual_serial
 from database.database import posts_collection
 from fastapi import APIRouter, HTTPException 
-from kafkaproducer import send_topic
+from kafka import send_to_preprocessor
 from database.posts import Post
 import sys
 import os
@@ -112,7 +112,7 @@ async def get_analysis(uuid: str, post_link: str, model: str):
             }
             log.info(f"[ SERVER API ][ Preprocessing Payload: {preproc_payload} ]")
 
-            send_topic('to_preprocessing', preproc_payload)
+            send_to_preprocessor('to_preprocessing', preproc_payload)
 
             return {"status": "processing", "message": "Sent to preprocessor"}
 
@@ -125,7 +125,7 @@ async def get_analysis(uuid: str, post_link: str, model: str):
             }
             log.info(f"[ SERVER API ][ Preprocessing Payload: {scraper_payload} ]")
 
-            send_topic('to_scraper', scraper_payload)
+            #send_topic('to_scraper', scraper_payload)
             
             return {"status": "scraping", "message": "Sent to scraper"}
 
