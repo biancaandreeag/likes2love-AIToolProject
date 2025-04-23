@@ -21,6 +21,12 @@ services:
       CLUSTER_ID: my-cluster-id
     networks:
       - kafka-net
+    healthcheck:
+      test: ["CMD-SHELL", "echo > /dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
 
   mongo:
     image: mongo:6.0
@@ -32,27 +38,37 @@ services:
       - mongo-data:/data/db
     networks:
       - kafka-net
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend-api:
     build: ./server-API
     ports:
       - "8000:8000"
     depends_on:
-      - broker
-      - mongo
+      broker:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
     environment:
       KAFKA_BOOTSTRAP_SERVERS: broker:29092
+      MONGO_URI: mongodb://mongo:27017/posts_db
     networks:
       - kafka-net
 
   preprocessor:
     build: ./realtime-process
     depends_on:
-      - broker
+      broker:
+        condition: service_healthy
     environment:
       KAFKA_BOOTSTRAP_SERVERS: broker:29092
     networks:
       - kafka-net
+    restart: always
 
 volumes:
   mongo-data:

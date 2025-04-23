@@ -21,6 +21,11 @@ class KafkaConsumerClient:
                     self.topic,
                     bootstrap_servers=self.kafka_server,
                     group_id=self.group_id,
+                    enable_auto_commit=True,
+                    heartbeat_interval_ms=10000,
+                    session_timeout_ms=10000,
+                    auto_offset_reset='earliest',
+                    max_poll_interval_ms=300000,
                     value_deserializer=lambda m: json.loads(m.decode('utf-8'))
                 )
                 print(f"[KAFKA CONSUMER] Connected to Kafka broker and listening on topic '{self.topic}'...")

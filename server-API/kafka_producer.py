@@ -7,7 +7,10 @@ class KafkaProducerClient:
     def __init__(self, topic, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092')):
         self.producer = KafkaProducer(
             bootstrap_servers=kafka_server,
-            value_serializer=lambda v: json.dumps(v).encode('utf-8')
+            value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+            retries=5,
+            acks='all',
+            request_timeout_ms=2000
         )
         self.topic = topic
 
