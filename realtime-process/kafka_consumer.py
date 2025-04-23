@@ -40,13 +40,18 @@ class KafkaConsumerClient:
                     print("[KAFKA CONSUMER] Failed to connect after several retries.")
                     log.error("[KAFKA CONSUMER] Failed to connect after several retries.")
 
-    def consume(self):
+    def listen(self):
+        """Ascultă topic-ul Kafka"""
         if self.consumer:
             print(f"[KAFKA CONSUMER] Listening on topic '{self.topic}'...")
-            while True:
-                for message in self.consumer:
-                    print(f"[KAFKA CONSUMER] New message: {message.value}")
-                    log.info(f"[KAFKA CONSUMER] New message: {message.value}")
+            for message in self.consumer:
+                yield message  # Returnează mesajul pentru procesare
         else:
             print("[KAFKA CONSUMER] Kafka consumer is not initialized.")
             log.error("[KAFKA CONSUMER] Kafka consumer is not initialized.")
+
+    def consume(self, message):
+        """Procesează mesajele primite"""
+        print(f"[KAFKA CONSUMER] New message: {message.value}")
+        log.info(f"[KAFKA CONSUMER] New message: {message.value}")
+        # Poți adăuga aici logica ta pentru procesarea mesajului

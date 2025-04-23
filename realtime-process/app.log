@@ -1,0 +1,4 @@
+2025-04-23 18:04:28 - WARNING - DNS lookup failed for broker:29092, exception was [Errno 11001] getaddrinfo failed. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+2025-04-23 18:04:28 - ERROR - <BrokerConnection client_id=kafka-python-2.1.5, node_id=bootstrap-0 host=broker:29092 <connecting> [unspecified None]>: DNS lookup failed for broker:29092 (0)
+2025-04-23 18:04:28 - ERROR - <BrokerConnection client_id=kafka-python-2.1.5, node_id=bootstrap-0 host=broker:29092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+2025-04-23 18:04:28 - ERROR - [KAFKA CONSUMER] Error connecting to Kafka: NoBrokersAvailable
