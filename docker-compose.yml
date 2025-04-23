@@ -22,12 +22,24 @@ services:
     networks:
       - kafka-net
 
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - kafka-net
+
   backend-api:
     build: ./server-API
     ports:
       - "8000:8000"
     depends_on:
       - broker
+      - mongo
     environment:
       KAFKA_BOOTSTRAP_SERVERS: broker:29092
     networks:
@@ -42,6 +54,9 @@ services:
     networks:
       - kafka-net
 
+volumes:
+  mongo-data:
+  
 networks:
   kafka-net:
     driver: bridge
