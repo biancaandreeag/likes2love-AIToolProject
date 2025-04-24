@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 import json
 import os
-from shared_utils.logger_config  import log
+from  shared_utils.logger_config import log
 
 class KafkaProducerClient:
     def __init__(self, topic, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092')):
@@ -24,6 +24,10 @@ class KafkaProducerClient:
             log.error(f"[ KAFKA PRODUCER ][ Error sending message to Kafka: {str(e)} ]")
         finally:
             self.producer.close()
+
+def send_to_preprocessor(message: dict, key: str = None):
+    producer = KafkaProducerClient(topic='to_preprocessing')
+    producer.send_topic(message, key)
 
 def send_to_analysis(message: dict, key: str = None):
     producer = KafkaProducerClient(topic='to_analysis')

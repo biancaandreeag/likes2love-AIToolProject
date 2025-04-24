@@ -1,7 +1,7 @@
 from database.schemas import list_serial, individual_serial
 from database.database import posts_collection
 from fastapi import APIRouter, HTTPException 
-from kafka_producer import send_to_preprocessor
+from shared_utils.kafka_producer import send_to_preprocessor
 from database.posts import Post
 from  shared_utils.logger_config import log
 

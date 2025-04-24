@@ -1,5 +1,5 @@
 from kafka import KafkaConsumer
-from kafka_producer import send_to_analysis
+from shared_utils.kafka_producer import send_to_analysis
 import json
 import os
 import time
@@ -48,7 +48,7 @@ class KafkaConsumerClient:
         else:
             log.error("[KAFKA CONSUMER] Not initialized.")
 
-    def consume(self, message):
+    def consume_analysis(self, message):
         log.info(f"[KAFKA CONSUMER] New message received. Key: {message.key} | Value: {message.value}")
 
         data=message.value
@@ -57,4 +57,8 @@ class KafkaConsumerClient:
 
         if message_type=="metadata":
             send_to_analysis(data, uuid)
+
+    def consume(self, message):
+        log.info(f"[KAFKA CONSUMER] New message received. Key: {message.key} | Value: {message.value}")
+
             
