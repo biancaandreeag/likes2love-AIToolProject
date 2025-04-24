@@ -8,24 +8,25 @@ class KafkaProducerClient:
         self.producer = KafkaProducer(
             bootstrap_servers=kafka_server,
             value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+            key_serializer=lambda k: k.encode('utf-8') if k else None,
             retries=5,
             acks='all',
             request_timeout_ms=2000
         )
         self.topic = topic
 
-    def send_topic(self, message: dict):
+    def send_topic(self, message: dict, key: str = None):  
         try:
-            self.producer.send(self.topic, message)
+            self.producer.send(self.topic, value=message, key=key)
             self.producer.flush()
-            print(f"[ KAFKA PRODUCER ] Message sent to Kafka topic: {self.topic} | Message: {message}")
-            log.info(f"[ KAFKA PRODUCER ][ Message sent to Kafka topic: {self.topic} | Message: {message} ]")
+            print(f"[ KAFKA PRODUCER ] Sent to topic: {self.topic} | Key: {key} | Message: {message}")
+            log.info(f"[ KAFKA PRODUCER ][ Sent to topic: {self.topic} | Key: {key} | Message: {message} ]")
         except Exception as e:
             print(f"[ KAFKA PRODUCER ] Error sending message to Kafka: {str(e)}")
             log.error(f"[ KAFKA PRODUCER ][ Error sending message to Kafka: {str(e)} ]")
         finally:
-            self.producer.close() 
+            self.producer.close()
 
-def send_to_preprocessor(message: dict):
-    producer = KafkaProducerClient(topic='to_preprocessing') 
-    producer.send_topic(message)  
+def send_to_preprocessor(message: dict, key: str = None):
+    producer = KafkaProducerClient(topic='to_preprocessing')
+    producer.send_topic(message, key)

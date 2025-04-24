@@ -3,8 +3,6 @@ from database.database import posts_collection
 from fastapi import APIRouter, HTTPException 
 from kafka_producer import send_to_preprocessor
 from database.posts import Post
-import sys
-import os
 
 from logger_config import log
 
@@ -96,7 +94,8 @@ async def get_analysis(uuid: str, post_link: str, model: str):
         post = posts_collection.find_one({"uuid": uuid, "post_link": post_link})
         if not post:
             log.error(f"[ SERVER API ][ Post with uuid={uuid} and link={post_link} not found in database ]")
-            raise HTTPException(status_code=404, detail="Post not found")
+            #scraper 
+            return { "message": "This needs to go to the scraper-service"}
 
         for analysis in post.get("analyses", []):
             if analysis["model"] == model:
@@ -109,13 +108,25 @@ async def get_analysis(uuid: str, post_link: str, model: str):
             "_id": str(post["_id"]),
             "uuid": post["uuid"],
             "post_link": post["post_link"],
-            "comments": post.get("comments", []) 
+            "model" : model 
         }
 
         log.info(f"[ SERVER API ][ Returning Payload: {payload} ]")
-        send_to_preprocessor(payload)
-        return payload
+        send_to_preprocessor(payload, key=post["uuid"])
 
+        comments_list = post.get("comments", [])
+        batch_size = 10
+
+        for i in range(0, len(comments_list), batch_size):
+            batch = {
+                "_id": str(post["_id"]), 
+                "comments": comments_list[i:i + batch_size]
+            }
+            log.info(f"[ SERVER API ][ Sending comment batch {i // batch_size + 1} with {len(batch['comments'])} comments ]")
+            send_to_preprocessor(batch, key=post["uuid"])
+        
+        return {"status": "success", "message": "Payload sent to Preprocessing Service."}
+    
     except Exception as e:
         log.error(f"Error in get-analysis: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")

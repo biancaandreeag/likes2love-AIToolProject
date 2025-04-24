@@ -1,13 +1,17 @@
 import logging
-import os
 
-log_dir = os.path.join(os.getcwd(), 'app.log')
+log_path = '/shared_logs/app.log'
 
-logging.basicConfig(
-    filename=log_dir,  
-    level=logging.INFO,   
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
+logger = logging.getLogger("global_logger")
+logger.setLevel(logging.INFO)
 
-log = logging.getLogger("global_logger")
+if not logger.handlers:
+    file_handler = logging.FileHandler(log_path)
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(file_handler)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(console_handler)
+
+log = logger
