@@ -105,6 +105,7 @@ async def get_analysis(uuid: str, post_link: str, model: str):
         log.info(f"[ SERVER API ][ Post found, returning data for model: {model} ]")
         
         payload = {
+            "type": "metadata",
             "_id": str(post["_id"]),
             "uuid": post["uuid"],
             "post_link": post["post_link"],
@@ -119,6 +120,7 @@ async def get_analysis(uuid: str, post_link: str, model: str):
 
         for i in range(0, len(comments_list), batch_size):
             batch = {
+                "type":"comments_batch",
                 "_id": str(post["_id"]), 
                 "comments": comments_list[i:i + batch_size]
             }

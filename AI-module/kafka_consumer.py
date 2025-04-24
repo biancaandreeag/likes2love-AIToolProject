@@ -1,5 +1,4 @@
 from kafka import KafkaConsumer
-from kafka_producer import send_to_analysis
 import json
 import os
 import time
@@ -7,7 +6,7 @@ from logger_config import log
 
 class KafkaConsumerClient:
     def __init__(self, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092'),
-                 topic: str = 'to_preprocessing', group_id: str = 'preprocessor-group'):
+                 topic: str = 'to_analysis', group_id: str = 'analysis-group'):
         self.kafka_server = kafka_server
         self.topic = topic
         self.group_id = group_id
@@ -31,6 +30,7 @@ class KafkaConsumerClient:
                     value_deserializer=lambda m: json.loads(m.decode('utf-8')),
                     key_deserializer=lambda k: k.decode('utf-8') if k else None
                 )
+            
                 break
             except Exception as e:
                 log.error(f"[KAFKA CONSUMER] Connection error: {str(e)}")
@@ -50,11 +50,3 @@ class KafkaConsumerClient:
 
     def consume(self, message):
         log.info(f"[KAFKA CONSUMER] New message received. Key: {message.key} | Value: {message.value}")
-
-        data=message.value
-        message_type=data.get("type")
-        uuid=data.get("uuid")
-
-        if message_type=="metadata":
-            send_to_analysis(data, uuid)
-            

@@ -25,6 +25,6 @@ class KafkaProducerClient:
         finally:
             self.producer.close()
 
-def send_to_preprocessor(message: dict, key: str = None):
-    producer = KafkaProducerClient(topic='to_preprocessing')
+def send_to_analysis(message: dict, key: str = None):
+    producer = KafkaProducerClient(topic='to_analysis')
     producer.send_topic(message, key)
