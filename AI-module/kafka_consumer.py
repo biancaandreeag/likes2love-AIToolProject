@@ -2,7 +2,7 @@ from kafka import KafkaConsumer
 import json
 import os
 import time
-from logger_config import log
+from shared_utils.logger_config  import log
 
 class KafkaConsumerClient:
     def __init__(self, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092'),

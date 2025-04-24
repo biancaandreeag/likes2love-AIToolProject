@@ -58,6 +58,7 @@ services:
       MONGO_URI: mongodb://mongo:27017/posts_db
     volumes:
       - ./shared_logs:/shared_logs
+      - ./shared_utils:/app/shared_utils
     networks:
       - kafka-net
 
@@ -70,6 +71,7 @@ services:
       KAFKA_BOOTSTRAP_SERVERS: broker:29092
     volumes:
       - ./shared_logs:/shared_logs
+      - ./shared_utils:/app/shared_utils
     networks:
       - kafka-net
     restart: always
@@ -83,6 +85,7 @@ services:
       KAFKA_BOOTSTRAP_SERVERS: broker:29092
     volumes:
       - ./shared_logs:/shared_logs
+      - ./shared_utils:/app/shared_utils
     networks:
       - kafka-net
     restart: always

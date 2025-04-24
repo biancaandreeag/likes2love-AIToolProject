@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 import json
 import os
-from logger_config import log
+from shared_utils.logger_config  import log
 
 class KafkaProducerClient:
     def __init__(self, topic, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092')):

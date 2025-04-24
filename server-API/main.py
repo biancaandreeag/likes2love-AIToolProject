@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from routes import routes
-from logger_config import log
+from shared_utils.logger_config import log
 
 #http://127.0.0.1:8000/docs -> pentru testare
 

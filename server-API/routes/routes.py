@@ -3,8 +3,7 @@ from database.database import posts_collection
 from fastapi import APIRouter, HTTPException 
 from kafka_producer import send_to_preprocessor
 from database.posts import Post
-
-from logger_config import log
+from  shared_utils.logger_config import log
 
 #salvare rezultate dupa modul AI in db
 #trimite comentarii raw dupa scraping in db
