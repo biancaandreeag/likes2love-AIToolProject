@@ -7,7 +7,7 @@ from shared_utils.logger_config  import log
 
 class KafkaConsumerClient:
     def __init__(self, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092'),
-                 topic: str = 'to_preprocessing', group_id: str = 'preprocessor-group'):
+                 topic: str = 'test_topic', group_id: str = 'test_group'):
         self.kafka_server = kafka_server
         self.topic = topic
         self.group_id = group_id
@@ -48,7 +48,7 @@ class KafkaConsumerClient:
         else:
             log.error("[KAFKA CONSUMER] Not initialized.")
 
-    def consume_analysis(self, message):
+    def consume_and_send(self, message):
         log.info(f"[KAFKA CONSUMER] New message received. Key: {message.key} | Value: {message.value}")
 
         data=message.value
@@ -58,7 +58,5 @@ class KafkaConsumerClient:
         if message_type=="metadata":
             send_to_analysis(data, uuid)
 
-    def consume(self, message):
-        log.info(f"[KAFKA CONSUMER] New message received. Key: {message.key} | Value: {message.value}")
 
             
