@@ -14,6 +14,7 @@ class KafkaConsumerClient:
         self.group_id = group_id
         self.consumer = None
         self.init_consumer()
+        self.translator = TextTranslator()
 
     def init_consumer(self):
         retries = 5
@@ -50,25 +51,29 @@ class KafkaConsumerClient:
             log.error("[KAFKA CONSUMER] Not initialized.")
 
     def consume_and_send(self, message):
-        log.info(f"[KAFKA CONSUMER] New message received. Key: {message.key} | Value: {message.value}")
+        #log.info(f"[KAFKA CONSUMER] [ New message received. Key: {message.key} | Value: {message.value} ]")
 
         data=message.value
         message_type=data.get("type")
-        uuid=data.get("uuid")
 
         if message_type=="metadata":
-            send_to_analysis(data, uuid)
+            send_to_analysis(data, message.key)
+            self.translator.set_post_id(message.key) 
+            model=data.get("model")
+
         if message_type=="comments_batch":
             id=data.get("_id")
             comments_list=data.get("comments",[])
-            translator = TextTranslator(post_id= id)
-            translated = translator.translate_comments(comments_list)
+            translated = self.translator.translate_comments(comments_list)
             batch = {
                 "type":"comments_batch",
                 "_id": id, 
                 "comments": translated
             }
-            log.info(f"[ TRANSLATOR ][ Recieved and translated batch with {len(comments_list)} comments. ]")
+            log.info(f"[ TRANSLATE ][ Recieved and translated batch with {len(comments_list)} comments. ]")
+
+        if message_type=="end":
+            log.info(f"[ KAFKA CONSUMER ][ All messages with key: {message.key} sent to analysis. ]")
 
             
 

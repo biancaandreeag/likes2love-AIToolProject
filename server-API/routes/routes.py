@@ -115,7 +115,7 @@ async def get_analysis(uuid: str, post_link: str, model: str):
         send_to_preprocessor(payload, key=post["uuid"])
 
         comments_list = post.get("comments", [])
-        batch_size = 10
+        batch_size = 100
 
         for i in range(0, len(comments_list), batch_size):
             batch = {
@@ -126,6 +126,7 @@ async def get_analysis(uuid: str, post_link: str, model: str):
             log.info(f"[ SERVER API ][ Sending comment batch {i // batch_size + 1} with {len(batch['comments'])} comments ]")
             send_to_preprocessor(batch, key=post["uuid"])
         
+        send_to_preprocessor({"type": "end", "uuid": uuid}, key=post["uuid"])
         return {"status": "success", "message": "Payload sent to Preprocessing Service."}
     
     except Exception as e:

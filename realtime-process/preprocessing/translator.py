@@ -21,8 +21,11 @@ class TextTranslator:
         'RO', 'RU', 'SK', 'SL', 'SV', 'TR', 'UK', 'ZH'
     }
 
-    def __init__(self, post_id):
+    def __init__(self):
         self.translator = self.load_translator()
+        self.POST_ID= None
+
+    def set_post_id(self, post_id):
         self.POST_ID = post_id
         
     def load_translator(self):

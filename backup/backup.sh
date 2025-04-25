@@ -1,6 +1,1 @@
-#!/bin/bash
-
-echo "[ DATABASE BACKUP ][ Backup MongoDB... ]"
-mongodump --out /data/dump/mongo-dump
-echo "[ DATABASE BACKUP ][ Backup complete in ./backup/ ]"
-
+﻿#!/bin/bashecho "[ DATABASE BACKUP ][ Backup MongoDB... ]"mongodump --out /data/dump/mongo-dumpecho "[ DATABASE BACKUP ][ Backup complete in ./backup/ ]"
