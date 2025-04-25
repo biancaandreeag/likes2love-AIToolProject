@@ -656,3 +656,913 @@
 2025-04-24 20:21:13,742 - INFO - [ SERVER API ][ Sending comment batch 16 with 5 comments ]
 2025-04-24 20:21:13,863 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
 2025-04-24 20:21:13,865 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']}
+2025-04-25 05:28:15,483 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 05:28:15,506 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 05:28:15,732 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 05:28:15,754 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 05:28:17,986 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 05:28:28,320 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-002, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 05:28:28,329 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 05:28:28,329 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 05:28:28,468 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 05:28:28,472 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 05:28:28,474 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 05:28:28,605 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 05:28:28,607 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 05:28:28,611 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 05:28:28,612 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 05:28:28,619 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 05:28:28,741 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 05:28:28,743 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 05:28:28,745 - INFO - [ SERVER API ][ Sending comment batch 3 with 10 comments ]
+2025-04-25 05:28:28,880 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 05:28:28,881 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']}
+2025-04-25 05:28:28,882 - INFO - [ SERVER API ][ Sending comment batch 4 with 10 comments ]
+2025-04-25 05:28:29,010 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 05:28:29,012 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']}
+2025-04-25 05:28:29,012 - INFO - [ SERVER API ][ Sending comment batch 5 with 10 comments ]
+2025-04-25 05:28:29,141 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 05:28:29,143 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']}
+2025-04-25 05:28:29,143 - INFO - [ SERVER API ][ Sending comment batch 6 with 10 comments ]
+2025-04-25 05:28:29,263 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 05:28:29,264 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']}
+2025-04-25 05:28:29,265 - INFO - [ SERVER API ][ Sending comment batch 7 with 10 comments ]
+2025-04-25 05:28:29,385 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 05:28:29,386 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']}
+2025-04-25 05:28:29,387 - INFO - [ SERVER API ][ Sending comment batch 8 with 10 comments ]
+2025-04-25 05:28:29,510 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 05:28:29,511 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']}
+2025-04-25 05:28:29,512 - INFO - [ SERVER API ][ Sending comment batch 9 with 10 comments ]
+2025-04-25 05:28:29,640 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 05:28:29,641 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']}
+2025-04-25 05:28:29,642 - INFO - [ SERVER API ][ Sending comment batch 10 with 10 comments ]
+2025-04-25 05:28:29,769 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 05:28:29,771 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']}
+2025-04-25 05:28:29,772 - INFO - [ SERVER API ][ Sending comment batch 11 with 10 comments ]
+2025-04-25 05:28:29,904 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 05:28:29,906 - INFO - [ SERVER API ][ Sending comment batch 12 with 10 comments ]
+2025-04-25 05:28:29,912 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']}
+2025-04-25 05:28:30,047 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 05:28:30,049 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']}
+2025-04-25 05:28:30,050 - INFO - [ SERVER API ][ Sending comment batch 13 with 10 comments ]
+2025-04-25 05:28:30,179 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 05:28:30,180 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']}
+2025-04-25 05:28:30,181 - INFO - [ SERVER API ][ Sending comment batch 14 with 10 comments ]
+2025-04-25 05:28:30,311 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 05:28:30,312 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']}
+2025-04-25 05:28:30,314 - INFO - [ SERVER API ][ Sending comment batch 15 with 10 comments ]
+2025-04-25 05:28:30,448 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 05:28:30,449 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']}
+2025-04-25 05:28:30,451 - INFO - [ SERVER API ][ Sending comment batch 16 with 5 comments ]
+2025-04-25 05:28:30,576 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 05:28:30,581 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']}
+2025-04-25 05:49:20,655 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 05:49:20,675 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 05:49:20,885 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 05:49:20,894 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 05:49:22,533 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 05:51:25,802 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-002, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 05:51:25,808 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 05:51:25,808 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 05:51:25,949 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 05:51:25,951 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 05:51:25,953 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 05:51:26,075 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 05:51:26,077 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 05:51:26,079 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 05:51:26,082 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 05:51:26,086 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 05:51:26,088 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,089 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,090 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,092 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 05:51:26,207 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 05:51:26,208 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 05:51:26,209 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,209 - INFO - [ SERVER API ][ Sending comment batch 3 with 10 comments ]
+2025-04-25 05:51:26,210 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,211 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,214 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 05:51:26,341 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 05:51:26,342 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']}
+2025-04-25 05:51:26,344 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,344 - INFO - [ SERVER API ][ Sending comment batch 4 with 10 comments ]
+2025-04-25 05:51:26,345 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,347 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,349 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 05:51:26,474 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 05:51:26,475 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']}
+2025-04-25 05:51:26,477 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,478 - INFO - [ SERVER API ][ Sending comment batch 5 with 10 comments ]
+2025-04-25 05:51:26,480 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,483 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,492 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 05:51:26,615 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 05:51:26,616 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']}
+2025-04-25 05:51:26,616 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,617 - INFO - [ SERVER API ][ Sending comment batch 6 with 10 comments ]
+2025-04-25 05:51:26,617 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,619 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,621 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 05:51:26,752 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 05:51:26,752 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']}
+2025-04-25 05:51:26,753 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,754 - INFO - [ SERVER API ][ Sending comment batch 7 with 10 comments ]
+2025-04-25 05:51:26,754 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,758 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,760 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 05:51:26,883 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 05:51:26,885 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']}
+2025-04-25 05:51:26,888 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:26,888 - INFO - [ SERVER API ][ Sending comment batch 8 with 10 comments ]
+2025-04-25 05:51:26,889 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:26,891 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:26,894 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 05:51:27,022 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 05:51:27,025 - INFO - [ SERVER API ][ Sending comment batch 9 with 10 comments ]
+2025-04-25 05:51:27,026 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']}
+2025-04-25 05:51:27,027 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,028 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,031 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,033 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 05:51:27,155 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 05:51:27,156 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']}
+2025-04-25 05:51:27,157 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,158 - INFO - [ SERVER API ][ Sending comment batch 10 with 10 comments ]
+2025-04-25 05:51:27,160 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,162 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,164 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 05:51:27,288 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 05:51:27,290 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']}
+2025-04-25 05:51:27,291 - INFO - [ SERVER API ][ Sending comment batch 11 with 10 comments ]
+2025-04-25 05:51:27,291 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,293 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,295 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,297 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 05:51:27,427 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 05:51:27,428 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']}
+2025-04-25 05:51:27,429 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,430 - INFO - [ SERVER API ][ Sending comment batch 12 with 10 comments ]
+2025-04-25 05:51:27,431 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,435 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,438 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 05:51:27,563 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 05:51:27,564 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']}
+2025-04-25 05:51:27,564 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,565 - INFO - [ SERVER API ][ Sending comment batch 13 with 10 comments ]
+2025-04-25 05:51:27,565 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,567 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,569 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 05:51:27,689 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 05:51:27,691 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']}
+2025-04-25 05:51:27,692 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,692 - INFO - [ SERVER API ][ Sending comment batch 14 with 10 comments ]
+2025-04-25 05:51:27,694 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,695 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,697 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 05:51:27,822 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 05:51:27,823 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']}
+2025-04-25 05:51:27,824 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,824 - INFO - [ SERVER API ][ Sending comment batch 15 with 10 comments ]
+2025-04-25 05:51:27,825 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,826 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,827 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 05:51:27,947 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 05:51:27,948 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']}
+2025-04-25 05:51:27,948 - INFO - [ SERVER API ][ Sending comment batch 16 with 5 comments ]
+2025-04-25 05:51:27,949 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:27,950 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:27,951 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:27,953 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 05:51:28,079 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 05:51:28,080 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']}
+2025-04-25 05:51:28,081 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 05:51:28,082 - INFO - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Starting translation process.. ]
+2025-04-25 05:51:28,084 - ERROR - [ TRANSLATE - 680a5d9b47e5d5dd07384f27 ][ Error during processing: No module named 'pandas' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 72, in translate_comments
+    tqdm.pandas()
+  File "/usr/local/lib/python3.12/site-packages/tqdm/std.py", line 804, in pandas
+    from pandas.core.frame import DataFrame
+ModuleNotFoundError: No module named 'pandas'
+2025-04-25 05:51:28,086 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 06:02:32,432 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:02:32,473 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:02:32,999 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:02:33,020 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:02:35,019 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:03:15,528 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-002, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:03:15,536 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:03:15,537 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:03:15,678 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:03:15,680 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:03:15,680 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:03:15,801 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:03:15,803 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:03:15,923 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:03:15,925 - INFO - [ SERVER API ][ Sending comment batch 3 with 10 comments ]
+2025-04-25 06:03:16,044 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 06:03:16,046 - INFO - [ SERVER API ][ Sending comment batch 4 with 10 comments ]
+2025-04-25 06:03:16,171 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 06:03:16,172 - INFO - [ SERVER API ][ Sending comment batch 5 with 10 comments ]
+2025-04-25 06:03:16,297 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 06:03:16,298 - INFO - [ SERVER API ][ Sending comment batch 6 with 10 comments ]
+2025-04-25 06:03:16,429 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 06:03:16,432 - INFO - [ SERVER API ][ Sending comment batch 7 with 10 comments ]
+2025-04-25 06:03:16,559 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 06:03:16,561 - INFO - [ SERVER API ][ Sending comment batch 8 with 10 comments ]
+2025-04-25 06:03:16,691 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 06:03:16,693 - INFO - [ SERVER API ][ Sending comment batch 9 with 10 comments ]
+2025-04-25 06:03:16,821 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 06:03:16,822 - INFO - [ SERVER API ][ Sending comment batch 10 with 10 comments ]
+2025-04-25 06:03:16,867 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:03:16,875 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:03:16,953 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 06:03:16,955 - INFO - [ SERVER API ][ Sending comment batch 11 with 10 comments ]
+2025-04-25 06:03:17,082 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 06:03:17,085 - INFO - [ SERVER API ][ Sending comment batch 12 with 10 comments ]
+2025-04-25 06:03:17,211 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 06:03:17,214 - INFO - [ SERVER API ][ Sending comment batch 13 with 10 comments ]
+2025-04-25 06:03:17,334 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 06:03:17,336 - INFO - [ SERVER API ][ Sending comment batch 14 with 10 comments ]
+2025-04-25 06:03:17,458 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 06:03:17,460 - INFO - [ SERVER API ][ Sending comment batch 15 with 10 comments ]
+2025-04-25 06:03:17,586 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 06:03:17,588 - INFO - [ SERVER API ][ Sending comment batch 16 with 5 comments ]
+2025-04-25 06:03:17,717 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 06:03:23,515 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:03:24,560 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:03:24,570 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:03:31,152 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:03:32,635 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:03:32,646 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:03:41,171 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:03:42,807 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:03:42,817 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:03:51,182 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:03:53,427 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:03:53,434 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:03:58,774 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:04:02,673 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:04:02,679 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:04:08,785 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:04:15,803 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:04:15,810 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:04:18,796 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:04:31,764 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:04:31,771 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:04:35,027 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:04:57,064 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:04:57,072 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:05:00,311 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:05:47,179 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:05:47,185 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:05:50,421 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:09:23,829 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:09:23,853 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:09:24,220 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:09:24,238 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:09:25,758 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:11:14,144 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:11:14,171 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:11:14,383 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:11:14,394 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:11:15,610 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:11:56,566 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-002, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:11:56,573 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:11:56,574 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:11:56,709 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:11:56,710 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:11:56,712 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:11:56,713 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:11:56,831 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:11:56,833 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:11:56,834 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:11:56,838 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:11:56,843 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:11:56,843 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:11:56,844 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:11:56,952 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:11:56,954 - INFO - [ SERVER API ][ Sending comment batch 3 with 10 comments ]
+2025-04-25 06:11:57,078 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 06:11:57,080 - INFO - [ SERVER API ][ Sending comment batch 4 with 10 comments ]
+2025-04-25 06:11:57,197 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 06:11:57,199 - INFO - [ SERVER API ][ Sending comment batch 5 with 10 comments ]
+2025-04-25 06:11:57,325 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 06:11:57,326 - INFO - [ SERVER API ][ Sending comment batch 6 with 10 comments ]
+2025-04-25 06:11:57,445 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 06:11:57,447 - INFO - [ SERVER API ][ Sending comment batch 7 with 10 comments ]
+2025-04-25 06:11:57,563 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 06:11:57,565 - INFO - [ SERVER API ][ Sending comment batch 8 with 10 comments ]
+2025-04-25 06:11:57,683 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 06:11:57,685 - INFO - [ SERVER API ][ Sending comment batch 9 with 10 comments ]
+2025-04-25 06:11:57,806 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 06:11:57,808 - INFO - [ SERVER API ][ Sending comment batch 10 with 10 comments ]
+2025-04-25 06:11:57,925 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 06:11:57,926 - INFO - [ SERVER API ][ Sending comment batch 11 with 10 comments ]
+2025-04-25 06:11:58,049 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 06:11:58,051 - INFO - [ SERVER API ][ Sending comment batch 12 with 10 comments ]
+2025-04-25 06:11:58,171 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 06:11:58,173 - INFO - [ SERVER API ][ Sending comment batch 13 with 10 comments ]
+2025-04-25 06:11:58,293 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 06:11:58,295 - INFO - [ SERVER API ][ Sending comment batch 14 with 10 comments ]
+2025-04-25 06:11:58,414 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 06:11:58,416 - INFO - [ SERVER API ][ Sending comment batch 15 with 10 comments ]
+2025-04-25 06:11:58,459 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:11:58,461 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:11:58,468 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:11:58,469 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:11:58,469 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:11:58,541 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 06:11:58,542 - INFO - [ SERVER API ][ Sending comment batch 16 with 5 comments ]
+2025-04-25 06:11:58,664 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 06:11:59,175 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:11:59,177 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:11:59,178 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']}
+2025-04-25 06:11:59,179 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:11:59,179 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:11:59,927 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:11:59,929 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 06:11:59,930 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']}
+2025-04-25 06:11:59,931 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:11:59,931 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:00,501 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:00,503 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 06:12:00,503 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']}
+2025-04-25 06:12:00,504 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:00,504 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:01,067 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:01,070 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 06:12:01,071 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']}
+2025-04-25 06:12:01,072 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:01,073 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:01,681 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:01,687 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 06:12:01,688 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']}
+2025-04-25 06:12:01,689 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:01,689 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:02,148 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:02,151 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 06:12:02,152 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']}
+2025-04-25 06:12:02,153 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:02,154 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:02,567 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:02,568 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 06:12:02,569 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']}
+2025-04-25 06:12:02,570 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:02,571 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:03,634 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:03,637 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 06:12:03,638 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']}
+2025-04-25 06:12:03,639 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:03,640 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:04,417 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:04,419 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 06:12:04,419 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']}
+2025-04-25 06:12:04,420 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:04,420 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:04,877 - ERROR - [ TRANSLATE - None ][ Error during language detection: No features in text.
+Original text: 10/10! ]
+2025-04-25 06:12:04,899 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:04,902 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', "I'm impressed.", 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 06:12:04,903 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']}
+2025-04-25 06:12:04,904 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:04,904 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:05,747 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:05,748 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', "You've done it again!", 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 06:12:05,749 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']}
+2025-04-25 06:12:05,750 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:05,750 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:06,343 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:06,345 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 06:12:06,346 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']}
+2025-04-25 06:12:06,347 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:06,348 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:06,404 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:06,407 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 06:12:06,412 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']}
+2025-04-25 06:12:06,413 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:06,413 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:06,887 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:06,888 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 06:12:06,889 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']}
+2025-04-25 06:12:06,890 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:12:06,890 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:12:06,993 - ERROR - [ TRANSLATE - None ][ Error during processing: 'TextTranslator' object has no attribute 'output_file' ]
+Traceback (most recent call last):
+  File "/app/preprocessing/translator.py", line 77, in translate_comments
+    log.info(f"[ TRANSLATE - {self.POST_ID} ][ Translation completed in {elapsed_time:.2f} seconds. Output saved to {self.output_file} ]")
+                                                                                                                     ^^^^^^^^^^^^^^^^
+AttributeError: 'TextTranslator' object has no attribute 'output_file'
+2025-04-25 06:12:06,996 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 06:13:48,564 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:13:48,582 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:13:48,930 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:13:48,956 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:13:50,556 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:14:00,849 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-002, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:14:00,855 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:14:00,856 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:14:00,996 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:14:00,998 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:14:00,999 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:14:01,001 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:01,130 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:14:01,134 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:14:01,134 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-002 | Message: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:14:01,139 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'metadata', '_id': '680a5d9b47e5d5dd07384f27', 'uuid': 'uuid-002', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:14:01,148 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:14:01,149 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:01,151 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:01,284 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:14:01,289 - INFO - [ SERVER API ][ Sending comment batch 3 with 10 comments ]
+2025-04-25 06:14:01,419 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 06:14:01,421 - INFO - [ SERVER API ][ Sending comment batch 4 with 10 comments ]
+2025-04-25 06:14:01,542 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 06:14:01,544 - INFO - [ SERVER API ][ Sending comment batch 5 with 10 comments ]
+2025-04-25 06:14:01,664 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 06:14:01,665 - INFO - [ SERVER API ][ Sending comment batch 6 with 10 comments ]
+2025-04-25 06:14:01,785 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 06:14:01,787 - INFO - [ SERVER API ][ Sending comment batch 7 with 10 comments ]
+2025-04-25 06:14:01,906 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 06:14:01,908 - INFO - [ SERVER API ][ Sending comment batch 8 with 10 comments ]
+2025-04-25 06:14:02,028 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 06:14:02,029 - INFO - [ SERVER API ][ Sending comment batch 9 with 10 comments ]
+2025-04-25 06:14:02,149 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 06:14:02,151 - INFO - [ SERVER API ][ Sending comment batch 10 with 10 comments ]
+2025-04-25 06:14:02,273 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 06:14:02,275 - INFO - [ SERVER API ][ Sending comment batch 11 with 10 comments ]
+2025-04-25 06:14:02,405 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 06:14:02,407 - INFO - [ SERVER API ][ Sending comment batch 12 with 10 comments ]
+2025-04-25 06:14:02,525 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 06:14:02,528 - INFO - [ SERVER API ][ Sending comment batch 13 with 10 comments ]
+2025-04-25 06:14:02,651 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 06:14:02,652 - INFO - [ SERVER API ][ Sending comment batch 14 with 10 comments ]
+2025-04-25 06:14:02,778 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 06:14:02,780 - INFO - [ SERVER API ][ Sending comment batch 15 with 10 comments ]
+2025-04-25 06:14:02,814 - INFO - [ TRANSLATE - None ][ Translation completed in 1.66 seconds. ]
+2025-04-25 06:14:02,815 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:14:02,822 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:14:02,822 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:02,824 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:02,913 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 06:14:02,916 - INFO - [ SERVER API ][ Sending comment batch 16 with 5 comments ]
+2025-04-25 06:14:03,037 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-002 | Message: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 06:14:03,467 - INFO - [ TRANSLATE - None ][ Translation completed in 0.64 seconds. ]
+2025-04-25 06:14:03,467 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:14:03,468 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']}
+2025-04-25 06:14:03,469 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:03,470 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:04,298 - INFO - [ TRANSLATE - None ][ Translation completed in 0.83 seconds. ]
+2025-04-25 06:14:04,299 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!', "Can't believe this is real.", 'Thanks for sharing!', 'Looks clean and professional.']} ]
+2025-04-25 06:14:04,300 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']}
+2025-04-25 06:14:04,302 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:04,304 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:04,882 - INFO - [ TRANSLATE - None ][ Translation completed in 0.58 seconds. ]
+2025-04-25 06:14:04,883 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Solid work!', 'Well thought out.', "That's innovative!", 'Your team rocks.', 'Inspirational!', 'Clear and concise.', 'This deserves more attention.', 'Excited to use this.', 'Totally worth the wait.', 'Super intuitive.']} ]
+2025-04-25 06:14:04,887 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']}
+2025-04-25 06:14:04,888 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:04,889 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:06,563 - INFO - [ TRANSLATE - None ][ Translation completed in 1.67 seconds. ]
+2025-04-25 06:14:06,564 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Beautiful design.', 'Love the UX!', 'Great functionality.', 'Been waiting for this!', 'Incredible!', 'Exactly what the market needs.', 'Much appreciated!', 'Respect!', 'Efficient and simple.', 'Awesome execution.']} ]
+2025-04-25 06:14:06,566 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']}
+2025-04-25 06:14:06,567 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:06,569 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:07,196 - INFO - [ TRANSLATE - None ][ Translation completed in 0.63 seconds. ]
+2025-04-25 06:14:07,197 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['You nailed it!', 'Please do more like this.', 'Mind-blowing!', 'Very helpful.', 'Made my workflow better.', 'Clean and minimal.', 'Well built.', 'Looks solid.', 'Brilliant!', 'Exciting times ahead!']} ]
+2025-04-25 06:14:07,197 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']}
+2025-04-25 06:14:07,198 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:07,199 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:07,683 - INFO - [ TRANSLATE - None ][ Translation completed in 0.48 seconds. ]
+2025-04-25 06:14:07,683 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Totally underrated.', 'Would recommend to anyone.', 'Already using it.', 'Tested and loved it.', 'Great experience so far.', 'Smooth and fast.', 'Saves me so much time.', 'This solves my problem!', 'Legendary!', 'Top-notch!']} ]
+2025-04-25 06:14:07,686 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']}
+2025-04-25 06:14:07,687 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:07,689 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:08,272 - INFO - [ TRANSLATE - None ][ Translation completed in 0.58 seconds. ]
+2025-04-25 06:14:08,273 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Incredible performance.', 'Reliable tool.', 'Finally something useful.', 'This is gold.', 'Appreciate the effort!', 'Definitely needed.', 'Big upgrade.', 'Effortlessly smart.', "You're ahead of the game.", 'This is the future!']} ]
+2025-04-25 06:14:08,274 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']}
+2025-04-25 06:14:08,275 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:08,276 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:09,491 - INFO - [ TRANSLATE - None ][ Translation completed in 1.21 seconds. ]
+2025-04-25 06:14:09,492 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['How did we live without this?', 'Major respect.', 'User-friendly to the max.', 'Even better than expected.', 'Huge improvement!', 'Next level stuff.', 'Slick UI.', 'Smooth transition.', 'Tons of potential.', 'Real value here.']} ]
+2025-04-25 06:14:09,493 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']}
+2025-04-25 06:14:09,493 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:09,494 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:11,022 - INFO - [ TRANSLATE - None ][ Translation completed in 1.53 seconds. ]
+2025-04-25 06:14:11,023 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Already seeing results.', 'Quality all the way.', 'Powerful and elegant.', 'No-brainer!', 'Thoughtfully designed.', 'Great energy!', 'The attention to detail!', 'Feels premium.', 'Exactly how it should be.', 'Hats off!']} ]
+2025-04-25 06:14:11,025 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', 'I’m impressed.', 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']}
+2025-04-25 06:14:11,026 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:11,027 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:11,485 - ERROR - [ TRANSLATE - None ][ Error during language detection: No features in text.
+Original text: 10/10! ]
+2025-04-25 06:14:11,506 - INFO - [ TRANSLATE - None ][ Translation completed in 0.48 seconds. ]
+2025-04-25 06:14:11,506 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Brought a smile!', 'Product of the year!', 'Really well done.', "I'm impressed.", 'Well-executed concept.', '10/10!', 'Refined and polished.', 'Insanely helpful.', 'The future is here.', 'Really appreciate this.']} ]
+2025-04-25 06:14:11,508 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', 'You’ve done it again!', 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']}
+2025-04-25 06:14:11,509 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:11,510 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:12,976 - INFO - [ TRANSLATE - None ][ Translation completed in 1.47 seconds. ]
+2025-04-25 06:14:12,977 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Everything I hoped for.', 'So satisfying.', 'Pure genius.', 'Massive respect!', 'Couldn’t ask for more.', 'Elegant solution.', "You've done it again!", 'Your best work yet!', 'Beyond expectations.', 'Works like a charm.']} ]
+2025-04-25 06:14:12,979 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']}
+2025-04-25 06:14:12,980 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:12,981 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:14,075 - INFO - [ TRANSLATE - None ][ Translation completed in 1.09 seconds. ]
+2025-04-25 06:14:14,076 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Absolutely essential.', 'Just perfect.', 'Seriously impressive.', 'Love how this turned out.', 'Such a delight.', 'On point.', 'More like this, please!', 'Will be using this often.', 'This is everything!', 'Very elegant approach.']} ]
+2025-04-25 06:14:14,077 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']}
+2025-04-25 06:14:14,077 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:14,078 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:14,129 - INFO - [ TRANSLATE - None ][ Translation completed in 0.05 seconds. ]
+2025-04-25 06:14:14,130 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Looks super clean.', 'Yes! Finally!', 'So glad I found this.', 'Simply beautiful.', 'Takes it to the next level.', 'Absolutely brilliant.', 'This just works.', 'Love the simplicity.', 'Thumbs up!', 'Thank you for making this.']} ]
+2025-04-25 06:14:14,137 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']}
+2025-04-25 06:14:14,138 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:14,139 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:14,557 - INFO - [ TRANSLATE - None ][ Translation completed in 0.42 seconds. ]
+2025-04-25 06:14:14,558 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Much needed update.', 'Fantastic approach.', 'Real craftsmanship.', 'It just makes sense.', 'Professional execution.', 'Beautifully done.', 'Loved the rollout.', 'A breath of fresh air.', 'Just what I needed today.', 'Great communication.']} ]
+2025-04-25 06:14:14,559 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-002 | Value: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']}
+2025-04-25 06:14:14,559 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:14:14,560 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:14:14,658 - INFO - [ TRANSLATE - None ][ Translation completed in 0.10 seconds. ]
+2025-04-25 06:14:14,659 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680a5d9b47e5d5dd07384f27', 'comments': ['Very responsive devs.', 'Spot on!', 'Really useful insights.', 'Incredible progress.', 'Clear improvements.']} ]
+2025-04-25 06:16:12,295 - INFO - [ SERVER API ][ Post added successfully: 680b28ac672c5370be2206e1 ]
+2025-04-25 06:16:46,842 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:16:46,853 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:16:46,853 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:16:46,979 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:16:46,981 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:16:46,981 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:16:46,982 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:16:47,109 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:16:47,109 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:16:47,111 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:16:47,110 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:16:47,116 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:16:47,117 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:16:47,117 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:16:47,236 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:16:47,239 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:16:47,364 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:16:50,464 - INFO - [ TRANSLATE - None ][ Translation completed in 3.35 seconds. ]
+2025-04-25 06:16:50,466 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:16:50,472 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:16:50,473 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:16:50,474 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:16:52,350 - INFO - [ TRANSLATE - None ][ Translation completed in 1.88 seconds. ]
+2025-04-25 06:16:52,351 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:16:52,354 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:16:52,356 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:16:52,358 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:16:54,391 - INFO - [ TRANSLATE - None ][ Translation completed in 2.03 seconds. ]
+2025-04-25 06:16:54,393 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:29:51,542 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:29:51,560 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:29:51,848 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:29:51,860 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:29:53,633 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:35:48,888 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:35:48,903 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:35:49,081 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:35:49,091 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:35:50,286 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:36:01,895 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:36:01,903 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:36:01,904 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:36:02,037 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:36:02,039 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:36:02,043 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:36:02,045 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:36:02,163 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:36:02,164 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:36:02,169 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:36:02,171 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:36:02,176 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:36:02,176 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:36:02,177 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:36:02,286 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:36:02,288 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:36:02,288 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:36:02,289 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:36:02,290 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:36:02,412 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:36:02,412 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:36:02,413 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:36:02,414 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:41:11,788 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:41:11,802 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:41:12,213 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:41:12,236 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:41:13,637 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:41:47,612 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:41:47,619 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:41:47,619 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:41:47,757 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:41:47,759 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:41:47,764 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:41:47,883 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:41:47,884 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:41:47,888 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:41:47,889 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:41:47,893 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:41:47,894 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:41:47,896 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:41:48,013 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:41:48,016 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:41:48,134 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:41:49,561 - INFO - [ TRANSLATE - None ][ Translation completed in 1.66 seconds. ]
+2025-04-25 06:41:49,562 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:41:49,566 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:41:49,567 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:41:49,568 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:41:50,121 - INFO - [ TRANSLATE - None ][ Translation completed in 0.55 seconds. ]
+2025-04-25 06:41:50,122 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:41:50,123 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:41:50,123 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:41:50,124 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:41:50,815 - INFO - [ TRANSLATE - None ][ Translation completed in 0.69 seconds. ]
+2025-04-25 06:41:50,817 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:43:55,624 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:43:55,645 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:43:55,925 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:43:55,935 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:43:57,211 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:43:57,869 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:43:57,877 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:43:57,878 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:43:58,029 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:43:58,031 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:43:58,158 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:43:58,160 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:43:58,308 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:43:58,310 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:43:58,434 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:44:00,458 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:44:00,585 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:44:00,586 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:44:00,587 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:44:00,588 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:44:00,588 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:44:01,590 - INFO - [ TRANSLATE - None ][ Batch size: 10. Translation completed in 1.00 seconds. ]
+2025-04-25 06:44:01,591 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:44:01,592 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:44:01,593 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:44:01,593 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:44:02,455 - INFO - [ TRANSLATE - None ][ Batch size: 10. Translation completed in 0.86 seconds. ]
+2025-04-25 06:44:02,456 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:44:02,458 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:44:02,458 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:44:02,459 - INFO - [ TRANSLATE - None ][ Starting translation process.. ]
+2025-04-25 06:44:03,274 - INFO - [ TRANSLATE - None ][ Batch size: 7. Translation completed in 0.81 seconds. ]
+2025-04-25 06:44:03,275 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:45:56,971 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:45:56,988 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:45:57,198 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:45:57,206 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:45:58,496 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:46:04,685 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:46:04,691 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:46:04,691 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:46:04,833 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:46:04,835 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:46:04,837 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:46:04,968 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:46:04,969 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:46:04,972 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:46:04,980 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:46:04,982 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:46:04,984 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Starting translation process.. ]
+2025-04-25 06:46:05,108 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:46:05,110 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:46:05,232 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:46:06,296 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Batch size: 10. Translation completed in 1.31 seconds. ]
+2025-04-25 06:46:06,297 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:46:06,301 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:46:06,302 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:46:06,303 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Starting translation process.. ]
+2025-04-25 06:46:06,570 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:46:06,991 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Batch size: 10. Translation completed in 0.69 seconds. ]
+2025-04-25 06:46:06,992 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:46:06,993 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:46:06,993 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:46:06,994 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Starting translation process.. ]
+2025-04-25 06:46:08,254 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Batch size: 7. Translation completed in 1.26 seconds. ]
+2025-04-25 06:46:08,255 - INFO - [ TRANSLATOR ][ Returning Payload: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:49:09,369 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:49:09,390 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:49:09,522 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:49:09,531 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:49:11,176 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:49:22,130 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:49:22,134 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:49:22,135 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:49:22,277 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:49:22,279 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:49:22,279 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:49:22,407 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:49:22,408 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:49:22,408 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:49:22,410 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:49:22,415 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:49:22,415 - INFO - [ TRANSLATOR ][ Recieving batch with 10 comments. ]
+2025-04-25 06:49:22,536 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:49:22,537 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:49:22,538 - INFO - [ TRANSLATOR ][ Recieving batch with 10 comments. ]
+2025-04-25 06:49:22,538 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:49:22,669 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:49:22,670 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:49:22,671 - INFO - [ TRANSLATOR ][ Recieving batch with 7 comments. ]
+2025-04-25 06:50:35,245 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_analysis'...
+2025-04-25 06:50:35,274 - INFO - [KAFKA CONSUMER] Listening on topic 'to_analysis'...
+2025-04-25 06:50:35,482 - INFO - [KAFKA CONSUMER] Connected and listening on topic 'to_preprocessing'...
+2025-04-25 06:50:35,494 - INFO - [KAFKA CONSUMER] Listening on topic 'to_preprocessing'...
+2025-04-25 06:50:37,011 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-25 06:50:47,598 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-003, link=https://www.facebook.com/user/posts/987654321, model=bert ]
+2025-04-25 06:50:47,603 - INFO - [ SERVER API ][ Post found, returning data for model: bert ]
+2025-04-25 06:50:47,603 - INFO - [ SERVER API ][ Returning Payload: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:50:47,749 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:50:47,751 - INFO - [ SERVER API ][ Sending comment batch 1 with 10 comments ]
+2025-04-25 06:50:47,752 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:50:47,874 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_analysis | Key: uuid-003 | Message: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'} ]
+2025-04-25 06:50:47,874 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']} ]
+2025-04-25 06:50:47,876 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'metadata', '_id': '680b28ac672c5370be2206e1', 'uuid': 'uuid-003', 'post_link': 'https://www.facebook.com/user/posts/987654321', 'model': 'bert'}
+2025-04-25 06:50:47,877 - INFO - [ SERVER API ][ Sending comment batch 2 with 10 comments ]
+2025-04-25 06:50:47,885 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Great product launch!', 'Looking forward to trying it.', 'Awesome job!', 'Love this!', "Can't wait!", 'Really interesting update.', 'So excited for this.', 'Well done!', 'Nice one!', 'Keep up the great work!']}
+2025-04-25 06:50:47,885 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:50:47,886 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Starting translation process.. ]
+2025-04-25 06:50:48,001 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']} ]
+2025-04-25 06:50:48,003 - INFO - [ SERVER API ][ Sending comment batch 3 with 7 comments ]
+2025-04-25 06:50:48,126 - INFO - [ KAFKA PRODUCER ][ Sent to topic: to_preprocessing | Key: uuid-003 | Message: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']} ]
+2025-04-25 06:50:49,261 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Batch size: 10. Translation completed in 1.37 seconds. ]
+2025-04-25 06:50:49,262 - INFO - [ TRANSLATOR ][ Recieved and translated batch with 10 comments. ]
+2025-04-25 06:50:49,267 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['This is fantastic!', 'Just wow!', 'Big fan of your work.', 'Very cool!', 'Congrats on the release!', 'Super useful.', 'Exactly what I needed.', 'Perfect timing!', 'Amazing quality.', 'You guys are the best.']}
+2025-04-25 06:50:49,268 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:50:49,269 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Starting translation process.. ]
+2025-04-25 06:50:49,940 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Batch size: 10. Translation completed in 0.67 seconds. ]
+2025-04-25 06:50:49,940 - INFO - [ TRANSLATOR ][ Recieved and translated batch with 10 comments. ]
+2025-04-25 06:50:49,943 - INFO - [KAFKA CONSUMER] New message received. Key: uuid-003 | Value: {'type': 'comments_batch', '_id': '680b28ac672c5370be2206e1', 'comments': ['Looks promising!', 'This made my day!', 'Absolutely love it.', 'Game changer!', 'Highly recommended!', 'Very impressive.', 'Five stars!']}
+2025-04-25 06:50:49,945 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-25 06:50:49,948 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Starting translation process.. ]
+2025-04-25 06:50:51,058 - INFO - [ TRANSLATE - 680b28ac672c5370be2206e1 ][ Batch size: 7. Translation completed in 1.11 seconds. ]
+2025-04-25 06:50:51,058 - INFO - [ TRANSLATOR ][ Recieved and translated batch with 7 comments. ]

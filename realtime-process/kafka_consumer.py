@@ -1,5 +1,6 @@
 from kafka import KafkaConsumer
 from shared_utils.kafka_producer import send_to_analysis
+from preprocessing.translator import TextTranslator
 import json
 import os
 import time
@@ -57,6 +58,19 @@ class KafkaConsumerClient:
 
         if message_type=="metadata":
             send_to_analysis(data, uuid)
+        if message_type=="comments_batch":
+            id=data.get("_id")
+            comments_list=data.get("comments",[])
+            translator = TextTranslator(post_id= id)
+            translated = translator.translate_comments(comments_list)
+            batch = {
+                "type":"comments_batch",
+                "_id": id, 
+                "comments": translated
+            }
+            log.info(f"[ TRANSLATOR ][ Recieved and translated batch with {len(comments_list)} comments. ]")
+
+            
 
 
             
