@@ -1,9 +1,10 @@
-import contractions
+import re
 
-def expand_contractions(text):
-    return contractions.fix(text)
+def reduce_repeated_chars(text):
+    # Înlocuiește secvențele de caractere repetate la 3 sau mai multe apariții
+    return re.sub(r"(.)\1{2,}", r"\1\1", text)
 
-# Exemplu de utilizare:
-text = "I don't know if I cant do this."
-expanded_text = expand_contractions(text)
-print(expanded_text)
+# Exemplu:
+text = "ajajajajajajajajajajahahahahahajahajaja"
+reduced_text = reduce_repeated_chars(text)
+print(reduced_text)  # Va reduce secvențele repetate la "ajajaj"

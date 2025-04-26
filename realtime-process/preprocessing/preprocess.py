@@ -1,10 +1,12 @@
 from preprocessing.emoticons import EMOTICONS, UNICODE_EMO
+from preprocessing.abbreviations import INTERNET_SLANG
 from shared_utils.logger_config import log
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from spellchecker import SpellChecker
 from nltk.corpus import stopwords
 import pandas as pd
+import contractions
 import unicodedata
 import warnings
 import time
@@ -28,7 +30,7 @@ class PreprocessData:
         self.post_id = post_id
         self.post_model = model
         if self.post_model == 'classifier':
-            self.stop_words = set(stopwords.words('english'))
+            self.stop_words = set(stopwords.words('english')) - {'not', 'no', 'nor', 'never'} 
             self.lemmatizer = WordNetLemmatizer()
         
     def convert_emoticons(self, text):
@@ -64,17 +66,22 @@ class PreprocessData:
     def remove_accented_chars(self, text):
         return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore')
 
-    def convert_emojis_to_words(self, text):
+    def convert_emojis_and_slang(self, text):
         text = self.convert_emoticons(text)
         text = self.convert_emojis(text)
         text = self.remove_unknown_emojis(text)
         text = self.remove_accented_chars(text)
+        
+        for slang, full_text in INTERNET_SLANG.items():
+            text = re.sub(r'\b' + re.escape(slang) + r'\b', full_text, text, flags=re.IGNORECASE)
+    
         return text
  
-    def remove_stopwords_and_lemmatize(self, text):
+    def correction_stopwords_lemmatize(self, text):
         if not isinstance(text, str):
             return ""
 
+        text = contractions.fix(text)
         tokens = word_tokenize(text)
         corrected_and_lemmatized_tokens = []
 
@@ -104,14 +111,14 @@ class PreprocessData:
             df_comments['text']=df_comments['text'].str.replace(r'#+(\S+)', r'\1', regex=True) #remove hashtags
             df_comments['text']=df_comments['text'].str.replace(sequencePattern, seqReplacePattern, regex=True) #remove repetition
 
-            df_comments['text']=df_comments['text'].apply(self.convert_emojis_to_words)
+            df_comments['text']=df_comments['text'].apply(self.convert_emojis_and_slang)
             df_comments['text']=df_comments['text'].str.replace(r'\d+', '', regex=True) #remove digits
             df_comments['text']=df_comments['text'].str.replace(r'[^\w\s]', '', regex=True) #remove punctuation
             df_comments['text']=df_comments['text'].str.replace(r'\s+', ' ', regex=True) #remove spaces
             df_comments['text']=df_comments['text'].str.replace(r'[^a-zA-Z\s]', '', regex=True) #nothing but words
             df_comments['text']=df_comments['text'].str.replace(r'\s+', ' ', regex=True).str.strip()
             df_comments['text']=df_comments['text'].str.lower()
-            df_comments['text']=df_comments['text'].apply(lambda x: self.remove_stopwords_and_lemmatize(x))
+            df_comments['text']=df_comments['text'].apply(lambda x: self.correction_stopwords_lemmatize(x))
 
         df_comments = df_comments[df_comments['text'].notna() & (df_comments['text'].str.strip() != "")]
         preprocessed_comments = df_comments['text'].tolist()
