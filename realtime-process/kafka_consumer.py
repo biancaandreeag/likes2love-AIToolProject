@@ -82,7 +82,7 @@ class KafkaConsumerClient:
 
         if message_type=="end":
             end_message = {
-                "type":"comments_batch"
+                "type":"end"
             }
             send_to_analysis(end_message, message.key)
             log.info(f"[ KAFKA PRODUCER - 'to_analysis' ][ All messages with key: {message.key} sent to analysis. ]")
