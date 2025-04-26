@@ -63,9 +63,6 @@ class PreprocessData:
                 text = text.replace(emoji_char, '')  
         return text
     
-    def remove_accented_chars(self, text):
-        return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore')
-
     def convert_emojis_and_slang(self, text):
         text = self.convert_emoticons(text)
         text = self.convert_emojis(text)
@@ -100,6 +97,12 @@ class PreprocessData:
 
         return " ".join(corrected_and_lemmatized_tokens)
     
+    def remove_accented_chars(self,text):
+        text = contractions.fix(text)
+        return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore') 
+    
+
+    
     def preprocess_text(self, comments):
         df_comments = pd.DataFrame(comments, columns=['text'])
         
@@ -119,6 +122,16 @@ class PreprocessData:
             df_comments['text']=df_comments['text'].str.replace(r'\s+', ' ', regex=True).str.strip()
             df_comments['text']=df_comments['text'].str.lower()
             df_comments['text']=df_comments['text'].apply(lambda x: self.correction_stopwords_lemmatize(x))
+        
+        if self.post_model == "transformers":
+            log.info(f"[ PREPROCESS - {self.post_id} ][ Starting preprocess for classifier model... ]")
+            start_time = time.time()
+            df_comments['text']=df_comments['text'].str.replace(r"http\S+", "", regex=True)
+            df_comments['text']=df_comments['text'].str.replace(r'@[A-Za-z0-9_.]+', '', regex=True) #remove user mentions
+            df_comments['text']=df_comments['text'].str.replace(r'#+(\S+)', r'\1', regex=True) #remove hashtags
+            df_comments['text']=df_comments['text'].str.replace(r'\s+', ' ', regex=True) #remove spaces
+            df_comments['text']=df_comments['text'].str.replace(r'\d+', '', regex=True) #remove digits
+            df_comments['text'] = df_comments['text'].apply(lambda x: self.remove_accented_chars(x))
 
         df_comments = df_comments[df_comments['text'].notna() & (df_comments['text'].str.strip() != "")]
         preprocessed_comments = df_comments['text'].tolist()

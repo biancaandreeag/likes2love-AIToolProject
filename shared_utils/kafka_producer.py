@@ -25,7 +25,7 @@ class KafkaProducerClient:
             self.producer.send(self.topic, value=message, key=key)
             self.producer.flush()
             #log.info(f"[ KAFKA PRODUCER ][ Sent to topic: {self.topic} | Key: {key} | Message: {message} ]")
-            log.info(f"[ KAFKA PRODUCER ][ Sent to topic: {self.topic} | Key: {key} ]")
+            log.info(f"[ KAFKA PRODUCER - {self.topic}][ Message with key: {key} sent to topic. ]")
         except Exception as e:
             log.error(f"[ KAFKA PRODUCER ][ Error sending message to Kafka: {str(e)} ]")
         finally:

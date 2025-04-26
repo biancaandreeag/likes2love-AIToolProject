@@ -60,7 +60,6 @@ class KafkaConsumerClient:
 
         if message_type=="metadata":
             send_to_analysis(data, message.key)
-            log.info(f"[ KAFKA PRODUCER - 'to_analysis' ][ Metadata with key: {message.key} sent to analysis. ]")
             self.translator.set_post_id(message.key) 
             
             model=data.get("model")
@@ -78,14 +77,13 @@ class KafkaConsumerClient:
             }
             log.info(f"[ KAKFA CONSUMER - '{self.topic}' ][ Recieved and translated batch with {len(comments_list)} comments. ]")
             send_to_analysis(batch, message.key)
-            log.info(f"[ KAFKA PRODUCER - 'to_analysis' ][  Batch with key: {message.key} sent to analysis. ]")
 
         if message_type=="end":
             end_message = {
-                "type":"end"
+                "type":"end",
             }
             send_to_analysis(end_message, message.key)
-            log.info(f"[ KAFKA PRODUCER - 'to_analysis' ][ All messages with key: {message.key} sent to analysis. ]")
+            log.info(f"[ KAKFA CONSUMER - '{self.topic}' ][ Recieved all batches with key:  {message.key}. ]")
 
             
 
