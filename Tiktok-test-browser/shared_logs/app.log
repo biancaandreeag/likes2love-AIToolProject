@@ -1,0 +1,989 @@
+2025-04-28 08:08:10,797 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:08:19,705 - INFO - [ TIKTOK SESSION ][ Waiting for manual 'Allow all' acceptance... ]
+2025-04-28 08:09:16,004 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:09:23,438 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 08:09:23,635 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 08:09:28,953 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 08:09:31,793 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:09:41,610 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 08:09:41,874 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 08:09:44,268 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 08:09:46,950 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:11:53,977 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x562ca3d3275a <unknown>
+#1 0x562ca37e54b0 <unknown>
+#2 0x562ca381f308 <unknown>
+#3 0x562ca381accf <unknown>
+#4 0x562ca386af0e <unknown>
+#5 0x562ca386a436 <unknown>
+#6 0x562ca385c363 <unknown>
+#7 0x562ca3828d63 <unknown>
+#8 0x562ca38299c1 <unknown>
+#9 0x562ca3cf7a6b <unknown>
+#10 0x562ca3cfb951 <unknown>
+#11 0x562ca3cdfb62 <unknown>
+#12 0x562ca3cfc4c4 <unknown>
+#13 0x562ca3cc413f <unknown>
+#14 0x562ca3d206f8 <unknown>
+#15 0x562ca3d208d6 <unknown>
+#16 0x562ca3d315a6 <unknown>
+#17 0x7f7934b851f5 <unknown>
+ ]
+2025-04-28 08:11:55,203 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x563c3e0c275a <unknown>
+#1 0x563c3db754b0 <unknown>
+#2 0x563c3dbaf308 <unknown>
+#3 0x563c3dbaaccf <unknown>
+#4 0x563c3dbfaf0e <unknown>
+#5 0x563c3dbfa436 <unknown>
+#6 0x563c3dbec363 <unknown>
+#7 0x563c3dbb8d63 <unknown>
+#8 0x563c3dbb99c1 <unknown>
+#9 0x563c3e087a6b <unknown>
+#10 0x563c3e08b951 <unknown>
+#11 0x563c3e06fb62 <unknown>
+#12 0x563c3e08c4c4 <unknown>
+#13 0x563c3e05413f <unknown>
+#14 0x563c3e0b06f8 <unknown>
+#15 0x563c3e0b08d6 <unknown>
+#16 0x563c3e0c15a6 <unknown>
+#17 0x7fa626a2e1f5 <unknown>
+ ]
+2025-04-28 08:11:56,677 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x55a57fe1175a <unknown>
+#1 0x55a57f8c44b0 <unknown>
+#2 0x55a57f8fe308 <unknown>
+#3 0x55a57f8f9ccf <unknown>
+#4 0x55a57f949f0e <unknown>
+#5 0x55a57f949436 <unknown>
+#6 0x55a57f93b363 <unknown>
+#7 0x55a57f907d63 <unknown>
+#8 0x55a57f9089c1 <unknown>
+#9 0x55a57fdd6a6b <unknown>
+#10 0x55a57fdda951 <unknown>
+#11 0x55a57fdbeb62 <unknown>
+#12 0x55a57fddb4c4 <unknown>
+#13 0x55a57fda313f <unknown>
+#14 0x55a57fdff6f8 <unknown>
+#15 0x55a57fdff8d6 <unknown>
+#16 0x55a57fe105a6 <unknown>
+#17 0x7f4930d601f5 <unknown>
+ ]
+2025-04-28 08:11:58,084 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x56524d10b75a <unknown>
+#1 0x56524cbbe4b0 <unknown>
+#2 0x56524cbf8308 <unknown>
+#3 0x56524cbf3ccf <unknown>
+#4 0x56524cc43f0e <unknown>
+#5 0x56524cc43436 <unknown>
+#6 0x56524cc35363 <unknown>
+#7 0x56524cc01d63 <unknown>
+#8 0x56524cc029c1 <unknown>
+#9 0x56524d0d0a6b <unknown>
+#10 0x56524d0d4951 <unknown>
+#11 0x56524d0b8b62 <unknown>
+#12 0x56524d0d54c4 <unknown>
+#13 0x56524d09d13f <unknown>
+#14 0x56524d0f96f8 <unknown>
+#15 0x56524d0f98d6 <unknown>
+#16 0x56524d10a5a6 <unknown>
+#17 0x7fc8052dc1f5 <unknown>
+ ]
+2025-04-28 08:12:00,020 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x563f110dd75a <unknown>
+#1 0x563f10b904b0 <unknown>
+#2 0x563f10bca308 <unknown>
+#3 0x563f10bc5ccf <unknown>
+#4 0x563f10c15f0e <unknown>
+#5 0x563f10c15436 <unknown>
+#6 0x563f10c07363 <unknown>
+#7 0x563f10bd3d63 <unknown>
+#8 0x563f10bd49c1 <unknown>
+#9 0x563f110a2a6b <unknown>
+#10 0x563f110a6951 <unknown>
+#11 0x563f1108ab62 <unknown>
+#12 0x563f110a74c4 <unknown>
+#13 0x563f1106f13f <unknown>
+#14 0x563f110cb6f8 <unknown>
+#15 0x563f110cb8d6 <unknown>
+#16 0x563f110dc5a6 <unknown>
+#17 0x7fad386341f5 <unknown>
+ ]
+2025-04-28 08:12:02,602 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x5625e0eb275a <unknown>
+#1 0x5625e09654b0 <unknown>
+#2 0x5625e099f308 <unknown>
+#3 0x5625e099accf <unknown>
+#4 0x5625e09eaf0e <unknown>
+#5 0x5625e09ea436 <unknown>
+#6 0x5625e09dc363 <unknown>
+#7 0x5625e09a8d63 <unknown>
+#8 0x5625e09a99c1 <unknown>
+#9 0x5625e0e77a6b <unknown>
+#10 0x5625e0e7b951 <unknown>
+#11 0x5625e0e5fb62 <unknown>
+#12 0x5625e0e7c4c4 <unknown>
+#13 0x5625e0e4413f <unknown>
+#14 0x5625e0ea06f8 <unknown>
+#15 0x5625e0ea08d6 <unknown>
+#16 0x5625e0eb15a6 <unknown>
+#17 0x7fc44bdde1f5 <unknown>
+ ]
+2025-04-28 08:12:07,532 - ERROR - [ TIKTOK SESSION ][ Error during Chrome setup: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x55fb8b87275a <unknown>
+#1 0x55fb8b3254b0 <unknown>
+#2 0x55fb8b35f308 <unknown>
+#3 0x55fb8b35accf <unknown>
+#4 0x55fb8b3aaf0e <unknown>
+#5 0x55fb8b3aa436 <unknown>
+#6 0x55fb8b39c363 <unknown>
+#7 0x55fb8b368d63 <unknown>
+#8 0x55fb8b3699c1 <unknown>
+#9 0x55fb8b837a6b <unknown>
+#10 0x55fb8b83b951 <unknown>
+#11 0x55fb8b81fb62 <unknown>
+#12 0x55fb8b83c4c4 <unknown>
+#13 0x55fb8b80413f <unknown>
+#14 0x55fb8b8606f8 <unknown>
+#15 0x55fb8b8608d6 <unknown>
+#16 0x55fb8b8715a6 <unknown>
+#17 0x7f7611ca41f5 <unknown>
+ ]
+2025-04-28 08:12:58,792 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:13:04,501 - INFO - [ TIKTOK SESSION ][ Waiting for manual 'Allow all' acceptance... ]
+2025-04-28 08:13:19,760 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:13:26,201 - INFO - [ TIKTOK SESSION ][ Waiting for manual 'Allow all' acceptance... ]
+2025-04-28 08:13:43,330 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:13:50,826 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 08:13:51,033 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 08:13:55,945 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 08:13:55,946 - ERROR - [ TIKTOK-MAIN ] [ An error occurred: EOF when reading a line ]
+2025-04-28 08:13:55,946 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 08:13:56,079 - INFO - [ TIKTOK SESSION ][ Browser closed successfully. ]
+2025-04-28 08:13:58,248 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:14:08,562 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 08:14:08,832 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 08:14:12,769 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 08:14:12,770 - ERROR - [ TIKTOK-MAIN ] [ An error occurred: EOF when reading a line ]
+2025-04-28 08:14:12,770 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 08:14:12,875 - INFO - [ TIKTOK SESSION ][ Browser closed successfully. ]
+2025-04-28 08:14:25,391 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 08:14:32,127 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 08:14:32,393 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 08:14:34,737 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 08:14:44,314 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 08:14:44,315 - INFO - [ TIKTOK SCRAPER ][ Video ID extracted: 7492496067334835478 ]
+2025-04-28 08:14:44,767 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment button clicked successfully. ]
+2025-04-28 08:14:57,315 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment count: 733 ]
+2025-04-28 08:15:06,481 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Successfully scrolled through comments ]
+2025-04-28 08:15:10,395 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:16,651 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:19,750 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:22,836 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:25,949 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:29,097 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:32,202 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:35,305 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:38,410 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:42,282 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:15:42,282 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+2025-04-28 08:16:04,513 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ No new 'View more' buttons clicked, exiting loop. ]
+2025-04-28 08:16:04,514 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All 'View more' buttons were expanded. ]
+2025-04-28 08:16:16,200 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ 173 comments saved to Results/@gabrielflorescuuu_7492496067334835478]
+2025-04-28 08:16:16,203 - INFO - [ TIKTOK-MAIN ] [ Duration: 101.46 seconds ]
+2025-04-28 08:16:23,210 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 08:16:23,211 - INFO - [ TIKTOK SCRAPER ][ Video ID extracted: 7492496067334835478 ]
+2025-04-28 08:16:23,597 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment button clicked successfully. ]
+2025-04-28 08:16:25,633 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment count: 733 ]
+2025-04-28 08:16:39,888 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Successfully scrolled through comments ]
+2025-04-28 08:16:44,065 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:16:50,379 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:16:53,475 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:16:56,563 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:16:59,639 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:17:02,722 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:17:05,845 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:17:08,930 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:17:12,868 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:17:16,213 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:17:16,214 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+2025-04-28 08:17:39,702 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ No new 'View more' buttons clicked, exiting loop. ]
+2025-04-28 08:17:39,703 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All 'View more' buttons were expanded. ]
+2025-04-28 08:17:51,162 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ 173 comments saved to Results/@gabrielflorescuuu_7492496067334835478_1]
+2025-04-28 08:17:51,163 - INFO - [ TIKTOK-MAIN ] [ Duration: 94.96 seconds ]
+2025-04-28 08:17:57,562 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 08:17:57,568 - INFO - [ TIKTOK SCRAPER ][ Video ID extracted: 7492496067334835478 ]
+2025-04-28 08:17:58,009 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment button clicked successfully. ]
+2025-04-28 08:18:00,054 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment count: 733 ]
+2025-04-28 08:18:12,297 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Successfully scrolled through comments ]
+2025-04-28 08:18:16,165 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:22,413 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:25,598 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:28,731 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:31,822 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:34,921 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:38,053 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
+2025-04-28 08:18:41,178 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55abfcfab75a <unknown>
+#1 0x55abfca5e4b0 <unknown>
+#2 0x55abfca650b6 <unknown>
+#3 0x55abfca67928 <unknown>
+#4 0x55abfca679b3 <unknown>
+#5 0x55abfcaaf3e5 <unknown>
+#6 0x55abfcaafba1 <unknown>
+#7 0x55abfcaa38d3 <unknown>
+#8 0x55abfcad55bd <unknown>
+#9 0x55abfcaa336a <unknown>
+#10 0x55abfcad575e <unknown>
+#11 0x55abfcafb5e0 <unknown>
+#12 0x55abfcad5363 <unknown>
+#13 0x55abfcaa1d63 <unknown>
+#14 0x55abfcaa29c1 <unknown>
+#15 0x55abfcf70a6b <unknown>
+#16 0x55abfcf74951 <unknown>
+#17 0x55abfcf58b62 <unknown>
+#18 0x55abfcf754c4 <unknown>
+#19 0x55abfcf3d13f <unknown>
+#20 0x55abfcf996f8 <unknown>
+#21 0x55abfcf998d6 <unknown>
+#22 0x55abfcfaa5a6 <unknown>
+#23 0x7f73b809a1f5 <unknown>
+ ]
