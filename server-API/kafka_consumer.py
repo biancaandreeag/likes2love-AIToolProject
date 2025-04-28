@@ -2,7 +2,9 @@ from kafka import KafkaConsumer
 import json
 import os
 import time
+from database.database import posts_collection
 from shared_utils.logger_config  import log
+from database.schemas import individual_serial
 
 class KafkaConsumerClient:
     def __init__(self, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092'),
@@ -50,8 +52,19 @@ class KafkaConsumerClient:
     def consume(self, message):
         log.info(f"[KAFKA CONSUMER - '{self.topic}' ][ New message received. Key: {message.key} | Value: {message.value} ]")
         data=message.value
-        message_type=data.get("type")
+        
+        if isinstance(data, dict):
+            try:
+                result = posts_collection.insert_one(data)
+                log.info(f"[DATABASE][ Inserted post with ID: {result.inserted_id} ]")
+                
+            except Exception as e:
+                log.error(f"[DATABASE][ Error inserting post: {str(e)} ]")
+        else:
+            log.warning(f"[DATABASE][ Message value is not a proper post: {data} ]")
 
-        if message_type=="end":
-            log.info(f"[ KAFKA CONSUMER - '{self.topic}'  ][ All messages with key: {message.key} are ready for analysis. ]")
-            
+        
+
+
+
+       

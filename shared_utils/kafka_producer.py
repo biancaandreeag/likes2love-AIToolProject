@@ -40,3 +40,7 @@ def send_to_analysis(message: dict, key: str = None):
 def send_to_scraper(message: dict, key: str = None):
     producer = KafkaProducerClient(topic='to_scraper')
     producer.send_topic(message, key)
+
+def send_to_server(message:dict, key: str=None):
+    producer = KafkaProducerClient(topic='to_server')
+    producer.send_topic(message,key)

@@ -2,7 +2,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from shared_utils.kafka_producer import send_to_preprocessor
+from shared_utils.kafka_producer import send_to_preprocessor,send_to_server
 import time
 
 from shared_utils.logger_config import log
@@ -211,7 +211,7 @@ class TiktokScraper:
                             "comments":comments_batch.copy()
                         }
                         comments_batch.clear()
-                        send_to_preprocessor(batch,self.ID)
+                        send_to_preprocessor(batch,key=self.ID)
                         log.info(f"[ SERVER API ][ Sending comment batch {len(batch['comments'])} comments ]")
 
                 except Exception as e:
@@ -222,15 +222,19 @@ class TiktokScraper:
                     "type": "comments_batch",
                     "comments": comments_batch
                 }
-                send_to_preprocessor(batch,self.ID)
+                send_to_preprocessor(batch,key=self.ID)
                 log.info(f"[ SERVER API ][ Sending comment batch {len(batch['comments'])} comments ]")
+
+            send_to_preprocessor({"type": "end", "uuid": self.ID}, key=self.ID)
 
             if comments_database:
                 data_to_save = {
-                    "type":"comments_batch",
+                    "uuid":self.ID,
+                    "post_link":self.post_url,
                     'comments': comments_database
                 }
                 self.no_comments=len(comments_database)
+                send_to_server(data_to_save,key=self.ID)
                 log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ {len(comments_database)} comments: {data_to_save}]")
             else:
                 log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No comments to save. ]")
