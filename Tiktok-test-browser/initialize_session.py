@@ -1,10 +1,8 @@
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
+from tiktok_captcha_solver import make_undetected_chromedriver_solver
+import undetected_chromedriver as uc
 import pickle
 import time
 import os
-
 
 from shared_utils.logger_config import log
 
@@ -17,22 +15,23 @@ class InitializeSession:
         self.initialize_session()
 
     def setup_driver(self):
-        chrome_options = webdriver.ChromeOptions()
+        chrome_options = uc.ChromeOptions() 
+
         chrome_options.add_argument(f"--user-agent={USER_AGENT}")
         chrome_options.add_argument("accept-language=en-US,en;q=0.9,fa;q=0.8")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         chrome_options.add_argument("--disable-webgl")
         chrome_options.add_argument("--disable-webrtc")
         chrome_options.add_argument("--disable-gpu")
-        #chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless=new")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
-
         try:
-            service = Service(ChromeDriverManager().install())
-            driver = webdriver.Chrome(service=service, options=chrome_options)
+            api_key = "7c9f4270b60de76b5fef6a9b397efa7d" 
+            driver = make_undetected_chromedriver_solver(api_key=api_key, options=chrome_options)
             driver.set_window_size(400, 800) 
-            log.info("[ TIKTOK SESSION ][ Driver set up successfully. ]")
+
+            log.info("[ TIKTOK SESSION ][ Driver with CAPTCHA solver set up successfully. ]")
             return driver
         except Exception as e:
             log.error(f"[ TIKTOK SESSION ][ Error during Chrome setup: {e} ]")

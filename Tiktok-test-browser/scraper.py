@@ -66,7 +66,7 @@ class TiktokScraper:
             actions.move_to_element(comment_button).click().perform()
             
             log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ Comment button clicked successfully. ]")
-            time.sleep(2)
+            time.sleep(5)
 
             comment_count_element = WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="comment-count"]'))
@@ -89,7 +89,7 @@ class TiktokScraper:
 
             while True:
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(1)
+                time.sleep(5)
                 new_height = self.driver.execute_script("return document.body.scrollHeight")
 
                 if new_height == last_height:

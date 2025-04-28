@@ -5,7 +5,7 @@ import time
 from shared_utils.logger_config import log
 
 def run(post_url,uuid):
-    session = InitializeSession() 
+    session = InitializeSession(uuid) 
     scraper = TiktokScraper(session.driver,uuid)
 
     try:

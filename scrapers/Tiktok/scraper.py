@@ -3,21 +3,16 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import time
-import os
-import re
 
 from shared_utils.logger_config import log
 
-#https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478
-
 class TiktokScraper:
-    def __init__(self, driver,uuid):
+    def __init__(self, driver, uuid):
         self.driver = driver
         self.post_url = None 
         self.ID = uuid
         self.no_comments = None
-        self.username = None
- 
+
     def navigate(self, video_url):
         try:
             self.driver.get(video_url)
@@ -45,7 +40,7 @@ class TiktokScraper:
             actions.move_to_element(comment_button).click().perform()
             
             log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ Comment button clicked successfully. ]")
-            time.sleep(2)
+            time.sleep(10)
 
             comment_count_element = WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="comment-count"]'))
@@ -68,7 +63,7 @@ class TiktokScraper:
 
             while True:
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(1)
+                time.sleep(5)
                 new_height = self.driver.execute_script("return document.body.scrollHeight")
 
                 if new_height == last_height:
@@ -214,25 +209,26 @@ class TiktokScraper:
                         like_count = 0  
 
                     comments.append({
-                        'type': comment_type,
-                        'comment': comment_text,
-                        'likes': like_count
+                        #'type': comment_type,
+                        'comment': comment_text
+                        #'likes': like_count
                     })
 
                 except Exception as e:
-                    log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error processing a comment block: {e} ]")
+                    #log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error processing a comment block: {e} ]")
+                    continue
 
             if comments:
                 data_to_save = {
                     'post_url': self.post_url,
-                    'no_comments': len(comments),
+                    'uuid':self.ID,
+                    #'no_comments': len(comments),
                     'comments': comments
                 }
 
-                log.info(data_to_save)
 
                 self.no_comments=len(comments)
-                log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ {len(comments)} comments, ]")
+                log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ {len(comments)} comments: {data_to_save}]")
             else:
                 log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No comments to save. ]")
 

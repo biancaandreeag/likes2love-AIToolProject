@@ -5506,3 +5506,1748 @@ Stacktrace:
 2025-04-28 07:26:28,108 - INFO - [ TIKTOK-MAIN ] [ Duration: 9.75 seconds ]
 2025-04-28 07:26:28,109 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
 2025-04-28 07:26:28,205 - INFO - [ TIKTOK SESSION ][ Browser closed successfully. ]
+2025-04-28 09:26:41,231 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 09:26:41,309 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 09:26:43,634 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 09:26:43,659 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 09:26:45,524 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 09:26:45,700 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 09:26:45,713 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 09:26:45,927 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 09:26:53,296 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 09:26:53,352 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 09:26:53,534 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 09:26:53,541 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 09:26:53,542 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 09:26:59,577 - INFO - [ TIKTOK SESSION ][ Driver set up successfully. ]
+2025-04-28 09:27:09,862 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 09:27:10,011 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 09:27:15,866 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 09:27:22,611 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 09:27:22,986 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+2025-04-28 09:27:35,882 - ERROR - [ TIKTOK SCRAPER - uuid-001 ][ Error clicking on the comment button: Message: 
+ ]
+2025-04-28 09:27:35,883 - INFO - [ TIKTOK-MAIN ] [ Duration: 20.02 seconds ]
+2025-04-28 09:27:35,883 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 09:27:35,976 - INFO - [ TIKTOK SESSION ][ Browser closed successfully. ]
+2025-04-28 15:21:45,366 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 15:21:45,390 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 15:21:46,701 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 15:21:46,717 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 15:21:47,853 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 15:21:47,862 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 15:21:47,874 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 15:21:48,000 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 15:57:42,536 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 15:57:42,555 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 15:57:44,716 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 15:57:44,728 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 15:57:44,931 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 15:57:45,675 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:02:20,873 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:02:20,892 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:02:22,736 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:02:22,754 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:02:23,312 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:02:23,325 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:02:23,602 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:02:23,700 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:03:09,338 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:03:09,357 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:03:09,485 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:03:09,488 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:03:09,489 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:03:18,154 - INFO - [ TIKTOK SESSION ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:03:24,468 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 16:03:24,563 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 16:03:28,029 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:03:35,386 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:03:35,769 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+2025-04-28 16:03:38,148 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment count: 733 ]
+2025-04-28 16:03:39,517 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Successfully scrolled through comments ]
+2025-04-28 16:03:39,538 - INFO - [ TIKTOK-MAIN ] [ Duration: 11.51 seconds ]
+2025-04-28 16:03:39,539 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 16:03:39,745 - INFO - [ TIKTOK SESSION ][ Browser closed successfully. ]
+2025-04-28 16:07:07,639 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:07:07,653 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:07:09,835 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:07:09,845 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:07:10,623 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:07:10,637 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:07:10,831 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:07:10,947 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:07:15,826 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:07:15,834 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:07:15,961 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:07:15,962 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:07:15,963 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:07:20,873 - INFO - [ TIKTOK SESSION ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:07:28,331 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 16:07:28,404 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 16:07:32,804 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:07:34,662 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:07:34,673 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:07:37,901 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:07:37,901 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:07:47,789 - INFO - [ TIKTOK SESSION ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:08:46,185 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:08:46,198 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:08:47,209 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:08:47,221 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:08:47,355 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:08:47,366 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:08:47,690 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:08:47,695 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:08:54,024 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:08:54,034 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:08:54,164 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:08:54,165 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:08:54,166 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:09:01,805 - INFO - [ TIKTOK SESSION ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:09:08,119 - INFO - [ TIKTOK SESSION ][ Loaded 9 cookies. ]
+2025-04-28 16:09:08,202 - INFO - [ TIKTOK SESSION ][ Cookies loaded successfully! ]
+2025-04-28 16:09:12,315 - INFO - [ TIKTOK SESSION ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:09:19,027 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:09:19,029 - INFO - [ TIKTOK SCRAPER ][ Video ID extracted: 7492496067334835478 ]
+2025-04-28 16:09:19,395 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment button clicked successfully. ]
+2025-04-28 16:09:28,561 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment count: 733 ]
+2025-04-28 16:10:24,671 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Successfully scrolled through comments ]
+2025-04-28 16:10:27,813 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:33,997 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:37,080 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:40,173 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:43,910 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:47,078 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:50,182 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:53,262 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:56,405 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:10:59,520 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x557dea0b675a <unknown>
+#1 0x557de9b694b0 <unknown>
+#2 0x557de9b700b6 <unknown>
+#3 0x557de9b72928 <unknown>
+#4 0x557de9b729b3 <unknown>
+#5 0x557de9bba3e5 <unknown>
+#6 0x557de9bbaba1 <unknown>
+#7 0x557de9bae8d3 <unknown>
+#8 0x557de9be05bd <unknown>
+#9 0x557de9bae36a <unknown>
+#10 0x557de9be075e <unknown>
+#11 0x557de9c065e0 <unknown>
+#12 0x557de9be0363 <unknown>
+#13 0x557de9bacd63 <unknown>
+#14 0x557de9bad9c1 <unknown>
+#15 0x557dea07ba6b <unknown>
+#16 0x557dea07f951 <unknown>
+#17 0x557dea063b62 <unknown>
+#18 0x557dea0804c4 <unknown>
+#19 0x557dea04813f <unknown>
+#20 0x557dea0a46f8 <unknown>
+#21 0x557dea0a48d6 <unknown>
+#22 0x557dea0b55a6 <unknown>
+#23 0x7fb56f82e1f5 <unknown>
+ ]
+2025-04-28 16:11:02,616 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+2025-04-28 16:11:25,659 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ No new 'View more' buttons clicked, exiting loop. ]
+2025-04-28 16:11:25,660 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All 'View more' buttons were expanded. ]
+2025-04-28 16:11:39,292 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ 202 comments: {'post_url': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'no_comments': 202, 'comments': [{'type': 'comment', 'comment': 'crede-mă pe mine ce îți spun că nu a primit 10k dacă primea bani ăia accepta in 2 secunde despre ce vorbim', 'likes': 2819}, {'type': 'reply', 'comment': 'Bine frate dacă ne spui tu', 'likes': 441}, {'type': 'reply', 'comment': 'păi și nu e așa el muncea un an de zile pentru 10k in germania și tu îmi spui mie că refuza 10k pentru 3 4 videoclipuri că spunea el de link din bio?', 'likes': 111}, {'type': 'reply', 'comment': 'pt ca face mai mult probabil din toate promovarile ?:)si primeste chestiile intr o valoare mai mare de 10 mii', 'likes': 104}, {'type': 'reply', 'comment': 'și dacă te făcea și pe tine sa joci la aparate și pierdeai bani ce făceai cu nevasta copii', 'likes': 22}, {'type': 'reply', 'comment': 'Mai are sens să îi aplicăm cuiva ca în viață nu totul se rezumă la bani ? Să creadă fiecare ce el vrea .', 'likes': 29}, {'type': 'reply', 'comment': 'Cosmin, pentru unii oameni principiile nu sunt de vânzare. Apoi mai sunt ceilalți, c*rve masculine.', 'likes': 13}, {'type': 'comment', 'comment': 'bercea a refuzat 30k', 'likes': 1}, {'type': 'reply', 'comment': 'IBM a refuzat 80k', 'likes': 12}, {'type': 'reply', 'comment': 'Eu 100k', 'likes': 1}, {'type': 'reply', 'comment': 'eu n am refuzat', 'likes': 1}, {'type': 'reply', 'comment': 'si n am zis o intr un mod rau,doar ca idee', 'likes': 0}, {'type': 'comment', 'comment': 'Bã, pãi Nu e prost 🤗 A refuzat banii,.. altfel venea Anaful😂 Asa cã m.bine l-am rãsplãtit cu cadouri 🤗', 'likes': 0}, {'type': 'comment', 'comment': 'a zis ca a primit oferta de 500€ 😉 dacă ii dădeau 10k era pe speciala acum 🤣🤣🤣', 'likes': 320}, {'type': 'reply', 'comment': 'bonus buy', 'likes': 1}, {'type': 'reply', 'comment': 'pai cerșitul e pe primul loc :))) pizza congelata nu ca da dc nu ... doar obiecte etc gratia vrea ....nu ii mulțumit.cu putin .....', 'likes': 4}, {'type': 'reply', 'comment': ':₍ ˃ᯅ˂) ( ꪊꪻ⊂)', 'likes': 2}, {'type': 'reply', 'comment': 'Invidia', 'likes': 1}, {'type': 'reply', 'comment': 'hai ca invidie mai bine sărac decât cerșetor pe tik tok ...', 'likes': 2}, {'type': 'reply', 'comment': 'L-ai văzut tu vreodată să cerșească ceva? Omul le promovează oamenilor diferite produse sau servicii și este răsplătit pentru asta. Este ceva perfect normal. Pe tine ce te reține să faci asta?', 'likes': 0}, {'type': 'comment', 'comment': 'Vezi ca asta ie contu meu nou', 'likes': 0}, {'type': 'comment', 'comment': 'Stați liniștit omul va câștiga sute de mii,pentru refuzul de 10 mii Dumnezeu îl va ajuta 🤗💪👏', 'likes': 1593}, {'type': 'reply', 'comment': 'sunt sigur ca o sa coboare dumnezeu din cer cu o geanta de 100 de mii si o sa i inmaneze personal🤣', 'likes': 17}, {'type': 'reply', 'comment': 'e uite că nu toți gândesc așa', 'likes': 1}, {'type': 'reply', 'comment': 'necredincios', 'likes': 1}, {'type': 'reply', 'comment': 'Peste tot dau de tine 😂😂😂', 'likes': 0}, {'type': 'reply', 'comment': 'Dacă asta ai înțeles tu mai citește odată și gândește-te...', 'likes': 1}, {'type': 'comment', 'comment': '10 mii? la cate milioane face de views 10k era ca 1 leu', 'likes': 13}, {'type': 'reply', 'comment': 'nu merge chiar asa', 'likes': 1}, {'type': 'reply', 'comment': 'Tik toku nu e monetizat decat pe live-uri', 'likes': 0}, {'type': 'reply', 'comment': 'ba da e monetizat , el il are monetizat ne a si aratat odata pe live , pentru ca are conturile pe germania', 'likes': 0}, {'type': 'reply', 'comment': 'Se vede ca habar ai de monetizare..', 'likes': 0}, {'type': 'comment', 'comment': 'Adelin Petrișor refuză reclama la pacanele, Cheluțu deja are 15 reclame la cazino 😂👍 respect tata', 'likes': 2}, {'type': 'comment', 'comment': 'Stai liniștiți k Petrișor e smecher pt mulți dastia care poarta datorii an picioare...', 'likes': 0}, {'type': 'comment', 'comment': 'Ma bucur daca e asa', 'likes': 0}, {'type': 'comment', 'comment': 'mulțumesc tata', 'likes': 0}, {'type': 'comment', 'comment': 'a refuzat si a zis de pizza lui D Popa ca nu e bună???😂', 'likes': 66}, {'type': 'reply', 'comment': 'și chiar nu-i bună, Dorian are la mine în oraș shaormărie, și e și scumpă.... și nu-i bună de nimic.🤣🤣🤣🤣', 'likes': 14}, {'type': 'reply', 'comment': 'Pai platesti numele 😂😂nu e logic? E vedeta', 'likes': 3}, {'type': 'reply', 'comment': 'nu ma interesa de pizza,', 'likes': 1}, {'type': 'reply', 'comment': 'A spus adevărul!! El chiar nu minte în privința produselor,chiar dacă încearcă citești totul pe fata lui...', 'likes': 2}, {'type': 'reply', 'comment': '😂😂😂Exact', 'likes': 1}, {'type': 'reply', 'comment': 'da', 'likes': 1}, {'type': 'comment', 'comment': 'A spus k nu promovează asa ceva, respect!', 'likes': 2407}, {'type': 'comment', 'comment': 'Asa am crezut și eu ca fuge cu telefonul 😅😂', 'likes': 1}, {'type': 'comment', 'comment': 'Dacă îi dă 20.000 face reclamă și după ce dispar păcănelele :)', 'likes': 1}, {'type': 'reply', 'comment': '😂😂', 'likes': 1}, {'type': 'comment', 'comment': 'Salut vă pup 🫶💕', 'likes': 0}, {'type': 'comment', 'comment': 'Petrisor fanu lui gabriel inainte de GTA6', 'likes': 6}, {'type': 'comment', 'comment': 'Adelin va fii președintele tarii în 10 ani.', 'likes': 13}, {'type': 'reply', 'comment': 'Nici în Congo,dar în România 😂😂😂', 'likes': 6}, {'type': 'reply', 'comment': 'emigrez', 'likes': 3}, {'type': 'reply', 'comment': 'nu poate sa fie președinte nu are cetățenie română', 'likes': 1}, {'type': 'reply', 'comment': 'Dar ce cetățenie are?🤡', 'likes': 0}, {'type': 'reply', 'comment': 'congoleza', 'likes': 0}, {'type': 'reply', 'comment': '🆘 ugi', 'likes': 0}, {'type': 'comment', 'comment': 'stați liniștiți cînd se va termina promovările trece pe păcănele muncă este grea pentru el asemenea oameni prosperă Romănia 😂😂😂', 'likes': 10}, {'type': 'reply', 'comment': 'Pe el îl acuzi ca nu muncește...dar Dorian ce latră pe la concerte pe banii primăriilor nu câștiga la fel din on-line?Și asta e tot o muncă. Nu da în cap la nimeni și câștigă salariul fiind el insusi', 'likes': 0}, {'type': 'reply', 'comment': '👏👏👏👏', 'likes': 0}, {'type': 'comment', 'comment': 'ala care canta e cu mine la scoala, piesa se numește iubi iubi', 'likes': 0}, {'type': 'comment', 'comment': 'Cine e āsta?', 'likes': 0}, {'type': 'comment', 'comment': 'Vă pup tata!', 'likes': 0}, {'type': 'comment', 'comment': 'A refuzat 400 de euro cumetre!', 'likes': 0}, {'type': 'comment', 'comment': 'Bravo lui, are demnitate!', 'likes': 724}, {'type': 'comment', 'comment': 'Ai vreo dovadă?', 'likes': 0}, {'type': 'comment', 'comment': 'promovam din păcate doar prostiiaaa', 'likes': 14}, {'type': 'comment', 'comment': 'va rog frumos sa îmi dați urmărire că mi-a blocat contul cel vechi că am vorbit de PSD PNL SI UDMR am scris jos dictatura', 'likes': 0}, {'type': 'comment', 'comment': 'De ce ar ajuta la distrugerea unor familii ? Omul are conștiința și nu poate promova ceva cu care nici măcar el nu este de-acord . Respect', 'likes': 45}, {'type': 'comment', 'comment': 'au acceptat ei,,, alți, bogați, vedete👍👍👍', 'likes': 0}, {'type': 'comment', 'comment': 'ptr asta si eu il respect.', 'likes': 0}, {'type': 'comment', 'comment': '300 de euro!', 'likes': 1}, {'type': 'comment', 'comment': 'a spus ca el asa ceva nu promovează ca are copii', 'likes': 3}, {'type': 'comment', 'comment': 'o atitudine puternic dezvoltata 🙏💯😂', 'likes': 0}, {'type': 'comment', 'comment': 'Merită respect😂😂', 'likes': 0}, {'type': 'comment', 'comment': 'omul a recunoscut într un live că a jucat și el la cazino și că lăsa salariile și ce muncea pe acolo și a zis că d aia nu promovează așa ceva . Respect 🙏', 'likes': 1}, {'type': 'comment', 'comment': 'Are și el 3 copii și probabil îi ferește de așa ceva .. Bravo lor ☺️oameni simpli 🥰', 'likes': 86}, {'type': 'comment', 'comment': 'Normal ca refuzat banii...el are copii..respect Petrișor!', 'likes': 4}, {'type': 'comment', 'comment': 'mars ma 😂 daca primea asta 10.000 euro....😂', 'likes': 7}, {'type': 'comment', 'comment': 'Bvo lui', 'likes': 0}, {'type': 'comment', 'comment': 'bunul dumnezeu îl ajuta pe Adelin ie om natural', 'likes': 0}, {'type': 'comment', 'comment': 'om cu stima de sine bravo lui', 'likes': 0}, {'type': 'comment', 'comment': 'Dumnezeu frate ți-a ajutat de ai bubuit așa a văzut ce suflet ai👌💚', 'likes': 0}, {'type': 'comment', 'comment': 'Promovare pentru promovare 😁smart', 'likes': 0}, {'type': 'comment', 'comment': 'A refuzat pentru ca are caracter și nu pune banii pe primul loc ❤️rocky tataaa', 'likes': 428}, {'type': 'comment', 'comment': 'A zis o chiar cu detalii cu tot 🥰', 'likes': 0}, {'type': 'comment', 'comment': 'Bărvo lui 🙏❤️', 'likes': 0}, {'type': 'comment', 'comment': '10k euro nu sunt asa multi,dar multi incurca cu 1 milion,asa faceti', 'likes': 0}, {'type': 'comment', 'comment': 'tot cacatu face reclame in tara asta', 'likes': 5}, {'type': 'comment', 'comment': 'Eu îl cred!👏👏👏', 'likes': 0}, {'type': 'reply', 'comment': '💩👎😡🤣', 'likes': 0}, {'type': 'comment', 'comment': 'Hai ca și eu mai mint', 'likes': 11}, {'type': 'comment', 'comment': 'ai apărut in clip la Gami ?', 'likes': 2}, {'type': 'comment', 'comment': 'Ce glumă bună 🤣🤣', 'likes': 1}, {'type': 'comment', 'comment': '500 euro a zis . nu 10k', 'likes': 4}, {'type': 'comment', 'comment': 'odata ce faci din vizualizarii 300 400 e multumit....nu vrea ca altii bani SI iara bani, El e multumit cu Putin dar fericit', 'likes': 32}, {'type': 'comment', 'comment': '😂😂😂😂Dacă nu ar fi viral nici nu l_ati baga în seama săracul 😅😅😅😂😂😂', 'likes': 0}, {'type': 'comment', 'comment': 'URMĀRIRE✌️✌️', 'likes': 0}, {'type': 'comment', 'comment': 'A refuzat pentru k știe omul ce înseamnă să pierzi tot, are și iel copiii și nu și-ar dori un asemenea exemplu, felicitări', 'likes': 2}, {'type': 'comment', 'comment': 'nu e fraier Adelin pt ca daca facea reclama la jocuri isi lua hate de la toata lumea si nu se mai asocia nimeni cu el pt reclame', 'likes': 42}, {'type': 'comment', 'comment': 'A refuzat 300-500euro,da! A spus pw live ☺️', 'likes': 0}, {'type': 'comment', 'comment': 'tot respectul pentru el și persoane ca el🥰💪', 'likes': 0}, {'type': 'comment', 'comment': 'a spus că nu va susține așa cv', 'likes': 0}, {'type': 'comment', 'comment': 'și eu as refuza doar sa îmi semnați un contract sa vedeți', 'likes': 0}, {'type': 'comment', 'comment': '300$ a zis el , de unde 10.000 🤣🤣', 'likes': 0}, {'type': 'comment', 'comment': 'felicitări pentru ceea ce faci pentru oameni...😘👍', 'likes': 0}, {'type': 'comment', 'comment': 'Și alții nu au ce pune pe masă... Câți copilași nu sunt in situația asta..', 'likes': 0}, {'type': 'comment', 'comment': 'Pentru banii ăia umba și la dos 😂😂', 'likes': 45}, {'type': 'comment', 'comment': 'câtă invidie zace în unii...e omul simplu și corect! Bravo Adeline?💪', 'likes': 12}, {'type': 'comment', 'comment': 'am o curiozitate. aparatele de jocuri sunt ale propietarului sau sunt închiriate? din am văzut eu la mulți sunt închiriate', 'likes': 0}, {'type': 'comment', 'comment': 'Serios 😂😂😂 a refuzat 300€', 'likes': 0}, {'type': 'comment', 'comment': 'dacă fura era rau sau fc cv rau omul asta nu obliga pe nimeni sai doneze🥰🥰🥰', 'likes': 0}, {'type': 'comment', 'comment': 'Cinste lui 🙏♥️', 'likes': 0}, {'type': 'comment', 'comment': 'dacă a facut asta, nota 10+++', 'likes': 0}, {'type': 'comment', 'comment': 'Rad de el doar invidioși 😉.Arătați unu care rade de el (să nu trăiască din TikTok) Restu ….', 'likes': 0}, {'type': 'comment', 'comment': 'respect. Dumnezeu sa il binecuvinteze pe petrisor pt acest refuz.', 'likes': 0}, {'type': 'comment', 'comment': 'Bravooo Adeline nu te lasa pacălit!', 'likes': 0}, {'type': 'comment', 'comment': 'hai toata lumea sa il respectam pe petrisor si sa l urmam, ca asta ne mai trebuia in tara. si ne miram de cine ne conduce', 'likes': 1}, {'type': 'comment', 'comment': 'Saracu se bucura cu bijuteri mancare bv tata🫶🏻', 'likes': 5}, {'type': 'comment', 'comment': 'nui știe numara', 'likes': 0}, {'type': 'comment', 'comment': 'Bv lui are copii și știe ce face respect , un om care își iu este copii nu se postează cu iei nu ii face public Bv tot respectul', 'likes': 0}, {'type': 'comment', 'comment': 'DA ESTE ANGAJAT ȘI LUCREAZĂ MULT SARACU.🤣🤣🤣🤣🤣🤣🤣', 'likes': 0}, {'type': 'comment', 'comment': 'bravo lui dacă este adevărat.🙏🙏🙏🙏', 'likes': 0}, {'type': 'comment', 'comment': 'respect Adelin ca și refuzat are și el copii păcatele nu șanț bune', 'likes': 0}, {'type': 'comment', 'comment': 'Omul nu vrea să se ruineze, păcănelele e ruina oamenilor si Adelin Petrişor stie respect chiar mare respect', 'likes': 0}, {'type': 'comment', 'comment': 'Șosetele fac tot clipul 😂', 'likes': 0}, {'type': 'comment', 'comment': 'salut ți-am lăsat și eu un mesaj in privat dacă vrei să-mi raspunzi mss', 'likes': 0}, {'type': 'comment', 'comment': 'invidia asta e grea', 'likes': 1}, {'type': 'comment', 'comment': 'reclama puternic dezvoltata. top😎😎', 'likes': 0}, {'type': 'comment', 'comment': 'Băi cine refuza 10k😂', 'likes': 0}, {'type': 'comment', 'comment': 'Ați fac eu reclamă 😂', 'likes': 2}, {'type': 'comment', 'comment': 'vind cartofi noi', 'likes': 0}, {'type': 'comment', 'comment': 'Face 1 de euro pe saptamana pentru cei care zic ca de ce nu a acceptat', 'likes': 0}, {'type': 'comment', 'comment': 'Om inteligent', 'likes': 0}, {'type': 'comment', 'comment': 'Dovada unde se afla', 'likes': 0}, {'type': 'comment', 'comment': 'asa este. Pana cand si Marikar face reclama in bio. Bravo lui!', 'likes': 1}, {'type': 'comment', 'comment': 'Adelin este deja un fenomen de a da mai departe fiecare ce poate pentru altcineva care este în nevoie fără să ne vindem sufletele pentru câți-va arginți!Bravo vouă D-zeu să vă binecuvinteze!👏🙏', 'likes': 0}, {'type': 'comment', 'comment': 'pe bune?', 'likes': 0}, {'type': 'comment', 'comment': 'respect maxim', 'likes': 0}, {'type': 'comment', 'comment': 'Seamănă cu obiceiul ala dea a chema pe popa sa sfințească BMW-ul... 😂😂😂', 'likes': 0}, {'type': 'comment', 'comment': 'Nici nu se vede🤔😂', 'likes': 0}, {'type': 'comment', 'comment': 'Respect ție copile 🙏🙏🙏💯👌', 'likes': 0}, {'type': 'comment', 'comment': 'nu aș prea crede...', 'likes': 0}, {'type': 'comment', 'comment': '😂😅😂😂😂🤣pacalele!!!!!😅😅😅😅', 'likes': 0}, {'type': 'comment', 'comment': 'bravo', 'likes': 0}, {'type': 'comment', 'comment': 'Respect lui', 'likes': 0}, {'type': 'comment', 'comment': 'Bravo tatã, nu te stiam ,acum te stiu datorita lui Adelin 💪💪💪💪', 'likes': 18}, {'type': 'comment', 'comment': 'respect la omul asta are talent si noroc😎♥️', 'likes': 0}, {'type': 'comment', 'comment': 'lux tati', 'likes': 1}, {'type': 'comment', 'comment': 'Petrișor ieste un om cu caracter și respect mulți aveți ce învață de la iel felicitare om bun Dumnezeu să te ajute in tot', 'likes': 0}, {'type': 'comment', 'comment': 'Bravo Ade 🥰🥰🥰🥰🥰', 'likes': 0}, {'type': 'comment', 'comment': 'sa ii dea Dumnezeu sănătate 😇', 'likes': 1}, {'type': 'comment', 'comment': 'Bravo lui, are demnitate!', 'likes': 0}, {'type': 'comment', 'comment': 'Respect', 'likes': 0}, {'type': 'comment', 'comment': 'Felicitări Adelin', 'likes': 0}, {'type': 'comment', 'comment': 'Eu acceptam .. 😂😂😂😂', 'likes': 0}, {'type': 'comment', 'comment': '👏👏👏 lui 🥰🥰🥰', 'likes': 0}, {'type': 'comment', 'comment': 'respect petrisor', 'likes': 0}, {'type': 'comment', 'comment': 'Felicitări !🥳', 'likes': 4}, {'type': 'comment', 'comment': 'respect', 'likes': 0}, {'type': 'comment', 'comment': 'Copil minunat🤗🤗🤗', 'likes': 0}, {'type': 'comment', 'comment': 'Respect🥰', 'likes': 0}, {'type': 'comment', 'comment': 'marsi ña munca', 'likes': 0}, {'type': 'comment', 'comment': 'ce ídoli Au romanii in 2025😅😅😅', 'likes': 0}, {'type': 'comment', 'comment': 'Nu întotdeauna banii "cumpără" demnitatea și caracterul😎 Respect', 'likes': 13}, {'type': 'comment', 'comment': 'Pentru ăștia de spuneți ca n-a refuzat 10mi de euro cu siguranță', 'likes': 5}, {'type': 'reply', 'comment': 'I-al in pat si dormi cu el 🙈 Mentalitate 😒', 'likes': 0}, {'type': 'comment', 'comment': '@emidumitru439', 'likes': 1}, {'type': 'reply', 'comment': '😂😂', 'likes': 1}, {'type': 'reply', 'comment': '🥶', 'likes': 0}, {'type': 'comment', 'comment': '👌👏👏', 'likes': 2}, {'type': 'comment', 'comment': '🥰🥰🥰 cei mai tari ! mult peste', 'likes': 2}, {'type': 'comment', 'comment': '@Activ Pro Edil', 'likes': 1}, {'type': 'comment', 'comment': '👌👌👌', 'likes': 1}, {'type': 'comment', 'comment': '💪💪💪💯💯💯', 'likes': 1}, {'type': 'comment', 'comment': '💪💪💪', 'likes': 1}, {'type': 'comment', 'comment': '@Bercea Ionut', 'likes': 1}, {'type': 'comment', 'comment': '🙏🙏🙏', 'likes': 1}, {'type': 'comment', 'comment': '🔥🔥🔥', 'likes': 1}, {'type': 'comment', 'comment': '🙏🙏🙏', 'likes': 1}, {'type': 'comment', 'comment': '😂😂😂', 'likes': 1}, {'type': 'comment', 'comment': '🔥🔥💯💯', 'likes': 1}, {'type': 'comment', 'comment': '🗿', 'likes': 1}, {'type': 'comment', 'comment': '🥰🥰🥰🥰', 'likes': 0}, {'type': 'comment', 'comment': '😅', 'likes': 0}, {'type': 'comment', 'comment': '🥰', 'likes': 0}, {'type': 'comment', 'comment': '😂', 'likes': 0}, {'type': 'comment', 'comment': '🥺🥺🥺', 'likes': 0}, {'type': 'comment', 'comment': '😃😃😃😃😃😃😃😃😃😃😃😃😃😃😃', 'likes': 0}, {'type': 'comment', 'comment': '❤️', 'likes': 0}, {'type': 'comment', 'comment': '👍👍👍', 'likes': 0}, {'type': 'comment', 'comment': '🥰', 'likes': 0}, {'type': 'comment', 'comment': '😂😂😂', 'likes': 0}, {'type': 'comment', 'comment': '💪', 'likes': 0}, {'type': 'comment', 'comment': '😭😭😭😂', 'likes': 0}, {'type': 'comment', 'comment': '😂😂😂', 'likes': 0}, {'type': 'comment', 'comment': '👍👍👍', 'likes': 0}, {'type': 'comment', 'comment': '😳😳😳😳', 'likes': 0}, {'type': 'comment', 'comment': '🥰🥰🥰', 'likes': 0}, {'type': 'comment', 'comment': '🥰', 'likes': 0}, {'type': 'comment', 'comment': '🥰🥰🥰🥰🥰', 'likes': 0}, {'type': 'comment', 'comment': '🤣🤣🤣', 'likes': 0}, {'type': 'comment', 'comment': '🎄🎄🎄🎄🎄🎄🎄', 'likes': 0}]}]
+2025-04-28 16:11:39,293 - INFO - [ TIKTOK-MAIN ] [ Duration: 146.98 seconds ]
+2025-04-28 16:11:39,294 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 16:11:39,483 - INFO - [ TIKTOK SESSION ][ Browser closed successfully. ]
+2025-04-28 16:16:33,618 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:16:33,632 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:16:34,331 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:16:34,341 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:16:34,825 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:16:34,838 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:16:35,052 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:16:35,126 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:17:02,798 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:17:02,835 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:17:02,965 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:17:02,969 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:17:02,969 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:17:11,374 - INFO - [ TIKTOK SESSION - uuid-001 ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:17:25,588 - INFO - [ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+2025-04-28 16:17:25,668 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+2025-04-28 16:17:33,753 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:17:39,677 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:17:39,677 - INFO - [ TIKTOK SCRAPER ][ Video ID extracted: 7492496067334835478 ]
+2025-04-28 16:17:40,033 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment button clicked successfully. ]
+2025-04-28 16:17:45,074 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Comment count: 733 ]
+2025-04-28 16:18:36,595 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ Successfully scrolled through comments ]
+2025-04-28 16:18:39,745 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:18:45,945 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:18:49,034 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:18:52,386 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:18:55,496 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:18:58,607 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:19:01,775 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:19:05,013 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:19:08,118 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:19:11,198 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:19:14,270 - WARNING - [ TIKTOK SCRAPER - 7492496067334835478 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x562fea43775a <unknown>
+#1 0x562fe9eea4b0 <unknown>
+#2 0x562fe9ef10b6 <unknown>
+#3 0x562fe9ef3928 <unknown>
+#4 0x562fe9ef39b3 <unknown>
+#5 0x562fe9f3b3e5 <unknown>
+#6 0x562fe9f3bba1 <unknown>
+#7 0x562fe9f2f8d3 <unknown>
+#8 0x562fe9f615bd <unknown>
+#9 0x562fe9f2f36a <unknown>
+#10 0x562fe9f6175e <unknown>
+#11 0x562fe9f875e0 <unknown>
+#12 0x562fe9f61363 <unknown>
+#13 0x562fe9f2dd63 <unknown>
+#14 0x562fe9f2e9c1 <unknown>
+#15 0x562fea3fca6b <unknown>
+#16 0x562fea400951 <unknown>
+#17 0x562fea3e4b62 <unknown>
+#18 0x562fea4014c4 <unknown>
+#19 0x562fea3c913f <unknown>
+#20 0x562fea4256f8 <unknown>
+#21 0x562fea4258d6 <unknown>
+#22 0x562fea4365a6 <unknown>
+#23 0x7fbf615341f5 <unknown>
+ ]
+2025-04-28 16:19:14,271 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+2025-04-28 16:19:37,352 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ No new 'View more' buttons clicked, exiting loop. ]
+2025-04-28 16:19:37,352 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ All 'View more' buttons were expanded. ]
+2025-04-28 16:19:52,667 - INFO - [ TIKTOK SCRAPER - 7492496067334835478 ][ 187 comments: {'post_url': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'comments': [{'comment': 'crede-mă pe mine ce îți spun că nu a primit 10k dacă primea bani ăia accepta in 2 secunde despre ce vorbim'}, {'comment': 'Bine frate dacă ne spui tu'}, {'comment': 'păi și nu e așa el muncea un an de zile pentru 10k in germania și tu îmi spui mie că refuza 10k pentru 3 4 videoclipuri că spunea el de link din bio?'}, {'comment': 'pt ca face mai mult probabil din toate promovarile ?:)si primeste chestiile intr o valoare mai mare de 10 mii'}, {'comment': 'și dacă te făcea și pe tine sa joci la aparate și pierdeai bani ce făceai cu nevasta copii'}, {'comment': 'Mai are sens să îi aplicăm cuiva ca în viață nu totul se rezumă la bani ? Să creadă fiecare ce el vrea .'}, {'comment': 'Cosmin, pentru unii oameni principiile nu sunt de vânzare. Apoi mai sunt ceilalți, c*rve masculine.'}, {'comment': 'bercea a refuzat 30k'}, {'comment': 'IBM a refuzat 80k'}, {'comment': 'Eu 100k'}, {'comment': 'eu n am refuzat'}, {'comment': 'si n am zis o intr un mod rau,doar ca idee'}, {'comment': 'Bã, pãi Nu e prost 🤗 A refuzat banii,.. altfel venea Anaful😂 Asa cã m.bine l-am rãsplãtit cu cadouri 🤗'}, {'comment': 'Vezi ca asta ie contu meu nou'}, {'comment': 'a zis ca a primit oferta de 500€ 😉 dacă ii dădeau 10k era pe speciala acum 🤣🤣🤣'}, {'comment': 'bonus buy'}, {'comment': 'pai cerșitul e pe primul loc :))) pizza congelata nu ca da dc nu ... doar obiecte etc gratia vrea ....nu ii mulțumit.cu putin .....'}, {'comment': ':₍ ˃ᯅ˂) ( ꪊꪻ⊂)'}, {'comment': 'Invidia'}, {'comment': 'hai ca invidie mai bine sărac decât cerșetor pe tik tok ...'}, {'comment': 'L-ai văzut tu vreodată să cerșească ceva? Omul le promovează oamenilor diferite produse sau servicii și este răsplătit pentru asta. Este ceva perfect normal. Pe tine ce te reține să faci asta?'}, {'comment': 'Ma bucur daca e asa'}, {'comment': 'Stai liniștiți k Petrișor e smecher pt mulți dastia care poarta datorii an picioare...'}, {'comment': 'mulțumesc tata'}, {'comment': 'Stați liniștit omul va câștiga sute de mii,pentru refuzul de 10 mii Dumnezeu îl va ajuta 🤗💪👏'}, {'comment': 'CARE D-ZEU?'}, {'comment': 'sunt sigur ca o sa coboare dumnezeu din cer cu o geanta de 100 de mii si o sa i inmaneze personal🤣'}, {'comment': '😂'}, {'comment': 'Peste tot dau de tine 😂😂😂'}, {'comment': 'Dacă asta ai înțeles tu mai citește odată și gândește-te...'}, {'comment': 'necredincios'}, {'comment': 'Adelin Petrișor refuză reclama la pacanele, Cheluțu deja are 15 reclame la cazino 😂👍 respect tata'}, {'comment': '10 mii? la cate milioane face de views 10k era ca 1 leu'}, {'comment': 'nu merge chiar asa'}, {'comment': 'Tik toku nu e monetizat decat pe live-uri'}, {'comment': 'ba da e monetizat , el il are monetizat ne a si aratat odata pe live , pentru ca are conturile pe germania'}, {'comment': 'Se vede ca habar ai de monetizare..'}, {'comment': 'Asa am crezut și eu ca fuge cu telefonul 😅😂'}, {'comment': 'Salut vă pup 🫶💕'}, {'comment': 'a refuzat si a zis de pizza lui D Popa ca nu e bună???😂'}, {'comment': 'și chiar nu-i bună, Dorian are la mine în oraș shaormărie, și e și scumpă.... și nu-i bună de nimic.🤣🤣🤣🤣'}, {'comment': 'Pai platesti numele 😂😂nu e logic? E vedeta'}, {'comment': 'nu ma interesa de pizza,'}, {'comment': 'A spus adevărul!! El chiar nu minte în privința produselor,chiar dacă încearcă citești totul pe fata lui...'}, {'comment': '😂😂😂Exact'}, {'comment': 'da'}, {'comment': 'A spus k nu promovează asa ceva, respect!'}, {'comment': 'Dacă îi dă 20.000 face reclamă și după ce dispar păcănelele :)'}, {'comment': '😂😂'}, {'comment': 'va rog frumos sa îmi dați urmărire că mi-a blocat contul cel vechi că am vorbit de PSD PNL SI UDMR am scris jos dictatura'}, {'comment': 'stați liniștiți cînd se va termina promovările trece pe păcănele muncă este grea pentru el asemenea oameni prosperă Romănia 😂😂😂'}, {'comment': 'Pe el îl acuzi ca nu muncește...dar Dorian ce latră pe la concerte pe banii primăriilor nu câștiga la fel din on-line?Și asta e tot o muncă. Nu da în cap la nimeni și câștigă salariul fiind el insusi'}, {'comment': '👏👏👏👏'}, {'comment': 'Adelin va fii președintele tarii în 10 ani.'}, {'comment': 'Nici în Congo,dar în România 😂😂😂'}, {'comment': 'emigrez'}, {'comment': 'nu poate sa fie președinte nu are cetățenie română'}, {'comment': 'Dar ce cetățenie are?🤡'}, {'comment': 'congoleza'}, {'comment': '🆘 ugi'}, {'comment': 'ala care canta e cu mine la scoala, piesa se numește iubi iubi'}, {'comment': 'Cine e āsta?'}, {'comment': 'Vă pup tata!'}, {'comment': 'A refuzat 400 de euro cumetre!'}, {'comment': 'Ai vreo dovadă?'}, {'comment': 'Bravo lui, are demnitate!'}, {'comment': 'promovam din păcate doar prostiiaaa'}, {'comment': 'au acceptat ei,,, alți, bogați, vedete👍👍👍'}, {'comment': 'Petrisor fanu lui gabriel inainte de GTA6'}, {'comment': 'De ce ar ajuta la distrugerea unor familii ? Omul are conștiința și nu poate promova ceva cu care nici măcar el nu este de-acord . Respect'}, {'comment': 'Merită respect😂😂'}, {'comment': 'o atitudine puternic dezvoltata 🙏💯😂'}, {'comment': 'ptr asta si eu il respect.'}, {'comment': 'a spus ca el asa ceva nu promovează ca are copii'}, {'comment': '300 de euro!'}, {'comment': 'Bvo lui'}, {'comment': 'omul a recunoscut într un live că a jucat și el la cazino și că lăsa salariile și ce muncea pe acolo și a zis că d aia nu promovează așa ceva . Respect 🙏'}, {'comment': 'Normal ca refuzat banii...el are copii..respect Petrișor!'}, {'comment': 'Are și el 3 copii și probabil îi ferește de așa ceva .. Bravo lor ☺️oameni simpli 🥰'}, {'comment': 'tot cacatu face reclame in tara asta'}, {'comment': 'bunul dumnezeu îl ajuta pe Adelin ie om natural'}, {'comment': 'om cu stima de sine bravo lui'}, {'comment': 'Dumnezeu frate ți-a ajutat de ai bubuit așa a văzut ce suflet ai👌💚'}, {'comment': 'Promovare pentru promovare 😁smart'}, {'comment': 'A refuzat pentru ca are caracter și nu pune banii pe primul loc ❤️rocky tataaa'}, {'comment': '10k euro nu sunt asa multi,dar multi incurca cu 1 milion,asa faceti'}, {'comment': 'Bărvo lui 🙏❤️'}, {'comment': 'A zis o chiar cu detalii cu tot 🥰'}, {'comment': 'mars ma 😂 daca primea asta 10.000 euro....😂'}, {'comment': 'Eu îl cred!👏👏👏'}, {'comment': '💩👎😡🤣'}, {'comment': 'Ce glumă bună 🤣🤣'}, {'comment': 'URMĀRIRE✌️✌️'}, {'comment': 'Hai ca și eu mai mint'}, {'comment': '😂😂😂😂Dacă nu ar fi viral nici nu l_ati baga în seama săracul 😅😅😅😂😂😂'}, {'comment': 'ai apărut in clip la Gami ?'}, {'comment': 'odata ce faci din vizualizarii 300 400 e multumit....nu vrea ca altii bani SI iara bani, El e multumit cu Putin dar fericit'}, {'comment': 'Serios 😂😂😂 a refuzat 300€'}, {'comment': '500 euro a zis . nu 10k'}, {'comment': 'Cinste lui 🙏♥️'}, {'comment': 'A refuzat 300-500euro,da! A spus pw live ☺️'}, {'comment': 'tot respectul pentru el și persoane ca el🥰💪'}, {'comment': 'a spus că nu va susține așa cv'}, {'comment': 'și eu as refuza doar sa îmi semnați un contract sa vedeți'}, {'comment': '300$ a zis el , de unde 10.000 🤣🤣'}, {'comment': 'felicitări pentru ceea ce faci pentru oameni...😘👍'}, {'comment': 'Și alții nu au ce pune pe masă... Câți copilași nu sunt in situația asta..'}, {'comment': 'Pentru banii ăia umba și la dos 😂😂'}, {'comment': 'dacă fura era rau sau fc cv rau omul asta nu obliga pe nimeni sai doneze🥰🥰🥰'}, {'comment': 'A refuzat pentru k știe omul ce înseamnă să pierzi tot, are și iel copiii și nu și-ar dori un asemenea exemplu, felicitări'}, {'comment': 'câtă invidie zace în unii...e omul simplu și corect! Bravo Adeline?💪'}, {'comment': 'Rad de el doar invidioși 😉.Arătați unu care rade de el (să nu trăiască din TikTok) Restu ….'}, {'comment': 'am o curiozitate. aparatele de jocuri sunt ale propietarului sau sunt închiriate? din am văzut eu la mulți sunt închiriate'}, {'comment': 'dacă a facut asta, nota 10+++'}, {'comment': 'nu e fraier Adelin pt ca daca facea reclama la jocuri isi lua hate de la toata lumea si nu se mai asocia nimeni cu el pt reclame'}, {'comment': 'respect. Dumnezeu sa il binecuvinteze pe petrisor pt acest refuz.'}, {'comment': 'hai toata lumea sa il respectam pe petrisor si sa l urmam, ca asta ne mai trebuia in tara. si ne miram de cine ne conduce'}, {'comment': 'reclama puternic dezvoltata. top😎😎'}, {'comment': 'Bravooo Adeline nu te lasa pacălit!'}, {'comment': 'și minciuna e vorbă 😁😁😁'}, {'comment': 'lux tati'}, {'comment': '🥰🥰🥰🥰frumos de la tara vin si domnii....'}, {'comment': 'Cel mai modest băiat ești!!💪💪🙏'}, {'comment': 'Bravo tatã, nu te stiam ,acum te stiu datorita lui Adelin 💪💪💪💪'}, {'comment': 'de la Adelin tot respectul 👌'}, {'comment': 'sa ii dea Dumnezeu sănătate 😇'}, {'comment': 'Copil minunat🤗🤗🤗'}, {'comment': 'Felicitări !🥳'}, {'comment': 'Sefu baaaa'}, {'comment': 'respect'}, {'comment': 'a4-a✌️✨'}, {'comment': 'Bravo lui'}, {'comment': 'bravo tot respectul 🙏🙏🙏'}, {'comment': 'al 7'}, {'comment': 'primul'}, {'comment': 'corect💪'}, {'comment': 'Bravo lui!!!'}, {'comment': 'Felicitări 🤗'}, {'comment': 'Respect 👏👏👏👏👏👏'}, {'comment': 'pe bune?'}, {'comment': 'respect maxim'}, {'comment': 'Seamănă cu obiceiul ala dea a chema pe popa sa sfințească BMW-ul... 😂😂😂'}, {'comment': 'salut ți-am lăsat și eu un mesaj in privat dacă vrei să-mi raspunzi mss'}, {'comment': 'Nici nu se vede🤔😂'}, {'comment': 'Om inteligent'}, {'comment': 'Face 1 de euro pe saptamana pentru cei care zic ca de ce nu a acceptat'}, {'comment': 'vind cartofi noi'}, {'comment': 'Respect ție copile 🙏🙏🙏💯👌'}, {'comment': 'nu aș prea crede...'}, {'comment': '😂😅😂😂😂🤣pacalele!!!!!😅😅😅😅'}, {'comment': 'bravo'}, {'comment': 'Respect lui'}, {'comment': 'Real real'}, {'comment': 'Bravooo luiii ca a refuzat'}, {'comment': 'respect'}, {'comment': 'bravo lui'}, {'comment': 'Daa, sigur'}, {'comment': 's a ajuns 😂😂😂'}, {'comment': 'Huuuuuu7uuuuuu'}, {'comment': 'bravo felicitari'}, {'comment': 'Ce preț are camera pentru pisici 👏🏻👏🏻👏🏻👏🏻👏🏻'}, {'comment': 'Respect adelin🥰🥰'}, {'comment': 'respect 🙏🙏🙏♥️♥️♥️'}, {'comment': 'Bravo'}, {'comment': 'Respect🥰'}, {'comment': 'marsi ña munca'}, {'comment': 'ce ídoli Au romanii in 2025😅😅😅'}, {'comment': 'Nu întotdeauna banii "cumpără" demnitatea și caracterul😎 Respect'}, {'comment': 'Pentru ăștia de spuneți ca n-a refuzat 10mi de euro cu siguranță'}, {'comment': 'I-al in pat si dormi cu el 🙈 Mentalitate 😒'}, {'comment': '@emidumitru439'}, {'comment': '😂😂'}, {'comment': '🥶'}, {'comment': '👌👏👏'}, {'comment': '🥰🥰🥰 cei mai tari ! mult peste'}, {'comment': '@Activ Pro Edil'}, {'comment': '👌👌👌'}, {'comment': '💪💪💪💯💯💯'}, {'comment': '💪💪💪'}, {'comment': '@Bercea Ionut'}, {'comment': '🙏🙏🙏'}, {'comment': '🔥🔥🔥'}, {'comment': '🙏🙏🙏'}, {'comment': '😂😂😂'}, {'comment': '🔥🔥💯💯'}, {'comment': '🗿'}, {'comment': '🥰🥰🥰🥰'}]}]
+2025-04-28 16:19:52,676 - INFO - [ TIKTOK-MAIN ] [ Duration: 138.92 seconds ]
+2025-04-28 16:19:52,677 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 16:19:53,304 - INFO - [ TIKTOK SESSION - uuid-001 ][ Browser closed successfully. ]
+2025-04-28 16:21:38,721 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:21:38,757 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:21:39,965 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:21:39,977 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:21:40,522 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:21:40,531 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:21:40,728 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:21:40,943 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:21:54,095 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:21:54,119 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:21:54,245 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:21:54,247 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:21:54,247 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:21:59,433 - INFO - [ TIKTOK SESSION - uuid-001 ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:22:08,074 - INFO - [ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+2025-04-28 16:22:08,172 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+2025-04-28 16:22:10,683 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:22:17,530 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:22:17,530 - ERROR - [ TIKTOK SCRAPER ][ Error navigating to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478: 'TiktokScraper' object has no attribute 'extract_video_id' ]
+2025-04-28 16:22:17,532 - INFO - [ TIKTOK-MAIN ] [ Duration: 6.85 seconds ]
+2025-04-28 16:22:17,533 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 16:22:17,696 - INFO - [ TIKTOK SESSION - uuid-001 ][ Browser closed successfully. ]
+2025-04-28 16:23:00,374 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:23:00,390 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:23:01,685 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:23:01,698 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:23:01,769 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:23:01,784 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:23:02,141 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:23:02,800 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:23:07,699 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:23:07,707 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:23:07,839 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:23:07,841 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:23:07,842 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:23:24,572 - INFO - [ TIKTOK SESSION - uuid-001 ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:23:31,528 - INFO - [ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+2025-04-28 16:23:31,587 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+2025-04-28 16:23:34,056 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:23:41,402 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:23:41,798 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+2025-04-28 16:23:52,067 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment count: 733 ]
+2025-04-28 16:24:41,361 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Successfully scrolled through comments ]
+2025-04-28 16:24:44,486 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:24:50,696 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:24:53,806 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:24:56,905 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:00,011 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:03,641 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:06,784 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:09,922 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:13,040 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:16,130 - WARNING - [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x56533c5d775a <unknown>
+#1 0x56533c08a4b0 <unknown>
+#2 0x56533c0910b6 <unknown>
+#3 0x56533c093928 <unknown>
+#4 0x56533c0939b3 <unknown>
+#5 0x56533c0db3e5 <unknown>
+#6 0x56533c0dbba1 <unknown>
+#7 0x56533c0cf8d3 <unknown>
+#8 0x56533c1015bd <unknown>
+#9 0x56533c0cf36a <unknown>
+#10 0x56533c10175e <unknown>
+#11 0x56533c1275e0 <unknown>
+#12 0x56533c101363 <unknown>
+#13 0x56533c0cdd63 <unknown>
+#14 0x56533c0ce9c1 <unknown>
+#15 0x56533c59ca6b <unknown>
+#16 0x56533c5a0951 <unknown>
+#17 0x56533c584b62 <unknown>
+#18 0x56533c5a14c4 <unknown>
+#19 0x56533c56913f <unknown>
+#20 0x56533c5c56f8 <unknown>
+#21 0x56533c5c58d6 <unknown>
+#22 0x56533c5d65a6 <unknown>
+#23 0x7f9d253cf1f5 <unknown>
+ ]
+2025-04-28 16:25:16,131 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+2025-04-28 16:25:39,164 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ No new 'View more' buttons clicked, exiting loop. ]
+2025-04-28 16:25:39,165 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ All 'View more' buttons were expanded. ]
+2025-04-28 16:26:16,324 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:26:16,997 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:26:17,145 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:26:17,249 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:26:18,325 - ERROR - [KAFKA CONSUMER - 'to_analysis' ][ Connection error: NoBrokersAvailable ]
+2025-04-28 16:26:18,999 - ERROR - [ KAFKA CONSUMER - 'to_scraper' ][ Connection error: NoBrokersAvailable ]
+2025-04-28 16:26:19,146 - ERROR - [ KAFKA CONSUMER 'to_preprocessing' ][ Connection error: NoBrokersAvailable ]
+2025-04-28 16:26:23,327 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:26:23,334 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:26:24,000 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:26:24,004 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:26:24,147 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:26:24,153 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:26:24,294 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:26:27,264 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:26:27,265 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:26:42,793 - INFO - [ TIKTOK SESSION - uuid-001 ][ Driver with CAPTCHA solver set up successfully. ]
+2025-04-28 16:26:50,282 - INFO - [ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+2025-04-28 16:26:50,486 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+2025-04-28 16:26:53,883 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:27:00,383 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:27:00,907 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+2025-04-28 16:27:07,438 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment count: 733 ]
+2025-04-28 16:27:50,239 - INFO - [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+2025-04-28 16:27:50,253 - INFO - [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+2025-04-28 16:27:51,696 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+2025-04-28 16:27:51,706 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+2025-04-28 16:27:51,957 - INFO - [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+2025-04-28 16:27:51,967 - INFO - [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+2025-04-28 16:27:51,995 - INFO - [ SERVER API ][ Connecting to database and starting API...]
+2025-04-28 16:27:52,224 - INFO - [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+2025-04-28 16:27:56,730 - INFO - [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+2025-04-28 16:27:56,739 - INFO - [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+2025-04-28 16:27:56,869 - INFO - [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+2025-04-28 16:28:00,142 - INFO - [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+2025-04-28 16:28:00,142 - INFO - [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+2025-04-28 16:28:11,109 - INFO - [ TIKTOK SESSION - uuid-001 ][ Driver set up successfully. ]
+2025-04-28 16:28:19,300 - INFO - [ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+2025-04-28 16:28:19,368 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+2025-04-28 16:28:22,752 - INFO - [ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+2025-04-28 16:28:33,653 - INFO - [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+2025-04-28 16:28:34,047 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+2025-04-28 16:28:39,379 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Comment count: 733 ]
+2025-04-28 16:29:10,216 - INFO - [ TIKTOK SCRAPER - uuid-001 ][ Successfully scrolled through comments ]
+2025-04-28 16:29:13,354 - ERROR - [ TIKTOK SCRAPER - uuid-001 ][ Error expanding replies: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55b4d75a675a <unknown>
+#1 0x55b4d70594b0 <unknown>
+#2 0x55b4d70600b6 <unknown>
+#3 0x55b4d7062928 <unknown>
+#4 0x55b4d70629b3 <unknown>
+#5 0x55b4d70aa3e5 <unknown>
+#6 0x55b4d70aaba1 <unknown>
+#7 0x55b4d709e8d3 <unknown>
+#8 0x55b4d70d05bd <unknown>
+#9 0x55b4d709e36a <unknown>
+#10 0x55b4d70d075e <unknown>
+#11 0x55b4d70f65e0 <unknown>
+#12 0x55b4d70d0363 <unknown>
+#13 0x55b4d709cd63 <unknown>
+#14 0x55b4d709d9c1 <unknown>
+#15 0x55b4d756ba6b <unknown>
+#16 0x55b4d756f951 <unknown>
+#17 0x55b4d7553b62 <unknown>
+#18 0x55b4d75704c4 <unknown>
+#19 0x55b4d753813f <unknown>
+#20 0x55b4d75946f8 <unknown>
+#21 0x55b4d75948d6 <unknown>
+#22 0x55b4d75a55a6 <unknown>
+#23 0x7fe78cc2f1f5 <unknown>
+ ]
+2025-04-28 16:29:13,355 - INFO - [ TIKTOK-MAIN ] [ Duration: 50.60 seconds ]
+2025-04-28 16:29:13,356 - INFO - [ TIKTOK-MAIN ] [ Closing the application. ]
+2025-04-28 16:29:13,535 - INFO - [ TIKTOK SESSION - uuid-001 ][ Browser closed successfully. ]
+[ 2025-04-28 16:30:57,389 ][ INFO ] [ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+[ 2025-04-28 16:30:57,412 ][ INFO ] [KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+[ 2025-04-28 16:30:58,640 ][ INFO ] [ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+[ 2025-04-28 16:30:58,651 ][ INFO ] [ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+[ 2025-04-28 16:30:58,950 ][ INFO ] [ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+[ 2025-04-28 16:30:58,961 ][ INFO ] [ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+[ 2025-04-28 16:30:59,204 ][ INFO ] [ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+[ 2025-04-28 16:30:59,368 ][ INFO ] [ SERVER API ][ Connecting to database and starting API...]
+[ 2025-04-28 16:31:07,478 ][ INFO ] [ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478, model=transformers ]
+[ 2025-04-28 16:31:07,491 ][ INFO ] [ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 not found in database ]
+[ 2025-04-28 16:31:07,621 ][ INFO ] [ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+[ 2025-04-28 16:31:07,623 ][ INFO ] [ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'model': 'transformers'} ]
+[ 2025-04-28 16:31:07,624 ][ INFO ] [ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+[ 2025-04-28 16:31:13,302 ][ INFO ] [ TIKTOK SESSION - uuid-001 ][ Driver set up successfully. ]
+[ 2025-04-28 16:31:18,633 ][ INFO ] [ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+[ 2025-04-28 16:31:19,740 ][ INFO ] [ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+[ 2025-04-28 16:31:22,247 ][ INFO ] [ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+[ 2025-04-28 16:31:30,389 ][ INFO ] [ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478 ]
+[ 2025-04-28 16:31:30,739 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+[ 2025-04-28 16:31:35,783 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ Comment count: 733 ]
+[ 2025-04-28 16:32:27,071 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ Successfully scrolled through comments ]
+[ 2025-04-28 16:32:30,283 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:36,505 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:39,578 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:43,326 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:46,409 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:49,503 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:52,624 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:55,737 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:32:58,996 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:33:02,108 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:33:05,204 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:33:08,306 ][ WARNING ] [ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x5575add6475a <unknown>
+#1 0x5575ad8174b0 <unknown>
+#2 0x5575ad81e0b6 <unknown>
+#3 0x5575ad820928 <unknown>
+#4 0x5575ad8209b3 <unknown>
+#5 0x5575ad8683e5 <unknown>
+#6 0x5575ad868ba1 <unknown>
+#7 0x5575ad85c8d3 <unknown>
+#8 0x5575ad88e5bd <unknown>
+#9 0x5575ad85c36a <unknown>
+#10 0x5575ad88e75e <unknown>
+#11 0x5575ad8b45e0 <unknown>
+#12 0x5575ad88e363 <unknown>
+#13 0x5575ad85ad63 <unknown>
+#14 0x5575ad85b9c1 <unknown>
+#15 0x5575add29a6b <unknown>
+#16 0x5575add2d951 <unknown>
+#17 0x5575add11b62 <unknown>
+#18 0x5575add2e4c4 <unknown>
+#19 0x5575adcf613f <unknown>
+#20 0x5575add526f8 <unknown>
+#21 0x5575add528d6 <unknown>
+#22 0x5575add635a6 <unknown>
+#23 0x7ff0cc9f31f5 <unknown>
+ ]
+[ 2025-04-28 16:33:08,307 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+[ 2025-04-28 16:33:31,610 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ No new 'View more' buttons clicked, exiting loop. ]
+[ 2025-04-28 16:33:31,610 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ All 'View more' buttons were expanded. ]
+[ 2025-04-28 16:33:46,905 ][ INFO ] [ TIKTOK SCRAPER - uuid-001 ][ 195 comments: {'post_url': 'https://www.tiktok.com/@gabrielflorescuuu/video/7492496067334835478', 'uuid': 'uuid-001', 'comments': [{'comment': 'crede-mă pe mine ce îți spun că nu a primit 10k dacă primea bani ăia accepta in 2 secunde despre ce vorbim'}, {'comment': 'Bine frate dacă ne spui tu'}, {'comment': 'păi și nu e așa el muncea un an de zile pentru 10k in germania și tu îmi spui mie că refuza 10k pentru 3 4 videoclipuri că spunea el de link din bio?'}, {'comment': 'pt ca face mai mult probabil din toate promovarile ?:)si primeste chestiile intr o valoare mai mare de 10 mii'}, {'comment': 'și dacă te făcea și pe tine sa joci la aparate și pierdeai bani ce făceai cu nevasta copii'}, {'comment': 'Mai are sens să îi aplicăm cuiva ca în viață nu totul se rezumă la bani ? Să creadă fiecare ce el vrea .'}, {'comment': 'Cosmin, pentru unii oameni principiile nu sunt de vânzare. Apoi mai sunt ceilalți, c*rve masculine.'}, {'comment': 'bercea a refuzat 30k'}, {'comment': 'IBM a refuzat 80k'}, {'comment': 'Eu 100k'}, {'comment': 'eu n am refuzat'}, {'comment': 'si n am zis o intr un mod rau,doar ca idee'}, {'comment': 'Bã, pãi Nu e prost 🤗 A refuzat banii,.. altfel venea Anaful😂 Asa cã m.bine l-am rãsplãtit cu cadouri 🤗'}, {'comment': 'Vezi ca asta ie contu meu nou'}, {'comment': 'a zis ca a primit oferta de 500€ 😉 dacă ii dădeau 10k era pe speciala acum 🤣🤣🤣'}, {'comment': 'bonus buy'}, {'comment': 'pai cerșitul e pe primul loc :))) pizza congelata nu ca da dc nu ... doar obiecte etc gratia vrea ....nu ii mulțumit.cu putin .....'}, {'comment': ':₍ ˃ᯅ˂) ( ꪊꪻ⊂)'}, {'comment': 'Invidia'}, {'comment': 'hai ca invidie mai bine sărac decât cerșetor pe tik tok ...'}, {'comment': 'L-ai văzut tu vreodată să cerșească ceva? Omul le promovează oamenilor diferite produse sau servicii și este răsplătit pentru asta. Este ceva perfect normal. Pe tine ce te reține să faci asta?'}, {'comment': 'Stați liniștit omul va câștiga sute de mii,pentru refuzul de 10 mii Dumnezeu îl va ajuta 🤗💪👏'}, {'comment': 'CARE D-ZEU?'}, {'comment': 'sunt sigur ca o sa coboare dumnezeu din cer cu o geanta de 100 de mii si o sa i inmaneze personal🤣'}, {'comment': '😂'}, {'comment': 'Peste tot dau de tine 😂😂😂'}, {'comment': 'Dacă asta ai înțeles tu mai citește odată și gândește-te...'}, {'comment': 'necredincios'}, {'comment': 'mulțumesc tata'}, {'comment': 'Stai liniștiți k Petrișor e smecher pt mulți dastia care poarta datorii an picioare...'}, {'comment': 'Ma bucur daca e asa'}, {'comment': '10 mii? la cate milioane face de views 10k era ca 1 leu'}, {'comment': 'nu merge chiar asa'}, {'comment': 'Tik toku nu e monetizat decat pe live-uri'}, {'comment': 'ba da e monetizat , el il are monetizat ne a si aratat odata pe live , pentru ca are conturile pe germania'}, {'comment': 'Se vede ca habar ai de monetizare..'}, {'comment': 'Adelin Petrișor refuză reclama la pacanele, Cheluțu deja are 15 reclame la cazino 😂👍 respect tata'}, {'comment': 'a refuzat si a zis de pizza lui D Popa ca nu e bună???😂'}, {'comment': 'și chiar nu-i bună, Dorian are la mine în oraș shaormărie, și e și scumpă.... și nu-i bună de nimic.🤣🤣🤣🤣'}, {'comment': 'Pai platesti numele 😂😂nu e logic? E vedeta'}, {'comment': 'nu ma interesa de pizza,'}, {'comment': 'A spus adevărul!! El chiar nu minte în privința produselor,chiar dacă încearcă citești totul pe fata lui...'}, {'comment': '😂😂😂Exact'}, {'comment': 'da'}, {'comment': 'Asa am crezut și eu ca fuge cu telefonul 😅😂'}, {'comment': 'Salut vă pup 🫶💕'}, {'comment': 'A spus k nu promovează asa ceva, respect!'}, {'comment': 'Dacă îi dă 20.000 face reclamă și după ce dispar păcănelele :)'}, {'comment': '😂😂'}, {'comment': 'stați liniștiți cînd se va termina promovările trece pe păcănele muncă este grea pentru el asemenea oameni prosperă Romănia 😂😂😂'}, {'comment': 'Pe el îl acuzi ca nu muncește...dar Dorian ce latră pe la concerte pe banii primăriilor nu câștiga la fel din on-line?Și asta e tot o muncă. Nu da în cap la nimeni și câștigă salariul fiind el insusi'}, {'comment': '👏👏👏👏'}, {'comment': 'Petrisor fanu lui gabriel inainte de GTA6'}, {'comment': 'va rog frumos sa îmi dați urmărire că mi-a blocat contul cel vechi că am vorbit de PSD PNL SI UDMR am scris jos dictatura'}, {'comment': 'ala care canta e cu mine la scoala, piesa se numește iubi iubi'}, {'comment': 'Cine e āsta?'}, {'comment': 'Vă pup tata!'}, {'comment': 'A refuzat 400 de euro cumetre!'}, {'comment': 'Bravo lui, are demnitate!'}, {'comment': 'Ai vreo dovadă?'}, {'comment': 'promovam din păcate doar prostiiaaa'}, {'comment': 'Adelin va fii președintele tarii în 10 ani.'}, {'comment': 'Nici în Congo,dar în România 😂😂😂'}, {'comment': 'emigrez'}, {'comment': 'nu poate sa fie președinte nu are cetățenie română'}, {'comment': 'Dar ce cetățenie are?🤡'}, {'comment': 'congoleza'}, {'comment': '🆘 ugi'}, {'comment': 'De ce ar ajuta la distrugerea unor familii ? Omul are conștiința și nu poate promova ceva cu care nici măcar el nu este de-acord . Respect'}, {'comment': 'au acceptat ei,,, alți, bogați, vedete👍👍👍'}, {'comment': 'a spus ca el asa ceva nu promovează ca are copii'}, {'comment': 'o atitudine puternic dezvoltata 🙏💯😂'}, {'comment': 'Merită respect😂😂'}, {'comment': 'ptr asta si eu il respect.'}, {'comment': '300 de euro!'}, {'comment': 'Normal ca refuzat banii...el are copii..respect Petrișor!'}, {'comment': 'omul a recunoscut într un live că a jucat și el la cazino și că lăsa salariile și ce muncea pe acolo și a zis că d aia nu promovează așa ceva . Respect 🙏'}, {'comment': 'Are și el 3 copii și probabil îi ferește de așa ceva .. Bravo lor ☺️oameni simpli 🥰'}, {'comment': 'Bvo lui'}, {'comment': 'tot cacatu face reclame in tara asta'}, {'comment': 'bunul dumnezeu îl ajuta pe Adelin ie om natural'}, {'comment': 'Dumnezeu frate ți-a ajutat de ai bubuit așa a văzut ce suflet ai👌💚'}, {'comment': 'om cu stima de sine bravo lui'}, {'comment': 'Promovare pentru promovare 😁smart'}, {'comment': 'A refuzat pentru ca are caracter și nu pune banii pe primul loc ❤️rocky tataaa'}, {'comment': '10k euro nu sunt asa multi,dar multi incurca cu 1 milion,asa faceti'}, {'comment': 'mars ma 😂 daca primea asta 10.000 euro....😂'}, {'comment': 'Hai ca și eu mai mint'}, {'comment': 'A zis o chiar cu detalii cu tot 🥰'}, {'comment': 'Bărvo lui 🙏❤️'}, {'comment': 'Eu îl cred!👏👏👏'}, {'comment': '💩👎😡🤣'}, {'comment': 'Ce glumă bună 🤣🤣'}, {'comment': 'odata ce faci din vizualizarii 300 400 e multumit....nu vrea ca altii bani SI iara bani, El e multumit cu Putin dar fericit'}, {'comment': 'ai apărut in clip la Gami ?'}, {'comment': '500 euro a zis . nu 10k'}, {'comment': '😂😂😂😂Dacă nu ar fi viral nici nu l_ati baga în seama săracul 😅😅😅😂😂😂'}, {'comment': 'A refuzat pentru k știe omul ce înseamnă să pierzi tot, are și iel copiii și nu și-ar dori un asemenea exemplu, felicitări'}, {'comment': 'URMĀRIRE✌️✌️'}, {'comment': 'Serios 😂😂😂 a refuzat 300€'}, {'comment': 'A refuzat 300-500euro,da! A spus pw live ☺️'}, {'comment': 'tot respectul pentru el și persoane ca el🥰💪'}, {'comment': 'a spus că nu va susține așa cv'}, {'comment': 'și eu as refuza doar sa îmi semnați un contract sa vedeți'}, {'comment': '300$ a zis el , de unde 10.000 🤣🤣'}, {'comment': 'felicitări pentru ceea ce faci pentru oameni...😘👍'}, {'comment': 'Și alții nu au ce pune pe masă... Câți copilași nu sunt in situația asta..'}, {'comment': 'Pentru banii ăia umba și la dos 😂😂'}, {'comment': 'câtă invidie zace în unii...e omul simplu și corect! Bravo Adeline?💪'}, {'comment': 'dacă fura era rau sau fc cv rau omul asta nu obliga pe nimeni sai doneze🥰🥰🥰'}, {'comment': 'nu e fraier Adelin pt ca daca facea reclama la jocuri isi lua hate de la toata lumea si nu se mai asocia nimeni cu el pt reclame'}, {'comment': 'hai toata lumea sa il respectam pe petrisor si sa l urmam, ca asta ne mai trebuia in tara. si ne miram de cine ne conduce'}, {'comment': 'Rad de el doar invidioși 😉.Arătați unu care rade de el (să nu trăiască din TikTok) Restu ….'}, {'comment': 'am o curiozitate. aparatele de jocuri sunt ale propietarului sau sunt închiriate? din am văzut eu la mulți sunt închiriate'}, {'comment': 'Cinste lui 🙏♥️'}, {'comment': 'dacă a facut asta, nota 10+++'}, {'comment': 'salut ți-am lăsat și eu un mesaj in privat dacă vrei să-mi raspunzi mss'}, {'comment': 'respect. Dumnezeu sa il binecuvinteze pe petrisor pt acest refuz.'}, {'comment': 'reclama puternic dezvoltata. top😎😎'}, {'comment': 'și minciuna e vorbă 😁😁😁'}, {'comment': '🥰🥰🥰🥰frumos de la tara vin si domnii....'}, {'comment': 'lux tati'}, {'comment': 'Cel mai modest băiat ești!!💪💪🙏'}, {'comment': 'Bravo tatã, nu te stiam ,acum te stiu datorita lui Adelin 💪💪💪💪'}, {'comment': 'de la Adelin tot respectul 👌'}, {'comment': 'sa ii dea Dumnezeu sănătate 😇'}, {'comment': 'Copil minunat🤗🤗🤗'}, {'comment': 'Felicitări !🥳'}, {'comment': 'Sefu baaaa'}, {'comment': 'respect'}, {'comment': 'a4-a✌️✨'}, {'comment': 'Bravo lui'}, {'comment': 'bravo tot respectul 🙏🙏🙏'}, {'comment': 'al 7'}, {'comment': 'primul'}, {'comment': 'corect💪'}, {'comment': 'Bravo lui!!!'}, {'comment': 'Felicitări 🤗'}, {'comment': 'Respect 👏👏👏👏👏👏'}, {'comment': 'pe bune?'}, {'comment': 'respect maxim'}, {'comment': 'Seamănă cu obiceiul ala dea a chema pe popa sa sfințească BMW-ul... 😂😂😂'}, {'comment': 'Nici nu se vede🤔😂'}, {'comment': 'Om inteligent'}, {'comment': 'Face 1 de euro pe saptamana pentru cei care zic ca de ce nu a acceptat'}, {'comment': 'vind cartofi noi'}, {'comment': 'Respect ție copile 🙏🙏🙏💯👌'}, {'comment': 'Bravo lui 🙏'}, {'comment': '😡👎💩'}, {'comment': 'nu aș prea crede...'}, {'comment': 'E BĂIAT DE BAIAT BRAVO 👍'}, {'comment': 'Și tu ești un băiat foarte bine educat,felicitări ție!🙏❤️'}, {'comment': 'Real real'}, {'comment': 'chiar credeți 10k 😂'}, {'comment': 'mda!!😏 te cred!!!'}, {'comment': 'ceee'}, {'comment': 'vroia sa ia telefonul😂'}, {'comment': 'bravo lui'}, {'comment': 'Bravooo luiii ca a refuzat'}, {'comment': 'ai uitat un 0 e 100.000'}, {'comment': 'tot altfel de reclama 😂😂😂'}, {'comment': 'Tu ai acceptat? 😂😂😂'}, {'comment': 'a luat sau nu aluat 10k aflam noi în episoadele viitoare'}, {'comment': 'respect'}, {'comment': 'bravo lui'}, {'comment': 's a ajuns 😂😂😂'}, {'comment': 'Huuuuuu7uuuuuu'}, {'comment': 'Daa, sigur'}, {'comment': 'bravo felicitari'}, {'comment': 'Ce preț are camera pentru pisici 👏🏻👏🏻👏🏻👏🏻👏🏻'}, {'comment': 'respect 🙏🙏🙏♥️♥️♥️'}, {'comment': 'Respect adelin🥰🥰'}, {'comment': 'Bravo'}, {'comment': 'marsi ña munca'}, {'comment': 'ce ídoli Au romanii in 2025😅😅😅'}, {'comment': 'Nu întotdeauna banii "cumpără" demnitatea și caracterul😎 Respect'}, {'comment': 'Pentru ăștia de spuneți ca n-a refuzat 10mi de euro cu siguranță'}, {'comment': 'I-al in pat si dormi cu el 🙈 Mentalitate 😒'}, {'comment': '@emidumitru439'}, {'comment': '😂😂'}, {'comment': '🥶'}, {'comment': '👌👏👏'}, {'comment': '🥰🥰🥰 cei mai tari ! mult peste'}, {'comment': '@Activ Pro Edil'}, {'comment': '💪💪💪💯💯💯'}, {'comment': '👌👌👌'}, {'comment': '🔥🔥💯💯'}, {'comment': '@Bercea Ionut'}, {'comment': '💪💪💪'}, {'comment': '😂😂😂'}, {'comment': '🔥🔥🔥'}, {'comment': '🙏🙏🙏'}, {'comment': '🗿'}, {'comment': '🙏🙏🙏'}, {'comment': '🥰🥰🥰🥰'}]}]
+[ 2025-04-28 16:33:46,909 ][ INFO ] [ TIKTOK-MAIN ] [ Duration: 144.66 seconds ]
+[ 2025-04-28 16:33:46,909 ][ INFO ] [ TIKTOK-MAIN ] [ Closing the application. ]
+[ 2025-04-28 16:33:47,128 ][ INFO ] [ TIKTOK SESSION - uuid-001 ][ Browser closed successfully. ]
+[ 2025-04-28 16:35:01,974 ][ INFO ][ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+[ 2025-04-28 16:35:01,993 ][ INFO ][KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+[ 2025-04-28 16:35:03,394 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+[ 2025-04-28 16:35:03,413 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+[ 2025-04-28 16:35:04,136 ][ INFO ][ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+[ 2025-04-28 16:35:04,158 ][ INFO ][ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+[ 2025-04-28 16:35:04,418 ][ INFO ][ SERVER API ][ Connecting to database and starting API...]
+[ 2025-04-28 16:35:04,478 ][ INFO ][ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+[ 2025-04-28 16:35:14,489 ][ INFO ][ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@kashmirconcept/video/7497915872967707926, model=transformers ]
+[ 2025-04-28 16:35:14,503 ][ INFO ][ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@kashmirconcept/video/7497915872967707926 not found in database ]
+[ 2025-04-28 16:35:14,625 ][ INFO ][ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+[ 2025-04-28 16:35:14,626 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@kashmirconcept/video/7497915872967707926', 'model': 'transformers'} ]
+[ 2025-04-28 16:35:14,627 ][ INFO ][ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+[ 2025-04-28 16:35:21,665 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Driver set up successfully. ]
+[ 2025-04-28 16:35:56,365 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+[ 2025-04-28 16:35:56,433 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+[ 2025-04-28 16:35:59,354 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+[ 2025-04-28 16:36:05,598 ][ INFO ][ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@kashmirconcept/video/7497915872967707926 ]
+[ 2025-04-28 16:36:05,970 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+[ 2025-04-28 16:36:21,701 ][ ERROR ][ TIKTOK SCRAPER - uuid-001 ][ Error clicking on the comment button: Message: 
+ ]
+[ 2025-04-28 16:36:21,702 ][ INFO ][ TIKTOK-MAIN ] [ Duration: 22.35 seconds ]
+[ 2025-04-28 16:36:21,702 ][ INFO ][ TIKTOK-MAIN ] [ Closing the application. ]
+[ 2025-04-28 16:36:21,875 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Browser closed successfully. ]
+[ 2025-04-28 16:36:57,006 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+[ 2025-04-28 16:36:57,012 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+[ 2025-04-28 16:39:02,240 ][ INFO ][ KAFKA CONSUMER - 'to_analysis' ][ Connected on topic 'to_analysis'... ]
+[ 2025-04-28 16:39:02,252 ][ INFO ][KAFKA CONSUMER - 'to_analysis' ][ Listening on topic 'to_analysis'... ]
+[ 2025-04-28 16:39:03,129 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ Connected on topic 'to_scraper'... ]
+[ 2025-04-28 16:39:03,137 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ Listening on topic 'to_scraper'... ]
+[ 2025-04-28 16:39:03,342 ][ INFO ][ KAFKA CONSUMER 'to_preprocessing' ][ Connected on topic 'to_preprocessing'... ]
+[ 2025-04-28 16:39:03,352 ][ INFO ][ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]
+[ 2025-04-28 16:39:03,587 ][ INFO ][ KAFKA CONSUMER ][ Listening on topic 'to_preprocessing'... ]
+[ 2025-04-28 16:39:03,613 ][ INFO ][ SERVER API ][ Connecting to database and starting API...]
+[ 2025-04-28 16:39:21,558 ][ INFO ][ SERVER API ][ Received analysis request: uuid=uuid-001, link=https://www.tiktok.com/@kashmirconcept/video/7497915872967707926, model=transformers ]
+[ 2025-04-28 16:39:21,579 ][ INFO ][ SERVER API ][ Post with uuid=uuid-001 and link=https://www.tiktok.com/@kashmirconcept/video/7497915872967707926 not found in database ]
+[ 2025-04-28 16:39:21,705 ][ INFO ][ KAFKA PRODUCER - to_scraper ][ Message with key: uuid-001 sent to topic. ]
+[ 2025-04-28 16:39:21,707 ][ INFO ][ KAFKA CONSUMER - 'to_scraper' ][ New message received. Key: uuid-001 | Value: {'type': 'metadata', 'uuid': 'uuid-001', 'post_link': 'https://www.tiktok.com/@kashmirconcept/video/7497915872967707926', 'model': 'transformers'} ]
+[ 2025-04-28 16:39:21,708 ][ INFO ][ SCRAPER - uuid-001 ][ Beginning scraping on Tiktok social-media platform... ]
+[ 2025-04-28 16:39:29,303 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Driver set up successfully. ]
+[ 2025-04-28 16:39:50,550 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Loaded 9 cookies. ]
+[ 2025-04-28 16:39:50,621 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Cookies loaded successfully! ]
+[ 2025-04-28 16:39:53,071 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Cookies loaded. No need to accept again. ]
+[ 2025-04-28 16:40:09,893 ][ INFO ][ TIKTOK SCRAPER ][ Navigated to https://www.tiktok.com/@kashmirconcept/video/7497915872967707926 ]
+[ 2025-04-28 16:40:10,237 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ Comment button clicked successfully. ]
+[ 2025-04-28 16:40:23,266 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ Comment count: 99 ]
+[ 2025-04-28 16:40:48,422 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ Successfully scrolled through comments ]
+[ 2025-04-28 16:40:51,654 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:40:55,104 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:40:58,289 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:41:01,393 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:41:04,490 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:41:07,606 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:41:13,810 ][ WARNING ][ TIKTOK SCRAPER - uuid-001 ][ Failed to process reply block: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+#0 0x55aeec54a75a <unknown>
+#1 0x55aeebffd4b0 <unknown>
+#2 0x55aeec0040b6 <unknown>
+#3 0x55aeec006928 <unknown>
+#4 0x55aeec0069b3 <unknown>
+#5 0x55aeec04e3e5 <unknown>
+#6 0x55aeec04eba1 <unknown>
+#7 0x55aeec0428d3 <unknown>
+#8 0x55aeec0745bd <unknown>
+#9 0x55aeec04236a <unknown>
+#10 0x55aeec07475e <unknown>
+#11 0x55aeec09a5e0 <unknown>
+#12 0x55aeec074363 <unknown>
+#13 0x55aeec040d63 <unknown>
+#14 0x55aeec0419c1 <unknown>
+#15 0x55aeec50fa6b <unknown>
+#16 0x55aeec513951 <unknown>
+#17 0x55aeec4f7b62 <unknown>
+#18 0x55aeec5144c4 <unknown>
+#19 0x55aeec4dc13f <unknown>
+#20 0x55aeec5386f8 <unknown>
+#21 0x55aeec5388d6 <unknown>
+#22 0x55aeec5495a6 <unknown>
+#23 0x7f91ea0f91f5 <unknown>
+ ]
+[ 2025-04-28 16:41:13,810 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]
+[ 2025-04-28 16:41:23,848 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ No new 'View more' buttons clicked, exiting loop. ]
+[ 2025-04-28 16:41:23,848 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ All 'View more' buttons were expanded. ]
+[ 2025-04-28 16:41:27,891 ][ INFO ][ TIKTOK SCRAPER - uuid-001 ][ 77 comments: {'post_url': 'https://www.tiktok.com/@kashmirconcept/video/7497915872967707926', 'uuid': 'uuid-001', 'comments': [{'comment': 'Fetelor depinde și de mîna celui care te tunde!'}, {'comment': 'exact...pe mine de câțiva ani doar soțul îmi tunde vârfurile și îmi creste parul foarte repede'}, {'comment': 'unde locuiesti?😅de cand ma chinui sa mi creasca'}, {'comment': 'veniți la Pitești!'}, {'comment': 'departe😁'}, {'comment': 'departe de Ro'}, {'comment': 'De când imi tund singură vârfurile părul meu crește foarte repede 🦋'}, {'comment': 'De cand am invatat sā ma tund singura am cel mai frumos par 🙏creste ca prin minune'}, {'comment': 'Eu nu am ținut niciodată cont de așa superstiții ! L-am sunt în iunie anul trecut și mi-a crescut imediat !'}, {'comment': 'Adevărat la mine a funcționat'}, {'comment': 'Chiar am programare în 10 mai 😍'}, {'comment': 'nu sunt mituri aveam o prietena care ma tundea mereu și îmi creștea parul foarte greu ,anul trecut mam tuns bob la o doamnă la salon și nici într-un an am parul peste umar'}, {'comment': 'Eu la fel...de fiecare dată cînd mă duc la salon, vin acasă și mi l mai reglez cu foarfeca, după mîna mea crește foarte repede...am găsit secretul și funcționează 🥰!'}, {'comment': 'eu nu am avut niciodată părul mai lung jumătatea spatelui deși mi-aș dori . Nu îmi crește!🤷'}, {'comment': 'El creste, daca te uiti la radacina. Probabil ca se tot rupe, de aceea pare ca sta pe loc. Si eu patesc la fel.'}, {'comment': 'nici mie'}, {'comment': 'Acum 2 ani l-am avut m-ai jos de fund și l-am tuns puțin m-ai jos de umeri și părul l-am donat și acum e la jumătate de soate!'}, {'comment': 'Creșterea părului depinde, culmea, de cat de des vă tundeți părul. Dacă neglijați tunderea periodică a vârfurilor arse sau despicate el o să se tot rupă și creșterea nu mai e vizibilă'}, {'comment': 'eu am ținut cont de luna în creștere și chiar a funcționat..in condițiile in care am un par care crește f greu..'}, {'comment': 'Este mental și de aceea ajuta.Adica tu manifești acest lucru 😊'}, {'comment': 'serios? și mie îmi crește tare greu😢'}, {'comment': 'da si al meu crește f greu.si nca ceva încearcă să ți tai singura din vârfuri'}, {'comment': 'încearcă singura doar puțin din vârfuri'}, {'comment': 'cu siguranță voi incerca, ms🥰'}, {'comment': '🥰'}, {'comment': 'voi incerca😁si vom vedea🥰'}, {'comment': 'off azi m-am tuns 🥺🥺va fi de bine?'}, {'comment': 'da'}, {'comment': '2 Mai , programare la tuns🥰'}, {'comment': 'Eu știu ca în martie e bine să te tunzi 🙏'}, {'comment': 'mulțumesc nu dtiam🥰🥰🥰'}, {'comment': 'programare 21 mai 😅😒'}, {'comment': 'eu am maine programarea 28 aprilie....?'}, {'comment': 'îs mituri stai liniștită'}, {'comment': 'În iunie când e bine să ne tundem?'}, {'comment': 'Mersi!😘'}, {'comment': 'Am pe 20 mai😂'}, {'comment': 'Este genitic cat de repede iti creste parul. Mie imi creste foarte repede,intre 1,5 cm 1,8 cm pe luna'}, {'comment': 'Esti norocoasa'}, {'comment': 'Nu este adevărat, eu când mă tundeam la salon, niciodată nu îmi trecea părul de umeri, și specificam că vreau doar vârfurile tunse, de când mă tund singură, mi-a crescut părul, îl am aproape de fund.'}, {'comment': 'în luna Martie știam eu .🙂'}, {'comment': 'Dacă luna e în fecioara, mai ales.'}, {'comment': 'Unde scrie pamflet ? ….'}, {'comment': 'funcționează sigur'}, {'comment': 'cred in asta pentru ca anul trecut m am tuns in Mai si toata lumea se uimea de parul meu cat e de lung , in schimb anul asta m am tuns de 2 luni dar deloc nu ii merge'}, {'comment': 'Pe 30 acum e lună în creștere 😁❤'}, {'comment': 'Luna în descreștere este în iunie?😂😂😂'}, {'comment': 'Păstrez tradiția asta de un an de zile și chiar funcționează,ca nu prea cred în chesti cu universul , recomand respectați zilele 👌'}, {'comment': '3 mai programare la tuns 🥰'}, {'comment': 'M-as tunde in ambele perioade ca sa fiu sigura ca imi creste :)) sau anuleaza rezultatul ?'}, {'comment': 'Aștept pentru luna iunie 🥰🤗'}, {'comment': 'Mulțumesc!'}, {'comment': '@Tania Güngör'}, {'comment': '@Maria Catalina'}, {'comment': '@Ale Stroia'}, {'comment': 'Da🤣🤣🤣'}, {'comment': '😭😭😭'}, {'comment': '👍👍👍'}, {'comment': '❤❤'}, {'comment': '🙏🙏🙏🙏🙏🙏'}, {'comment': '👍👍👍👍👍👍'}, {'comment': '🥺🥺🥺'}, {'comment': '😂😂😂'}, {'comment': '🥰🥰🥰'}, {'comment': '🥰🥰🥰'}, {'comment': '🥰❤️❤️'}, {'comment': '🥰🥰🥰😂😂😂'}, {'comment': '😂😂😂'}, {'comment': '❤️❤️❤️❤️❤️'}, {'comment': '🥰🥰🥰'}, {'comment': 'Da și se mai zice, la lună nou cum se înoește luna așa să se inoească părul se spune de trei ori succes 😏'}, {'comment': '🤣🤣🤣🤣🤣am trait sa o aud si pe asta 🤣🤣🤣🤣sa te tunzi in anumite zile si cum e luna pe cer așezată 🤣🤣🤣🤣🤣🤣🤣🤣🤣🤣🤣'}, {'comment': 'Al meu crește ca din apă,nu sunt bucuroasă ce repede crește.'}, {'comment': 'depinde de genetica nu mai credeti tot ce zboara'}, {'comment': '😂😂😂totul este o minciuna parul se taie doar pe 1 martie pt ca atunci infloresc toti copacii si vita de vie si suvița se ingroapa la radacina vitei niciodata in mai pt ca se scutură toate florile'}, {'comment': 'auzi,dar luna asta nu spune nimic de vreun venit substantial...?sa iesim din criza?😂😂 ia vezi,cerceteaza si ne anunti.ca de par nu prea ma.intereseaza sa creasca cand o vrea.dar am niste datorii .😅'}, {'comment': 'placebo'}]}]
+[ 2025-04-28 16:41:27,892 ][ INFO ][ TIKTOK-MAIN ] [ Duration: 94.82 seconds ]
+[ 2025-04-28 16:41:27,893 ][ INFO ][ TIKTOK-MAIN ] [ Closing the application. ]
+[ 2025-04-28 16:41:28,092 ][ INFO ][ TIKTOK SESSION - uuid-001 ][ Browser closed successfully. ]
