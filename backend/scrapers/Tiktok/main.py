@@ -3,7 +3,7 @@ from shared_utils.logger_config import log
 from Tiktok.scraper import TiktokScraper
 import time 
 
-def run(post_url,uuid):
+def runTiktok(post_url,uuid):
     session = InitializeSession(uuid) 
     scraper = TiktokScraper(session.driver,uuid)
 

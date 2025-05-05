@@ -1,34 +1,36 @@
-from Facebook.exceptions import ChromeProfileException, WebDriverException, LoginException
+from exceptions import ChromeProfileException, WebDriverException, LoginException
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from shared_utils.logger_config import log
 from selenium import webdriver
 from dotenv import load_dotenv
 import pickle
 import time
+import sys
 import os
 
+from shared_utils.logger_config import log
 
-load_dotenv()
-COOKIES_FILE = os.getenv("COOKIES_FILE")
-USER_AGENT = os.getenv("USER_AGENT")
+
+COOKIES_FILE = "cookies.pkl"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
 PROFILE_DIR = "/chrome-profile"
 
 class LoginSession:
-    def __init__(self,uuid):
-        self.id = uuid
+    def __init__(self):
         self.driver = self.setup_driver()
 
     def setup_driver(self):
         chrome_options = webdriver.ChromeOptions()
         
         if os.path.exists(COOKIES_FILE):
-            chrome_options.add_argument("--headless=new")  
+            #chrome_options.add_argument("--headless=new")  
             chrome_options.add_argument("--disable-gpu")   
             chrome_options.add_argument("--no-sandbox")  
             chrome_options.add_argument("--disable-dev-shm-usage")  
+            chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--disable-dev-shm-usage")
 
         if not os.path.exists(PROFILE_DIR):
             raise ChromeProfileException(f"Profile directory {PROFILE_DIR} not found!")
@@ -39,15 +41,16 @@ class LoginSession:
         chrome_options.add_argument("--disable-extensions")  
         chrome_options.add_argument("--enable-unsafe-swiftshader") 
         chrome_options.add_argument(f"user-agent={USER_AGENT}")
-        chrome_options.add_argument('--remote-debugging-port=9222')
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
 
 
         try:
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-            log.info(f"[ FACEBOOK SESSION - {self.id} ][ Driver set up successfully. ]")
+            log.info("[ FACEBOOK SESSION ][ Driver set up successfully. ]")
             return driver
         except Exception as e:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Error during Chrome setup: {e} ]")
+            log.error(f"[ FACEBOOK SESSION ][ Error during Chrome setup: {e} ]")
             raise WebDriverException(f"WebDriver error: {e}")
 
     def load_cookies(self):
@@ -56,28 +59,28 @@ class LoginSession:
                 with open(COOKIES_FILE, "rb") as f:
                     cookies = pickle.load(f)
                     if not cookies:
-                        log.error(f"[ FACEBOOK SESSION - {self.id} ][ No cookies found in the file! ]")
+                        log.error("[ FACEBOOK SESSION ][ No cookies found in the file! ]")
                         return None
 
-                    log.info(f"[ FACEBOOK SESSION - {self.id} ][ Loaded {len(cookies)} cookies. ]")
+                    log.info(f"[ FACEBOOK SESSION ][ Loaded {len(cookies)} cookies. ]")
 
                     cookie_names = [cookie['name'] for cookie in cookies]
                     missing_cookies = [name for name in ['c_user', 'xs'] if name not in cookie_names]
                     if missing_cookies:
-                        log.error(f"[ FACEBOOK SESSION - {self.id} ][ Missing cookies: {', '.join(missing_cookies)} ]")
+                        log.error(f"[ FACEBOOK SESSION ][ Missing cookies: {', '.join(missing_cookies)} ]")
                         return None
 
                     for cookie in cookies:
                         self.driver.add_cookie(cookie)
                     
-                    log.info(f"[ FACEBOOK SESSION - {self.id} ][ Cookies loaded successfully! ]")
+                    log.info("[ FACEBOOK SESSION ][ Cookies loaded successfully! ]")
                     self.driver.refresh()
                     return cookies
             except Exception as e:
-                log.error(f"[ FACEBOOK SESSION - {self.id} ][ Error loading cookies: {e} ]")
+                log.error(f"[ FACEBOOK SESSION ][ Error loading cookies: {e} ]")
                 return None
         else:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Cookie file not found ]")
+            log.error("[ FACEBOOK SESSION ][ Cookie file not found ]")
             return None
 
     def save_cookies(self):
@@ -87,13 +90,13 @@ class LoginSession:
         missing_cookies = [name for name in ['c_user', 'xs'] if name not in cookie_names]
         
         if missing_cookies:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Missing cookies: {', '.join(missing_cookies)} ]")
+            log.error(f"[ FACEBOOK SESSION ][ Missing cookies: {', '.join(missing_cookies)} ]")
             return
         
         with open(COOKIES_FILE, "wb") as f:
             pickle.dump(cookies, f)
         
-        log.info(f"[ FACEBOOK SESSION - {self.id} ][ Saved {len(cookies)} cookies. ]")
+        log.info(f"[ FACEBOOK SESSION ][ Saved {len(cookies)} cookies. ]")
 
     def login(self):
         self.driver.get("https://m.facebook.com/")
@@ -105,7 +108,7 @@ class LoginSession:
             return 
 
         print("Manually login, cookies don't exist.")
-        log.info(f"[ FACEBOOK SESSION - {self.id} ][ Manually login, cookies don't exist. ]")
+        log.info(f"[ FACEBOOK SESSION ][ Manually login, cookies don't exist. ]")
         
         username = self.driver.find_element(By.ID, "email")
         password = self.driver.find_element(By.ID, "pass")
@@ -121,16 +124,9 @@ class LoginSession:
         self.save_cookies()
 
         if "login" in self.driver.current_url:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Login error. Check your profile. ]")
+            log.error(f"[ FACEBOOK SESSION ][ Login error. Check your profile. ]")
             raise LoginException("Login error. Check your profile.")
         else:
-            log.info(f"[ FACEBOOK SESSION - {self.id} ][ Login successful! ]")
-
-    def quit(self):
-        try:
-            self.driver.quit()
-            log.info(f"[ FACEBOOK SESSION - {self.id} ][ Browser closed successfully. ]")
-        except Exception as e:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Error closing the browser: {e} ]")
-
+            log.info(f"[ FACEBOOK SESSION ][ Login successful! ]")
+            print("Login successful!")
 

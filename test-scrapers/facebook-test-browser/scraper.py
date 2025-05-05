@@ -1,20 +1,23 @@
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from shared_utils.logger_config import log
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from utils import Post
 import time
+import sys
+import os
 
+
+from shared_utils.logger_config import log
 
 class FacebookScraper:
-    def __init__(self, driver,uuid):
+    def __init__(self, driver):
         self.driver = driver
-        self.id=uuid
-        self.post_url=None
+        self.post = None
 
     def navigate(self, post_url):
         try:
             self.driver.get(post_url)
-            self.post_url=post_url
+            self.post=Post(post_url)
             time.sleep(5) 
             log.info(f"[ FACEBOOK SCRAPER ][ Navigated to {post_url} ]")
             self.set_comment_filter_to_all()
@@ -23,6 +26,7 @@ class FacebookScraper:
             log.error(f"[ FACEBOOK SCRAPER ][ Error navigating to {post_url}: {e} ]")
             print(f"Error navigating to {post_url}: {e}")
 
+        
         except TimeoutError:
             log.error(f"[ FACEBOOK SCRAPER ][ Timeout while trying to load {post_url} ]")
             print(f"Timeout while trying to load {post_url}")
@@ -38,7 +42,7 @@ class FacebookScraper:
             self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", filter_button)
             time.sleep(1)
             filter_button.click()
-            log.info(f"[ FACEBOOK SCRAPER - {self.id} ] [ Clicked comment filter dropdown button. ]")
+            log.info(f"[ FACEBOOK SCRAPER - {self.post.id} ] [ Clicked comment filter dropdown button. ]")
 
             all_comments_option = WebDriverWait(self.driver, 5).until(
                 EC.element_to_be_clickable((
@@ -48,11 +52,11 @@ class FacebookScraper:
             )
             time.sleep(0.5)
             all_comments_option.click()
-            log.info(f"[ FACEBOOK SCRAPER - {self.id} ] [ Selected 'Toate comentariile' option. ]")
+            log.info(f"[ FACEBOOK SCRAPER - {self.post.id} ] [ Selected 'Toate comentariile' option. ]")
             self.load_all()
 
         except Exception as e:
-            log.warning(f"[ FACEBOOK SCRAPER - {self.id} ] [ Could not set comment filter to 'Toate comentariile': {e} ]")
+            log.warning(f"[ FACEBOOK SCRAPER - {self.post.id} ] [ Could not set comment filter to 'Toate comentariile': {e} ]")
 
     def load_all(self):
         try:
@@ -104,11 +108,11 @@ class FacebookScraper:
                     else:
                         break
 
-            log.info(f"[ FACEBOOK SCRAPER - {self.id} ] [ Finished scrolling all comments. Total unique: {len(seen)} ]")
+            log.info(f"[ FACEBOOK SCRAPER - {self.post.id} ] [ Finished scrolling all comments. Total unique: {len(seen)} ]")
             self.click_all_reply_buttons()
 
         except Exception as e:
-            log.error(f"[ FACEBOOK SCRAPER - {self.id} ] [ Error during element-wise scroll: {e} ]")
+            log.error(f"[ FACEBOOK SCRAPER - {self.post.id} ] [ Error during element-wise scroll: {e} ]")
 
     def click_all_reply_buttons(self):
         try:
@@ -142,7 +146,7 @@ class FacebookScraper:
                         clicked.add(btn_id)
                         newly_clicked += 1
                     except Exception as e:
-                        log.warning(f"[ FACEBOOK SCRAPER - {self.id} ] [ Failed to click reply button: {e} ]")
+                        log.warning(f"[ FACEBOOK SCRAPER - {self.post.id} ] [ Failed to click reply button: {e} ]")
                         continue
 
                 if newly_clicked == 0:
@@ -168,7 +172,7 @@ class FacebookScraper:
             )
 
             if not comment_blocks:
-                log.info(f"[ FACEBOOK SCRAPER - {self.id} ][ No comment blocks found. ]")
+                log.info(f"[ FACEBOOK SCRAPER - {self.post.id} ][ No comment blocks found. ]")
                 return
 
             for block in comment_blocks:
@@ -181,18 +185,18 @@ class FacebookScraper:
                             comments.append(text)
 
                 except Exception as e:
-                    log.warning(f"[ FACEBOOK SCRAPER - {self.id} ][ Failed to process a comment block: {e} ]")
+                    log.warning(f"[ FACEBOOK SCRAPER - {self.post.id} ][ Failed to process a comment block: {e} ]")
 
             if comments:
                 data_to_save = {
-                    'post_url': self.post_url,
+                    'post_url': self.post.url,
                     'comments': comments
                 }
 
                 print(f"{data_to_save}")
-                log.info(f"[ FACEBOOK SCRAPER - {self.id} ][ {len(comments)} comments saved. ]")
+                log.info(f"[ FACEBOOK SCRAPER - {self.post.id} ][ {len(comments)} comments saved. ]")
             else:
-                log.info(f"[ FACEBOOK SCRAPER - {self.id} ][ No valid comments to save. ]")
+                log.info(f"[ FACEBOOK SCRAPER - {self.post.id} ][ No valid comments to save. ]")
 
         except Exception as e:
-            log.error(f"[ FACEBOOK SCRAPER - {self.id} ][ Error while saving comments: {e} ]")
+            log.error(f"[ FACEBOOK SCRAPER - {self.post.id} ][ Error while saving comments: {e} ]")
