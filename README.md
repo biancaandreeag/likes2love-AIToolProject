@@ -16,7 +16,7 @@ Supported languages:
 
 - [Architecture](#architecture)  
 - [Quick Start Guide](#quick-start-guide)  
-- [Additional Installation & Environment Files](#additional-installation-_environment-files)
+- [Additional Installation & Environment Files](#additional-installation--environment-files)
 - [Documentation](#documentation)  
 
 ## Architecture
