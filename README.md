@@ -32,4 +32,11 @@ Supported languages:
 
 ## Quick Start Guide
 
+### 1. Clone the Project
+
+Use the following command to download the project locally:
+
+```bash
+git clone https://github.com/biancaandreeag/likes2love.git
+cd likes2love
 
