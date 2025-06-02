@@ -79,17 +79,17 @@ docker compose up --build
 - 🐳 **Docker Desktop** : https://www.docker.com/products/docker-desktop/
 - 🖥️ **XLaunch** (for scraping containter) :  https://sourceforge.net/projects/vcxsrv/
 
-**MongoDB Compas**
-  New Connection:
-- mongodb://localhost:27017
+### MongoDB Compas
+  
+- New Connection: mongodb://localhost:27017
 - also check the .env file needed.
   
-  **XLaunch**
+### XLaunch
+
   After installation, browse for XLaunch in the Start Menu and configure this:
 - Display settings: implicit (Display number : 0) → Next.
 - Multiple windows -> Next.
 - Client startup : Start no client → Next.
 - Extra settings : Disable access control ( to allow Docker Connexions ) → Next.
 - Click Finish.
-
 Now, VcXsrv will run in the background and listen on TCP port 6000 for display :0.0. In the scraping container, you can disable the headless option to analyze and modify your scraper according to recent updates.
