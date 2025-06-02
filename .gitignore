@@ -3,7 +3,5 @@ __pycache__/
 *.pyc
 .env
 *.env
-*.log
-backend/shared_logs/app.log
 .vscode/
 .idea/
