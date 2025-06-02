@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import "../styles/Home.css"
@@ -10,7 +8,6 @@ function Home() {
   const [isFlipped, setIsFlipped] = useState(false)
 
   useEffect(() => {
-    // Adăugăm clasele de animație după ce componenta este montată
     setTimeout(() => {
       const elements = document.querySelectorAll(".animate-element")
       elements.forEach((el) => {
@@ -20,16 +17,13 @@ function Home() {
   }, [])
 
   const handleFlip = () => {
-    // Resetăm animațiile când se schimbă panoul
     const elements = document.querySelectorAll(".animate-element")
     elements.forEach((el) => {
       el.classList.remove("visible")
     })
 
-    // Setăm starea flipped
     setIsFlipped(!isFlipped)
 
-    // Reactivăm animațiile după o scurtă întârziere
     setTimeout(() => {
       elements.forEach((el) => {
         el.classList.add("visible")
@@ -43,10 +37,8 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Navbar - transmitem starea isFlipped */}
       <Navbar isFlipped={isFlipped} />
 
-      {/* Background Video */}
       <div className="video-background">
         <video autoPlay loop muted playsInline>
           <source src="/videos/background.mp4" type="video/mp4" />
@@ -55,9 +47,8 @@ function Home() {
         <div className="overlay"></div>
       </div>
 
-      {/* Split Layout */}
       <div className={`split-layout ${isFlipped ? "flipped" : ""}`}>
-        {/* Left Panel - Content */}
+
         <div className={`panel left-panel ${isFlipped ? "right-position" : "left-position"}`}>
           <div className={`content ${isFlipped ? "content-right" : ""}`}>
             <div className="title-logo animate-element">
@@ -88,7 +79,6 @@ function Home() {
           </div>
         </div>
 
-        {/* Right Panel */}
         <div className={`panel right-panel ${isFlipped ? "left-position" : "right-position"}`}>
           {isFlipped && (
             <div className="content content-right">
@@ -121,7 +111,6 @@ function Home() {
           )}
         </div>
 
-        {/* Toggle Arrow - cu animație constantă */}
         <button
           className={`toggle-arrow ${isFlipped ? "flipped" : ""}`}
           onClick={handleFlip}

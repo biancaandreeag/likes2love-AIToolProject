@@ -306,6 +306,8 @@
   padding-right: 10px;
   margin-right: -10px;
   padding-bottom: 10px;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Mesaj când nu există elemente în istoric */

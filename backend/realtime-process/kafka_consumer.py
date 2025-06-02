@@ -53,8 +53,6 @@ class KafkaConsumerClient:
             log.error("[ KAFKA CONSUMER ][ Not initialized. ]")
 
     def consume_and_send(self, message):
-        #log.info(f"[KAFKA CONSUMER] [ New message received. Key: {message.key} | Value: {message.value} ]")
-
         data=message.value
         message_type=data.get("type")
 
@@ -64,8 +62,10 @@ class KafkaConsumerClient:
             
             model=data.get("model")
             self.preprocess_tool.configuration(message.key,model)
+            log.info(f"[KAFKA CONSUMER] [ New message received. Key: {message.key} | Value: {message.value} ]")
 
         if message_type=="comments_batch":
+            log.info(f"[KAFKA CONSUMER] [ New batch of comments received. Key: {message.key} ]")
             comments_list=data.get("comments",[])
             translated = self.translator.translate_comments(comments_list)
             preprocessed_comments = self.preprocess_tool.preprocess_text(translated)

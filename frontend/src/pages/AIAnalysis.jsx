@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Navbar from "../components/Navbar"
@@ -15,7 +13,6 @@ function AIAnalysis({ initialPostUrl }) {
   const params = useParams()
 
   useEffect(() => {
-    // Verificăm dacă avem un URL de post (fie din props, fie din parametrii URL)
     const postUrl = initialPostUrl || params.postUrl
     if (postUrl) {
       setShowDashboard(true)
@@ -26,7 +23,6 @@ function AIAnalysis({ initialPostUrl }) {
     }, 100)
   }, [initialPostUrl, params.postUrl])
 
-  // Funcție pentru a naviga la dashboard cu URL-ul postului
   const handleShowDashboard = (inputUrl) => {
     if (inputUrl) {
       const encodedUrl = encodeURIComponent(inputUrl)
@@ -38,10 +34,8 @@ function AIAnalysis({ initialPostUrl }) {
 
   return (
     <div className="ai-analysis-container">
-      {/* Navbar */}
       <Navbar isFlipped={false} />
 
-      {/* Background Video */}
       <div className="video-background">
         <video autoPlay loop muted playsInline>
           <source src="/videos/background.mp4" type="video/mp4" />
@@ -50,7 +44,6 @@ function AIAnalysis({ initialPostUrl }) {
         <div className="overlay"></div>
       </div>
 
-      {/* Main Content */}
       <div className={`ai-analysis-content ${isLoaded ? "visible" : ""}`}>
         <div className="analysis-layout">
           <div id="history-column" className="history-column">

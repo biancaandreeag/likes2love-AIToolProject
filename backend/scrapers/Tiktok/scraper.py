@@ -17,7 +17,7 @@ class TiktokScraper:
         try:
             self.driver.get(video_url)
             self.post_url = video_url
-            time.sleep(5) 
+            time.sleep(20)
             log.info(f"[ TIKTOK SCRAPER ][ Navigated to {video_url}. ]")
             
             self.click_comment_button()
@@ -30,16 +30,33 @@ class TiktokScraper:
         except TimeoutError:
             log.error(f"[ TIKTOK SCRAPER ][ Timeout while trying to load {video_url}. ]")
             print(f"Timeout while trying to load {video_url}")
+
+    def wait_for_captcha(self):
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".TUXModal-overlay"))
+            )
+            print("[ CAPTCHA DETECTED ] Waiting 15 seconds for manual solve...")
+            time.sleep(15)
+        except Exception as e:
+            pass
+
    
     def click_comment_button(self):
         try:
+            self.wait_for_captcha()
+            close_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "css-1o0yumu-DivXMarkWrapper"))
+            )
+            close_button.click()
+
             comment_button = self.driver.find_element(By.CSS_SELECTOR, 'span[data-e2e="comment-icon"]')
             
             actions = ActionChains(self.driver)
             actions.move_to_element(comment_button).click().perform()
             
             log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ Comment button clicked successfully. ]")
-            time.sleep(10)
+            time.sleep(3)
 
             comment_count_element = WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="comment-count"]'))
@@ -51,31 +68,49 @@ class TiktokScraper:
         
         except Exception as e:
             log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error clicking on the comment button: {e} ]")
+            time.sleep(10)
 
     def scroll_comment(self):
         try:
             WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.css-riuz53-DivCommentMain-DivCommentMainWithoutScroll.ejcng165'))
+                EC.presence_of_element_located((By.CSS_SELECTOR, 'span[data-e2e="comment-level-1"]'))
             )
 
-            last_height = self.driver.execute_script("return document.body.scrollHeight") 
+            last_count = 0
+            unchanged_scrolls = 0
+            max_attempts_without_new_comments = 3  # fail-safe: dacă nu apar comentarii noi de 3 ori consecutiv, ne oprim
 
             while True:
-                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(5)
-                new_height = self.driver.execute_script("return document.body.scrollHeight")
+                comment_blocks = self.driver.find_elements(By.CSS_SELECTOR, 'span[data-e2e="comment-level-1"]')
+                current_count = len(comment_blocks)
 
-                if new_height == last_height:
-                    break
+                if current_count == last_count:
+                    unchanged_scrolls += 1
+                    if unchanged_scrolls >= max_attempts_without_new_comments:
+                        break  # Nu se mai încarcă comentarii noi
+                else:
+                    unchanged_scrolls = 0  # resetăm dacă am văzut progres
 
-                last_height = new_height
+                last_count = current_count
 
-            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ Successfully scrolled through comments. ]")
+                if comment_blocks:
+                    last_comment = comment_blocks[-1]
+                    try:
+                        self.driver.execute_script(
+                            "arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", last_comment
+                        )
+                        time.sleep(2.5)  # Așteaptă puțin mai mult pentru ca DOM-ul să se actualizeze
+                    except Exception as e:
+                        log.warning(f"[ TIKTOK SCRAPER - {self.ID} ][ Scroll failed for last comment: {e} ]")
+                else:
+                    break  # Nu avem comentarii vizibile deloc
+
+            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ All visible comments scrolled through successfully ]")
             self.expand_all_replies()
 
         except Exception as e:
-            log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Scrolling error: {e} ]")
-    
+            log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Scroll error: {e} ]")
+
     def expand_all_replies(self):
         try:
             clicked_any = False
@@ -201,9 +236,24 @@ class TiktokScraper:
                         continue  
 
                     comment_text = comment_text_elem[0].text.strip()
+
+                    try:
+                        meta_spans = block.find_elements(By.CSS_SELECTOR, 'span.TUXText--weight-normal')
+                        comment_day = meta_spans[0].text.strip() if len(meta_spans) > 0 else ""
+                        like_count_raw = meta_spans[1].text.strip() if len(meta_spans) > 1 else "0"
+                        like_count = int(like_count_raw.replace(",", "")) if like_count_raw.isdigit() else 0
+                    except Exception as e:
+                        log.warning(f"[ TIKTOK SCRAPER - {self.ID} ][ Failed to extract metadata: {e} ]")
+                        comment_day = ""
+                        like_count = 0
                     
                     comments_batch.append(comment_text)
-                    comments_database.append(comment_text)
+                    comments_database.append({
+                        "comment": comment_text,
+                        "likes": like_count,
+                        "post_time": comment_day
+                    })
+
                     if(len(comments_batch)==batch_size):
                         batch = {
                             "type":"comments_batch",

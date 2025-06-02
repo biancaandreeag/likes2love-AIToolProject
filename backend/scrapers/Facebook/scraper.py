@@ -46,7 +46,7 @@ class FacebookScraper:
                     "//span[contains(text(), 'Toate comentariile')]"
                 ))
             )
-            time.sleep(0.5)
+            time.sleep(3)
             all_comments_option.click()
             log.info(f"[ FACEBOOK SCRAPER - {self.id} ] [ Selected 'Toate comentariile' option. ]")
             self.load_all()
@@ -58,8 +58,8 @@ class FacebookScraper:
         try:
             scroll_container = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR,
-                    "div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp"
-                ))
+                                                "div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp"
+                                                ))
             )
 
             seen = set()
@@ -68,18 +68,28 @@ class FacebookScraper:
 
             while True:
                 comments = scroll_container.find_elements(By.CSS_SELECTOR,
-                    "div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs"
-                )
-                new_scrolls = 0
+                                                          "div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs"
+                                                          )
 
+                new_scrolls = 0
                 for comment in comments:
                     try:
-                        identifier = comment.text.strip()[:150]  
+                        identifier = comment.text.strip()[:150]
                         if identifier in seen:
                             continue
 
                         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", comment)
-                        time.sleep(0.3)
+
+                        # Așteaptă 1-2 secunde ca să dea timp Facebook să încarce în fundal comentarii noi
+                        time.sleep(1.5)
+
+                        # Verifică dacă după scroll s-a schimbat numărul de comentarii
+                        updated_comments = scroll_container.find_elements(By.CSS_SELECTOR,
+                                                                          "div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs"
+                                                                          )
+                        if len(updated_comments) > len(comments):
+                            comments = updated_comments
+
                         seen.add(identifier)
                         new_scrolls += 1
 
@@ -96,10 +106,12 @@ class FacebookScraper:
                     stable_scrolls = 0
                     retries = 0
 
+                # Dacă am avut 3 iterări fără noutăți, mai încercăm o dată complet
                 if stable_scrolls >= 3:
                     if retries < 2:
                         retries += 1
                         stable_scrolls = 0
+                        time.sleep(2)
                         continue
                     else:
                         break

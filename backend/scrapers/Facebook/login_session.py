@@ -1,8 +1,7 @@
 from Facebook.exceptions import ChromeProfileException, WebDriverException, LoginException
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
+
 from shared_utils.logger_config import log
 from selenium import webdriver
 from dotenv import load_dotenv
@@ -10,12 +9,12 @@ import pickle
 import time
 import os
 
-
 load_dotenv()
 COOKIES_FILE = os.getenv("COOKIES_FILE")
 USER_AGENT = os.getenv("USER_AGENT")
 PROFILE_DIR = "/chrome-profile"
 
+#invalid cookie domain: Cookie 'domain' mismatch
 class LoginSession:
     def __init__(self,uuid):
         self.id = uuid
@@ -23,24 +22,17 @@ class LoginSession:
 
     def setup_driver(self):
         chrome_options = webdriver.ChromeOptions()
-        
-        if os.path.exists(COOKIES_FILE):
-            chrome_options.add_argument("--headless=new")  
-            chrome_options.add_argument("--disable-gpu")   
-            chrome_options.add_argument("--no-sandbox")  
-            chrome_options.add_argument("--disable-dev-shm-usage")  
 
-        if not os.path.exists(PROFILE_DIR):
-            raise ChromeProfileException(f"Profile directory {PROFILE_DIR} not found!")
-        chrome_options.add_argument(f"user-data-dir={PROFILE_DIR}")
+        chrome_options.add_argument(f"--user-agent={USER_AGENT}")
+        chrome_options.add_argument("accept-language=en-US,en;q=0.9,fa;q=0.8")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        chrome_options.add_experimental_option("useAutomationExtension", False)
-        chrome_options.add_argument("--disable-extensions")  
-        chrome_options.add_argument("--enable-unsafe-swiftshader") 
-        chrome_options.add_argument(f"user-agent={USER_AGENT}")
-        chrome_options.add_argument('--remote-debugging-port=9222')
-
+        chrome_options.add_argument("--disable-webgl")
+        chrome_options.add_argument("--disable-webrtc")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument(f"user-data-dir={PROFILE_DIR}")
+        #chrome_options.add_argument("--headless=new")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
 
         try:
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
@@ -55,76 +47,39 @@ class LoginSession:
             try:
                 with open(COOKIES_FILE, "rb") as f:
                     cookies = pickle.load(f)
+
                     if not cookies:
                         log.error(f"[ FACEBOOK SESSION - {self.id} ][ No cookies found in the file! ]")
                         return None
 
                     log.info(f"[ FACEBOOK SESSION - {self.id} ][ Loaded {len(cookies)} cookies. ]")
-
-                    cookie_names = [cookie['name'] for cookie in cookies]
-                    missing_cookies = [name for name in ['c_user', 'xs'] if name not in cookie_names]
-                    if missing_cookies:
-                        log.error(f"[ FACEBOOK SESSION - {self.id} ][ Missing cookies: {', '.join(missing_cookies)} ]")
-                        return None
-
                     for cookie in cookies:
                         self.driver.add_cookie(cookie)
-                    
-                    log.info(f"[ FACEBOOK SESSION - {self.id} ][ Cookies loaded successfully! ]")
-                    self.driver.refresh()
-                    return cookies
+
+                    return True
             except Exception as e:
                 log.error(f"[ FACEBOOK SESSION - {self.id} ][ Error loading cookies: {e} ]")
-                return None
+                return False
         else:
             log.error(f"[ FACEBOOK SESSION - {self.id} ][ Cookie file not found ]")
-            return None
-
-    def save_cookies(self):
-        cookies = self.driver.get_cookies()
-        
-        cookie_names = [cookie['name'] for cookie in cookies]
-        missing_cookies = [name for name in ['c_user', 'xs'] if name not in cookie_names]
-        
-        if missing_cookies:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Missing cookies: {', '.join(missing_cookies)} ]")
-            return
-        
-        with open(COOKIES_FILE, "wb") as f:
-            pickle.dump(cookies, f)
-        
-        log.info(f"[ FACEBOOK SESSION - {self.id} ][ Saved {len(cookies)} cookies. ]")
+            return False
 
     def login(self):
-        self.driver.get("https://m.facebook.com/")
+        self.driver.get("https://www.facebook.com/")
         time.sleep(3)
 
         if os.path.exists(COOKIES_FILE):
-            self.load_cookies()
-            self.driver.refresh()
-            return 
-
-        print("Manually login, cookies don't exist.")
-        log.info(f"[ FACEBOOK SESSION - {self.id} ][ Manually login, cookies don't exist. ]")
-        
-        username = self.driver.find_element(By.ID, "email")
-        password = self.driver.find_element(By.ID, "pass")
-
-        phone_number = os.getenv("PHONE_NUMBER")
-        password_value = os.getenv("PASSWORD")
-        
-        username.send_keys(phone_number)  
-        password.send_keys(password_value)
-        password.send_keys(Keys.RETURN)
-        time.sleep(3)  
-
-        self.save_cookies()
-
-        if "login" in self.driver.current_url:
-            log.error(f"[ FACEBOOK SESSION - {self.id} ][ Login error. Check your profile. ]")
-            raise LoginException("Login error. Check your profile.")
+            if self.load_cookies():
+                self.driver.refresh()
+                time.sleep(2)
+                log.info(f"[ FACEBOOK SESSION - {self.id} ][ Cookies loaded. No need to accept again. ]")
+                return
         else:
-            log.info(f"[ FACEBOOK SESSION - {self.id} ][ Login successful! ]")
+            log.info(f"[ FACEBOOK SESSION - {self.id} ][ Waiting for manual 'Allow all' acceptance... ]")
+            time.sleep(10)
+
+
+        log.info(f"[ FACEBOOK SESSION - {self.id} ][ Initialization successful! ]")
 
     def quit(self):
         try:

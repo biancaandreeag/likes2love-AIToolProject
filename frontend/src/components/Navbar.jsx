@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useLocation, Link } from "react-router-dom"
 import "../styles/Navbar.css"
@@ -16,14 +14,12 @@ function Navbar({ isFlipped }) {
   return (
     <nav className={`navbar ${isFlipped ? "navbar-right" : "navbar-left"}`}>
       <div className="navbar-container">
-        {/* Logo - now clickable */}
         <div className="navbar-logo">
           <Link to="/">
             <img src="/logo.png" alt="likes2love Logo" width="30" height="30" />
           </Link>
         </div>
 
-        {/* Desktop Menu */}
         <ul className={`navbar-menu ${isFlipped ? "menu-left" : "menu-right"}`}>
           <li className="navbar-item">
             <Link
@@ -51,7 +47,6 @@ function Navbar({ isFlipped }) {
           </li>
         </ul>
 
-        {/* Mobile Toggle */}
         <div className="navbar-toggle" onClick={toggleMenu}>
           <div className={`hamburger ${isMenuOpen ? "active" : ""}`}>
             <span></span>
@@ -61,7 +56,6 @@ function Navbar({ isFlipped }) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
         <ul className="mobile-menu-items">
           <li className="mobile-menu-item">

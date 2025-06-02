@@ -1,4 +1,4 @@
-from preprocessing.emoticons import EMOTICONS, UNICODE_EMO
+from preprocessing.emoticons import EMOTICONS, EMO_UNICODE
 from preprocessing.abbreviations import INTERNET_SLANG
 from shared_utils.logger_config import log
 from nltk.tokenize import word_tokenize
@@ -24,6 +24,7 @@ class PreprocessData:
         self.lemmatizer = None
         self.stop_words = None
         self.spell = SpellChecker()
+        self.UNICODE_EMO = {v: k for k, v in EMO_UNICODE.items()}
         
 
     def configuration(self, post_id, model):
@@ -32,17 +33,23 @@ class PreprocessData:
         if self.post_model == 'classifier':
             self.stop_words = set(stopwords.words('english')) - {'not', 'no', 'nor', 'never'} 
             self.lemmatizer = WordNetLemmatizer()
-        
+
     def convert_emoticons(self, text):
         for emot in EMOTICONS:
-            text = re.sub(u'(' + emot + ')', "  ".join(EMOTICONS[emot].replace(",", "").split()), text)
+            replacement = EMOTICONS[emot].replace(",", "").replace(":", "").replace("_", " ")
+            replacement = "  ".join(replacement.split())
+            replacement = " " + replacement + " "
+            text = re.sub(u'(' + re.escape(emot) + ')', replacement, text)
         return text
 
     def convert_emojis(self, text):
-        for emot in UNICODE_EMO:
-            text = re.sub(r'(' + emot + ')', "  ".join(UNICODE_EMO[emot].replace(",", "").replace(":", "").split()), text)
+        for emot in self.UNICODE_EMO:
+            replacement = self.UNICODE_EMO[emot].replace(",", "").replace(":", "").replace("_", " ")
+            replacement = "  ".join(replacement.split())
+            replacement = " " + replacement + " "
+            text = re.sub(r'(' + re.escape(emot) + ')', replacement, text)
         return text
-    
+
     def remove_unknown_emojis(self, text):
         emoji_pattern = re.compile("[" 
             u"\U0001F600-\U0001F64F"  # emoticons
@@ -59,7 +66,7 @@ class PreprocessData:
         emojis_in_text = emoji_pattern.findall(text)
         
         for emoji_char in emojis_in_text:
-            if emoji_char not in UNICODE_EMO:
+            if emoji_char not in self.UNICODE_EMO:
                 text = text.replace(emoji_char, '')  
         return text
     
@@ -102,17 +109,18 @@ class PreprocessData:
         return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore') 
     
     def preprocess_text(self, comments):
+        start_time = time.time()
         df_comments = pd.DataFrame(comments, columns=['text'])
         
-        if self.post_model == "classifier":
+        if self.post_model == "Random Forest":
             log.info(f"[ PREPROCESS - {self.post_id} ][ Starting preprocess for classifier model... ]")
             start_time = time.time()
             df_comments['text']=df_comments['text'].str.replace(r"http\S+", "", regex=True) #remove URLs
-            df_comments['text']=df_comments['text'].str.replace(r'@[A-Za-z0-9_.]+', '', regex=True) #remove user mentions
+            df_comments['text']=df_comments['text'].str.replace(r'@[A-Za-z0-9_.-]+', '', regex=True) #remove user mentions
             df_comments['text']=df_comments['text'].str.replace(r'#+(\S+)', r'\1', regex=True) #remove hashtags
             df_comments['text']=df_comments['text'].str.replace(sequencePattern, seqReplacePattern, regex=True) #remove repetition
 
-            df_comments['text']=df_comments['text'].apply(self.convert_emojis_and_slang)
+            df_comments['text']=df_comments['text'].apply(lambda x: self.convert_emojis_and_slang(x))
             df_comments['text']=df_comments['text'].str.replace(r'\d+', '', regex=True) #remove digits
             df_comments['text']=df_comments['text'].str.replace(r'[^\w\s]', '', regex=True) #remove punctuation
             df_comments['text']=df_comments['text'].str.replace(r'\s+', ' ', regex=True) #remove spaces
@@ -121,15 +129,15 @@ class PreprocessData:
             df_comments['text']=df_comments['text'].str.lower()
             df_comments['text']=df_comments['text'].apply(lambda x: self.correction_stopwords_lemmatize(x))
         
-        if self.post_model == "transformers":
-            log.info(f"[ PREPROCESS - {self.post_id} ][ Starting preprocess for classifier model... ]")
+        if self.post_model == "RoBERTa":
+            log.info(f"[ PREPROCESS - {self.post_id} ][ Starting preprocess for transformer model... ]")
             start_time = time.time()
-            df_comments['text']=df_comments['text'].str.replace(r"http\S+", "", regex=True)
-            df_comments['text']=df_comments['text'].str.replace(r'@[A-Za-z0-9_.]+', '', regex=True) #remove user mentions
+            df_comments['text']=df_comments['text'].str.replace(r"http\S+", "URL", regex=True)
+            df_comments['text']=df_comments['text'].str.replace(r'@[A-Za-z0-9_.]+', 'USER', regex=True) #remove user mentions
             df_comments['text']=df_comments['text'].str.replace(r'#+(\S+)', r'\1', regex=True) #remove hashtags
             df_comments['text']=df_comments['text'].str.replace(r'\s+', ' ', regex=True) #remove spaces
             df_comments['text']=df_comments['text'].str.replace(r'\d+', '', regex=True) #remove digits
-            df_comments['text'] = df_comments['text'].apply(lambda x: self.remove_accented_chars(x))
+            df_comments['text'] = df_comments['text'].apply(lambda x: self.convert_emojis_and_slang(x))
 
         df_comments = df_comments[df_comments['text'].notna() & (df_comments['text'].str.strip() != "")]
         preprocessed_comments = df_comments['text'].tolist()

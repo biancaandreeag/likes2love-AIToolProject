@@ -56,6 +56,7 @@ class KafkaConsumerClient:
         if message_type=="metadata":
             log.info(f"[ KAFKA CONSUMER - '{self.topic}' ][ New message received. Key: {message.key} | Value: {message.value} ]")
             post_link=data.get("post_link")
-            go_to_scraper(post_link,uuid)
+            platform = data.get("platform")
+            go_to_scraper(post_link,uuid,platform)
             
         

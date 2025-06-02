@@ -47,4 +47,6 @@ RUN chmod +x /usr/bin/chromedriver
 
 COPY . /app/
 
+ENV DISPLAY=host.docker.internal:0
+
 CMD ["python", "-u", "./main.py"]

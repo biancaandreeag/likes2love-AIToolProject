@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Navbar from "../components/Navbar"
@@ -7,26 +5,24 @@ import "../styles/FindMore.css"
 
 function FindMore() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const navigate = useNavigate()  // Adăugăm hook-ul useNavigate
+  const navigate = useNavigate()
 
   useEffect(() => {
-    // Adăugăm clasele de animație după ce componenta este montată
     setTimeout(() => {
       setIsLoaded(true)
     }, 100)
   }, [])
 
-  // Adăugăm funcția de navigare
   const handleStartAnalyzing = () => {
     navigate('/ai-analysis')
   }
 
   return (
     <div className="find-more-container">
-      {/* Navbar */}
+
       <Navbar isFlipped={false} />
 
-      {/* Background Video */}
+
       <div className="video-background">
         <video autoPlay loop muted playsInline>
           <source src="/videos/background.mp4" type="video/mp4" />
@@ -35,15 +31,11 @@ function FindMore() {
         <div className="overlay"></div>
       </div>
 
-      {/* Main Content */}
       <div className="find-more-content">
         <div className="hero-wrapper">
           <div className={`hero-section ${isLoaded ? "visible" : ""}`}>
             <h1 className="title">Discover Our AI-Powered Protection</h1>
           </div>
-          <p className={`hero-subtitle ${isLoaded ? "visible" : ""}`}>
-            Advanced technology to identify and prevent cyberbullying in real time
-          </p>
         </div>
 
         <div className={`features-section ${isLoaded ? "visible" : ""}`}>
@@ -169,7 +161,6 @@ function FindMore() {
           <p className="workflow-subtitle">Ready to Create a Safer Online Environment?</p>
 
           <div className="workflow-steps-container">
-            {/* Modificăm structura workflow steps pentru a asigura vizibilitatea tuturor elementelor */}
             <div className="workflow-steps">
               <div className="workflow-step">
                 <h4 className="step-title">1.Select the platform you want</h4>
@@ -198,7 +189,6 @@ function FindMore() {
               <div className="workflow-progress-line"></div>
             </div>
 
-            {/* Butonul din container */}
             <div className="workflow-actions">
               <button className="start-button" onClick={handleStartAnalyzing}>
                 START ANALYZING NOW

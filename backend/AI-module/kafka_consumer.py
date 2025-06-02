@@ -1,4 +1,5 @@
 from kafka import KafkaConsumer
+from GeneralSentiment.generalAnalysis import GeneralSentimentAnalyzer
 import json
 import os
 import time
@@ -12,6 +13,8 @@ class KafkaConsumerClient:
         self.group_id = group_id
         self.consumer = None
         self.init_consumer()
+        self.all_data = []
+        self.analyzer = GeneralSentimentAnalyzer(task='sentiment')
 
     def init_consumer(self):
         retries = 5
@@ -48,10 +51,18 @@ class KafkaConsumerClient:
             log.error(f"[ KAFKA CONSUMER - '{self.topic}' ][ Not initialized. ]")
 
     def consume(self, message):
-        log.info(f"[ KAFKA CONSUMER - '{self.topic}' ][ New message received. Key: {message.key} | Value: {message.value} ]")
         data=message.value
         message_type=data.get("type")
 
+        if message_type == "metadata":
+            log.info(f"[ KAFKA CONSUMER - '{self.topic}' ][ New message received. Key: {message.key} | Value: {message.value} ]")
+
+        if message_type == "comments_batch":
+            comments_list = data.get("comments", [])
+            self.all_data.append(comments_list)
+
         if message_type=="end":
-            log.info(f"[ KAFKA CONSUMER - '{self.topic}'  ][ All messages with key: {message.key} are ready for analysis. ]")
+            log.info(f"[ KAFKA CONSUMER - '{self.topic}'  ][ Data with key: {message.key} is ready for analysis. ]")
+            log.info(f"[ KAFKA CONSUMER - '{self.topic}' ][ Data: {self.all_data}, size: {len(self.all_data)} ]")
+
             

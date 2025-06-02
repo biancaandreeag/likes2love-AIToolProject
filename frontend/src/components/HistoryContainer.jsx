@@ -1,35 +1,43 @@
-"use client"
 import { useState, useEffect } from "react"
 import "../styles/HistoryContainer.css"
 import HistoryItem from "./HistoryItem"
 
 function HistoryContainer() {
-  // Starea pentru expandare
+
   const [isExpanded, setIsExpanded] = useState(false)
-  // Starea pentru vizibilitatea overlay-ului
+
   const [isOverlayVisible, setIsOverlayVisible] = useState(false)
-  // Stare pentru căutare
+
   const [searchQuery, setSearchQuery] = useState("")
-  // Stare pentru filtre
+
   const [selectedModel, setSelectedModel] = useState("All")
   const [startDate, setStartDate] = useState("")
   const [endDate, setEndDate] = useState("")
 
-  // Exemplu de date pentru istoric
-  const historyItems = [
-    { id: 1, title: "Facebook Post Analysis", date: "12 May 2025", model: "RoBERTa" },
-    { id: 2, title: "TikTok Video Comments", date: "10 May 2025", model: "BERT" },
-    { id: 3, title: "Facebook Group Discussion", date: "5 May 2025", model: "GPT" },
-    { id: 4, title: "Instagram Post Review", date: "1 May 2025", model: "RandomForest" },
-    { id: 5, title: "Twitter Thread Analysis", date: "28 Apr 2025", model: "RoBERTa" },
-  ]
+  const [historyItems, setHistoryItems] = useState([])
 
-  // Filtrarea elementelor din istoric
+  useEffect(() => {
+    fetch("http://localhost:8000/get-history", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch history")
+        return res.json()
+      })
+      .then((data) => {
+        console.log("Fetched history:", data)
+        setHistoryItems(data)
+      })
+      .catch((err) => {
+        console.error("Error fetching history:", err)
+      })
+  }, [])
+
   const filteredItems = historyItems.filter((item) => {
     const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesModel = selectedModel === "All" || item.model === selectedModel
 
-    // Filtrare după dată
     let matchesDate = true
     if (startDate || endDate) {
       const itemDate = new Date(item.date)
@@ -40,18 +48,16 @@ function HistoryContainer() {
     return matchesSearch && matchesModel && matchesDate
   })
 
-  // Funcție pentru a comuta starea de expandare
   const toggleExpand = () => {
     if (!isExpanded) {
       setIsExpanded(true)
       document.body.style.overflow = "hidden"
-      // Adăugăm un mic delay pentru a permite tranziția overlay-ului
+
       setTimeout(() => {
         setIsOverlayVisible(true)
       }, 50)
     } else {
       setIsOverlayVisible(false)
-      // Așteptăm să se termine tranziția overlay-ului înainte de a închide containerul
       setTimeout(() => {
         setIsExpanded(false)
         document.body.style.overflow = ""
@@ -59,14 +65,14 @@ function HistoryContainer() {
     }
   }
 
-  // Curățare la demontare
+
   useEffect(() => {
     return () => {
       document.body.style.overflow = ""
     }
   }, [])
 
-  // Extrage modelele unice pentru filtru
+
   const uniqueModels = ["All", ...new Set(historyItems.map((item) => item.model))]
 
   const clearFilters = () => {

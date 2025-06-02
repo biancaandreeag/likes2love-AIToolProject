@@ -4,30 +4,35 @@ from database.database import posts_collection
 from fastapi import APIRouter, HTTPException 
 from  shared_utils.logger_config import log
 from database.posts import Post
+from fastapi import Cookie
+from jose import jwt, JWTError
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
 
 router = APIRouter()
 
-@router.get("/test-connection")
-def test_connection():
+def verify_token(token: str):
     try:
-        return {"status": "connected"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        return payload["uuid"]
+    except JWTError:
+        return None
 
-@router.post("/add-post")
-async def add_post(post: Post):
-    try:
-        post_dict = post.model_dump() # <- conversie Pydantic-friendly
-        result = posts_collection.insert_one(post_dict)
-        new_post = posts_collection.find_one({"_id": result.inserted_id})
-        log.info(f"[ SERVER API ][ Post added successfully: {new_post['_id']} ]")
-        return individual_serial(new_post)
-    except Exception as e:
-        log.error(f"[ SERVER API ][ Error adding post: {str(e)} ]")
-        return {"status": "error", "message": str(e)}
-       
-@router.get("/get-history/{uuid}")
-async def get_history(uuid: str):
+def get_uuid_from_token(auth_token: str = Cookie(None)):
+    if not auth_token:
+        raise HTTPException(status_code=401, detail="Missing auth token")
+    uuid = verify_token(auth_token)
+    if not uuid:
+        raise HTTPException(status_code=401, detail="Invalid auth token")
+    return uuid
+
+@router.get("/get-history")
+async def get_history(auth_token: str = Cookie(None)):
+    uuid = get_uuid_from_token(auth_token)
     try:
         log.info(f"[ SERVER API ][ Fetching post history for uuid: {uuid} ]")
 
@@ -46,7 +51,8 @@ async def get_history(uuid: str):
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 @router.delete("/delete-post")
-async def delete_post(uuid: str, post_link: str, model: str):
+async def delete_post(post_link: str, model: str,auth_token: str = Cookie(None)):
+    uuid = get_uuid_from_token(auth_token)
     try:
         post = posts_collection.find_one({"uuid": uuid, "post_link": post_link})
         
@@ -83,9 +89,10 @@ async def delete_post(uuid: str, post_link: str, model: str):
         return {"status": "error", "message": str(e)}
 
 @router.post("/get-analysis")
-async def get_analysis(uuid: str, post_link: str, model: str):
+async def get_analysis(post_link: str, model: str,platform: str,auth_token: str = Cookie(None)):
+    uuid = get_uuid_from_token(auth_token)
     try:
-        log.info(f"[ SERVER API ][ Received analysis request: uuid={uuid}, link={post_link}, model={model} ]")
+        log.info(f"[ SERVER API ][ Received analysis request: uuid={uuid}, link={post_link}, model={model}, platform={platform} ]")
 
         post = posts_collection.find_one({"uuid": uuid, "post_link": post_link})
         if not post:
@@ -94,10 +101,10 @@ async def get_analysis(uuid: str, post_link: str, model: str):
             "type": "metadata",
             "uuid": uuid,
             "post_link": post_link,
-            "model" : model 
+            "platform": platform,
+            "model" : model
             }
-            send_to_preprocessor(payload,uuid)
-            send_to_scraper(payload,uuid) 
+            send_to_scraper(payload,uuid)
             return {"status": "success", "message": "Payload sent to Scraping Service."}
 
         for analysis in post.get("analyses", []):
@@ -106,31 +113,45 @@ async def get_analysis(uuid: str, post_link: str, model: str):
                 return {"status": "exists", "message": "Post already analyzed with this model"}
 
         log.info(f"[ SERVER API ][ Post found, returning data for model: {model} ]")
-        
+
         payload = {
             "type": "metadata",
             "uuid": post["uuid"],
             "post_link": post["post_link"],
-            "model" : model 
+            "model" : model
         }
 
         log.info(f"[ SERVER API ][ Returning Payload: {payload} ]")
         send_to_preprocessor(payload, key=post["uuid"])
 
-        comments_list = post.get("comments", [])
-        batch_size = 100
+        comments_list = [c["comment"] for c in post.get("comments", []) if "comment" in c and c["comment"].strip()]
+        batch_size = 500
 
         for i in range(0, len(comments_list), batch_size):
             batch = {
-                "type":"comments_batch", 
+                "type":"comments_batch",
                 "comments": comments_list[i:i + batch_size]
             }
             log.info(f"[ SERVER API ][ Sending comment batch {i // batch_size + 1} with {len(batch['comments'])} comments ]")
             send_to_preprocessor(batch, key=post["uuid"])
-        
+
         send_to_preprocessor({"type": "end", "uuid": uuid}, key=post["uuid"])
         return {"status": "success", "message": "Payload sent to Preprocessing Service."}
-    
+
     except Exception as e:
         log.error(f"Error in get-analysis: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+@router.get("/analysis-status")
+async def analysis_status(post_link: str, model: str, auth_token: str = Cookie(None)):
+    uuid = get_uuid_from_token(auth_token)
+    post = posts_collection.find_one({"uuid": uuid, "post_link": post_link})
+    if not post:
+        return {"status": "not_found"}
+
+    for analysis in post.get("analyses", []):
+        if analysis["model"] == model:
+            return {"status": "done"}
+
+    return {"status": "processing"}
+

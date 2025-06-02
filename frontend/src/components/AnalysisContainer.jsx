@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useRef, useEffect } from "react"
 import "../styles/AnalysisContainer.css"
 import "../styles/DashboardContainer.css"
@@ -9,7 +7,6 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
   const [selectedModel, setSelectedModel] = useState("RoBERTa")
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [selectedPlatform, setSelectedPlatform] = useState("facebook")
-  // Modificăm modul în care gestionăm tooltip-ul pentru a evita animația problematică
 
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -17,14 +14,12 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
 
   const [isLoading, setIsLoading] = useState(false)
 
-  // Adăugăm referințe pentru a gestiona închiderea dropdown-ului la click în afara lui
   const dropdownRef = useRef(null)
 
   useEffect(() => {
     onMount && onMount()
   }, [])
 
-  // Adăugăm un efect pentru a închide dropdown-ul când se face click în afara lui
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -59,19 +54,77 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
     setShowGuide(!showGuide)
   }
 
-  const handleSubmit = () => {
-    if (!inputValue.trim()) {
-      return
+  const waitForAnalysis = async (post_link, model) => {
+    const params = new URLSearchParams({ post_link, model });
+
+    while (true) {
+      try {
+        const response = await fetch(`http://localhost:8000/analysis-status?${params.toString()}`, {
+          credentials: "include",
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.status === "done") {
+          return true; // analiza e gata, ieșim
+        }
+
+        if (data.status === "processing" || data.status === "not_found") {
+          await new Promise(resolve => setTimeout(resolve, 180000));
+          continue;
+        }
+
+        throw new Error("Unexpected status: " + data.status);
+
+      } catch (error) {
+        console.error("Error checking analysis status:", error);
+        throw error;
+      }
     }
+  };
 
-    setIsLoading(true)
-    console.log("Analyzing with model:", selectedModel, "Platform:", selectedPlatform, "URL:", inputValue)
 
-    setTimeout(() => {
-      setIsLoading(false)
-      onShowDashboard && onShowDashboard(inputValue)
-    }, 2000)
-  }
+   const handleSubmit = async () => {
+    if (!inputValue.trim()) return;
+    setIsLoading(true);
+
+    try {
+      const params = new URLSearchParams({
+        post_link: inputValue,
+        model: selectedModel,
+        platform: selectedPlatform
+      });
+
+      const response = await fetch(`http://localhost:8000/get-analysis?${params.toString()}`, {
+        method: "POST",
+        credentials: "include"
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`HTTP ${response.status}: ${text}`);
+      }
+
+      const data = await response.json();
+      console.log("Start analysis response:", data);
+
+      if (data.status === "success" || data.status === "exists") {
+        await waitForAnalysis(inputValue, selectedModel);
+
+        onShowDashboard && onShowDashboard(inputValue);
+      } else {
+        alert("Something went wrong: " + data.message);
+      }
+    } catch (error) {
+      alert("Failed to submit analysis or check status: " + error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="analysis-container">
@@ -273,7 +326,6 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
               <div
                 className="info-button"
                 onMouseEnter={() => {
-                  // Folosim setTimeout pentru a evita problema de poziționare
                   setTimeout(() => {
                     setShowTooltip(true)
                   }, 0)
@@ -295,7 +347,6 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
         </div>
 
         <div className="middle-section">
-          {/* Text descriptiv */}
           <div className="description-text">
             <div className="headline">Protecting Online Spaces from Harmful Content.</div>
             <div className="subheadline">
@@ -303,9 +354,7 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
             </div>
           </div>
 
-          {/* Mutăm butoanele radio și input-ul în secțiunea de mijloc pentru a le aduce mai aproape de text */}
           <div className="input-section">
-            {/* Butoane pentru platforme */}
             <div className={`platform-selector ${selectedPlatform === "tiktok" ? "tiktok-active" : ""}`}>
               <button
                 className={`platform-button facebook ${selectedPlatform === "facebook" ? "active" : ""}`}
@@ -381,7 +430,6 @@ function AnalysisContainer({ onShowDashboard, onMount }) {
               </button>
             </div>
 
-            {/* Text mic de ajutor sub input cu ghid */}
             <div className="help-text">
               Not certain which link to provide?
               <span className="gradient-link" onClick={toggleGuide}>

@@ -3,7 +3,6 @@ from Facebook.scraper import FacebookScraper
 from shared_utils.logger_config import log
 import time
 
-#chromedriver process problem
 
 def runFacebook(post_url,uuid):
     session = LoginSession(uuid)  

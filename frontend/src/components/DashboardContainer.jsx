@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -8,7 +6,6 @@ const DashboardContainer = () => {
   const navigate = useNavigate()
 
   const handleNewAnalysis = () => {
-    // Navigăm înapoi la pagina de analiză
     navigate("/ai-analysis")
   }
 

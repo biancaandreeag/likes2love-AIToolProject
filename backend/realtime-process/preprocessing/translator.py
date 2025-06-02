@@ -12,12 +12,6 @@ load_dotenv()
 DEEPL_API_KEY = os.getenv("DEEPL_API_KEY")
 
 class TextTranslator:
-    SUPPORTED_LANGUAGES = {
-        'AR', 'BG', 'CS', 'DA', 'DE', 'EL', 'EN', 'ES', 'ET', 'FI', 'FR', 
-        'HU', 'ID', 'IT', 'JA', 'KO', 'LT', 'LV', 'NB', 'NL', 'PL', 'PT', 
-        'RO', 'RU', 'SK', 'SL', 'SV', 'TR', 'UK', 'ZH'
-    }
-
     def __init__(self):
         self.translator = self.load_translator()
         self.POST_ID= None
@@ -33,50 +27,42 @@ class TextTranslator:
         log.info(f"[ TRANSLATE ][ DEEPL_API_KEY loaded successfully! ]")
         return deepl.Translator(DEEPL_API_KEY)
 
-    @staticmethod
-    def clean_text(text):
-        text = re.sub(r'http\S+|www\S+|https\S+|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '', text)
-        text = re.sub(r'#\w+', '', text)
-        text = re.sub(r'[^\w\s]', '', text)
-        return text.strip()
-
-    def detect_translate(self, text):
-        cleaned_text = self.clean_text(text)
-        
-        if not cleaned_text:
-            return text  
-        
+    def translate(self, text):
         try:
-            lang = detect(cleaned_text)
-
-            if lang != 'en' and lang.upper() in self.SUPPORTED_LANGUAGES:
-                try:
-                    translated = self.translator.translate_text(text, source_lang=lang.upper(), target_lang="EN-US")
-                    return translated.text
-                except Exception as e:
-                    log.error(f"[ TRANSLATE - {self.POST_ID} ][ Error during translation: {e}\nOriginal text: {text} ]")
-                    return "not_translated"
-            else:
-                return text 
+            translated = self.translator.translate_text(text, source_lang="RO", target_lang="EN-US")
+            return translated.text
         except Exception as e:
-            log.error(f"[ TRANSLATE - {self.POST_ID} ][ Error during language detection: {e}\nOriginal text: {text} ]")
-            return text
+            log.error(f"[ TRANSLATE - {self.POST_ID} ][ Error during translation: {e}\nOriginal text: {text} ]")
+            return "not_translated"
 
-    def translate_comments(self,comments):
+    def translate_comments(self, comments, delay: float = 0.8, max_retries: int = 3):
         log.info(f"[ TRANSLATE - {self.POST_ID} ][ Starting translation process.. ]")
         start_time = time.time()
 
-        translated_comments=[]
+        translated_comments = []
 
-        try:
-            translated_comments = [self.detect_translate(str(comment)) for comment in comments]
-            
-            end_time = time.time()
-            elapsed_time = end_time - start_time    
-            log.info(f"[ TRANSLATE - {self.POST_ID} ][ Batch size: {len(comments)}. Translation completed in {elapsed_time:.2f} seconds. ]")
-        except Exception as e:
-            log.exception(f"[ TRANSLATE - {self.POST_ID} ][ Error during processing: {e} ]")
-        
+        for i, comment in enumerate(comments):
+            text = str(comment)
+            for attempt in range(1, max_retries + 1):
+                try:
+                    translated = self.translate(text)
+                    translated_comments.append(translated)
+                    time.sleep(delay)
+                    break
+                except Exception as e:
+                    log.error(
+                        f"[ TRANSLATE - {self.POST_ID} ][ Attempt {attempt}/{max_retries} failed for comment {i}: {e} ]")
+                    if attempt < max_retries:
+                        time.sleep(2 * attempt)  # backoff
+                    else:
+                        translated_comments.append("not_translated")
+                        break
+
+        elapsed_time = time.time() - start_time
+        log.info(
+            f"[ TRANSLATE - {self.POST_ID} ][ Batch size: {len(comments)}. Translation completed in {elapsed_time:.2f} seconds. ]")
+
         return translated_comments
+
 
 

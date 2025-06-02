@@ -1,12 +1,9 @@
-"use client"
-
 import { useEffect } from "react"
 import "../styles/About.css"
 import Navbar from "../components/Navbar"
 
 function About() {
   useEffect(() => {
-    // Adăugăm clasele de animație după ce componenta este montată
     setTimeout(() => {
       const elements = document.querySelectorAll(".animate-element")
       elements.forEach((el) => {
@@ -20,7 +17,6 @@ function About() {
 
         <Navbar isFlipped={false} />
 
-      {/* Background Video */}
       <div className="video-background">
         <video autoPlay loop muted playsInline>
           <source src="/videos/background.mp4" type="video/mp4" />

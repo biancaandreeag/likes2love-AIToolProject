@@ -1,19 +1,32 @@
-"use client"
-
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom"
+import React, { useEffect } from "react"
 import Home from "./pages/Home"
 import FindMore from "./pages/FindMore"
 import AIAnalysis from "./pages/AIAnalysis"
 import About from "./pages/About"
 import "./App.css"
 
-// Componenta wrapper pentru a gestiona parametrii URL
 function AIAnalysisWithParams() {
   const { postUrl } = useParams()
   return <AIAnalysis initialPostUrl={postUrl} />
 }
 
 function App() {
+  useEffect(() => {
+  fetch("http://localhost:8000/auth/init", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Cookie init failed");
+      console.log("Cookie successful set.");
+    })
+    .catch((err) => {
+      console.error("Cookie error:", err);
+    });
+}, []);
+
+
   return (
     <Router>
       <Routes>

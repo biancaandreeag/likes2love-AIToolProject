@@ -26,13 +26,13 @@ class InitializeSession:
         chrome_options.add_argument("--disable-webgl")
         chrome_options.add_argument("--disable-webrtc")
         chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--headless=new")
+        #chrome_options.add_argument("--headless=new")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
         
         try:
-            driver = make_undetected_chromedriver_solver(api_key=api_key, options=chrome_options)
-            driver.set_window_size(400, 800) 
+            driver = make_undetected_chromedriver_solver(api_key=api_key, options=chrome_options, version_main=136)
+            driver.set_window_size(1000, 1700)
 
             log.info(f"[ TIKTOK SESSION - {self.ID} ][ Driver set up successfully. ]")
             return driver

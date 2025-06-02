@@ -26,8 +26,7 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  /* Adăugăm un fundal cu blur similar cu celelalte secțiuni */
-  background-color: rgba(149, 175, 192, 0.4);
+  background-color: rgba(149, 175, 192, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -44,35 +43,15 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 0;
-  background: linear-gradient(135deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  /* Adăugăm și un stroke subtil pentru a evidenția conturul textului */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-  /* Adăugăm și pentru subtitlu o umbră mai pronunțată */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  transition-delay: 0.2s;
-}
 
-.hero-subtitle.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Features Section */
 .features-section {
   display: flex;
   justify-content: space-between;
@@ -91,7 +70,7 @@
 
 .feature-card {
   width: calc(33.333% - 30px);
-  background-color: rgba(149, 175, 192, 0.4);
+  background-color: rgba(149, 175, 192, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
