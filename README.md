@@ -16,8 +16,8 @@ Supported languages:
 
 - [Arhitecture](#documentation)  
 - [Quick Start Guide](#getting-started)  
-- [Documentation](#documentation)  
 - [Additional Installation & Enviroment Files ](#installing)
+- [Documentation](#documentation)  
 
 ## Architecture
 
@@ -52,7 +52,7 @@ npm run dev
 ```
 The app will run locally at: http://localhost:5173
 
-### 3. Start the Backend (FastAPI + Docker)
+### 3. Start the Backend 
 
 To run the backend services, make sure you have the following tools installed:
 
@@ -70,4 +70,6 @@ Once ready, navigate to the backend directory and build the Docker containers:
 ```bash
 cd backend
 docker compose up --build
+```
 
+## Additional Installation & Enviroment Files
