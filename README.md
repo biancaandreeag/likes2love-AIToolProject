@@ -1,4 +1,4 @@
-# form2love — AI Tool for Cyberbullying Detection and Post Analysis
+# 🛡️ form2love — AI Tool for Cyberbullying Detection and Post Analysis
 
 The platform focuses on the detection of cyberbullying while offering a foundation for analyzing user opinions expressed in comments and their engagement with various posts. 
 
@@ -78,6 +78,7 @@ docker compose up --build
 - 🗄️ **MongoDB Compass** : https://www.mongodb.com/try/download/compass
 - 🐳 **Docker Desktop** : https://www.docker.com/products/docker-desktop/
 - 🖥️ **XLaunch** (for scraping containter) :  https://sourceforge.net/projects/vcxsrv/
+- 🧩 **SadCaptcha** : https://www.sadcaptcha.com/?ref=davidteather
 
 ### MongoDB Compas
   
@@ -93,3 +94,31 @@ docker compose up --build
 - Extra settings : Disable access control ( to allow Docker Connexions ) → Next.
 - Click Finish.
 Now, VcXsrv will run in the background and listen on TCP port 6000 for display :0.0. In the scraping container, you can disable the headless option to analyze and modify your scraper according to recent updates.
+
+### Enviroment Files
+
+This project requires specific .env configuration files to be present in designated directories to ensure proper functionality. Below is the list of required .env files along with their respective locations:
+
+- */backend/server-API*
+```
+MONGO_URI=mongodb://mongo:27017/posts_db
+SECRET_KEY=super-secret-key
+ALGORITHM=HS256
+```
+- */backend/scrapers/Facebook*
+```
+COOKIES_FILE = ...
+USER_AGENT = ...
+```
+- */backend/scrapers/Tiktok*
+```
+API_KEY= ... (for CAPTCHA : https://www.sadcaptcha.com/?ref=davidteather )
+COOKIES_FILE = ...
+USER_AGENT = ...
+
+```
+- */backend/realtime-process*
+```
+DEEPL_API_KEY = ...
+```
+
