@@ -14,9 +14,9 @@ Supported languages:
 
 ## 📚 Table of Contents
 
-- [Arhitecture](#documentation)  
-- [Quick Start Guide](#getting-started)  
-- [Additional Installation & Enviroment Files ](#installing)
+- [Architecture](#architecture)  
+- [Quick Start Guide](#quick-start-guide)  
+- [Additional Installation & Environment Files](#additional-installation-environment-files)
 - [Documentation](#documentation)  
 
 ## Architecture
