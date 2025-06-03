@@ -80,7 +80,7 @@ docker compose up --build
 - 🖥️ **XLaunch** (for scraping containter) :  https://sourceforge.net/projects/vcxsrv/
 - 🧩 **SadCaptcha** : https://www.sadcaptcha.com/?ref=davidteather
 
-### MongoDB Compas
+### MongoDB Compass
   
 - New Connection: mongodb://localhost:27017
 - also check the .env file needed.
@@ -122,3 +122,4 @@ USER_AGENT = ...
 DEEPL_API_KEY = ...
 ```
 
+## Documentation
