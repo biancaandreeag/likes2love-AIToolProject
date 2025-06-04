@@ -24,6 +24,28 @@ Supported languages:
 ![Diagramă fără titlu drawio](https://github.com/user-attachments/assets/b08e96cc-f987-45ff-84c7-a4d8cdb14429)
   
 
+### Client - Frontend (React + Vite)
+Responsive user interface for interacting with the system. Handles user inputs, displays data, and communicates with backend APIs.
+-Uses JWT stored in HTTP-only cookies for user session management and authentication, issued by the FastAPI backend.
+-Each browser session is uniquely identified by a UUID embedded in the JWT token. This UUID is generated once per user/browser and persists across visits.
+-The UUID is used to keep track of all analyzed posts associated with that browser session.
+-If the user clears their browser cache or cookies, the UUID token is lost, and consequently, all posts tracked for that session will no longer be available (effectively resetting the post history).
+
+The backend endpoint /auth/init manages this flow by either validating an existing JWT cookie or generating a new UUID and token if none is present.
+
+### Server Microservice (server-API)
+Exposes a FastAPI backend that serves the frontend and handles client requests.It connects directly to the MongoDB database (mongo container) using the connection string provided via MONGO_URI.All inter-service communication between the server and other microservices (Scraper, Preprocessor, AI Module) happens asynchronously through Kafka, using the topic to_server.The folder server-API contains all code related to the server microservice, including the database schema and structure definitions.
+
+### MongoDB Database
+The database is accessed directly by the Server Microservice (server-API), which manages all read/write operations through a centralized schema defined within the server-API folder.
+
+### Scraper Microservice
+### Preprocessing Microservice
+### Module AI Microservice
+
+### About Kafka Broker
+Kafka is set up as a single broker container (broker) configured to enable message passing between microservices.Each microservice connects to Kafka through the KAFKA_BOOTSTRAP_SERVERS environment variable pointing to broker:29092.Shared logs and utility modules are mounted as volumes (shared_logs and shared_utils) for consistent access across containers.
+
 ## Quick Start Guide
 
 ### 1. Clone the Project
@@ -72,7 +94,8 @@ docker compose up --build
 - 🗄️ **MongoDB Compass** : https://www.mongodb.com/try/download/compass
 - 🐳 **Docker Desktop** : https://www.docker.com/products/docker-desktop/
 - 🖥️ **XLaunch** (for scraping containter) :  https://sourceforge.net/projects/vcxsrv/
-- 🧩 **SadCaptcha** : https://www.sadcaptcha.com/?ref=davidteather
+- 🧩 **SadCaptcha** : https://www.sadcaptcha.com/?ref=davidteather  (create account and get API)
+- 🧩 **DeepL** https://www.deepl.com/en (create account and get API)
 
 ### MongoDB Compass
   
