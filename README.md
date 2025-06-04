@@ -20,15 +20,9 @@ Supported languages:
 - [Documentation](#documentation)  
 
 ## Architecture
-
-### General schema
-```plaintext
-+-----------+         +-----------+
-|           |  REST   |           |
-| Frontend  +-------->+  Backend  |
-| (React)   |         | (FastAPI) |
-+-----------+         +-----------+
-```
+ 
+![Diagramă fără titlu drawio](https://github.com/user-attachments/assets/b08e96cc-f987-45ff-84c7-a4d8cdb14429)
+  
 
 ## Quick Start Guide
 
