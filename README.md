@@ -37,14 +37,55 @@ The backend endpoint /auth/init manages this flow by either validating an existi
 Exposes a FastAPI backend that serves the frontend and handles client requests.It connects directly to the MongoDB database (mongo container) using the connection string provided via MONGO_URI.All inter-service communication between the server and other microservices (Scraper, Preprocessor, AI Module) happens asynchronously through Kafka, using the topic to_server.The folder server-API contains all code related to the server microservice, including the database schema and structure definitions.
 
 ### MongoDB Database
-The database is accessed directly by the Server Microservice (server-API), which manages all read/write operations through a centralized schema defined within the server-API folder.
+
+The database is accessed directly by the Server Microservice (server-API), which manages all read/write operations through a centralized schema defined within the server-API/database folder.
+Database schema:
+```
+class Analysis(BaseModel):
+    type: str
+    result: Dict
+
+class Comment(BaseModel):
+    comment: str
+    likes: int
+    posted: str
+
+class Post(BaseModel):
+    uuid: str
+    post_link: str
+    platform: Optional[str] = None
+    post_name: Optional[str] = None
+    post_no_comments: Optional[int] = None
+    post_likes: Optional[int] = None
+    post_saved: Optional[int] = None
+    post_distribution: Optional[int] = None
+    post_comments: Optional[List[Comment]] = None
+    post_date: Optional[datetime.datetime] = None
+    analysis_date: Optional[datetime.datetime] = None
+    comments: Optional[List[Comment]] = []
+    analyses: Optional[List[Analysis]] = []
+
+```
 
 ### Scraper Microservice
+
 ### Preprocessing Microservice
+The preprocessing logic is encapsulated in the PreprocessData class, ensuring modularity and easy maintenance. It receives batches of comments, applies the cleaning and normalization pipeline, and outputs cleaned text ready for AI analysis.
+-Supports tailored preprocessing pipelines for classifier and transformer models.Currently, it is currently set to work with transformer models by default, to change it, you can do it here: 
+```
+#/realtime-process/preprocessing/preprocess.py
+    def configuration(self, post_id, model="transformers"):
+        self.post_id = post_id
+        self.post_model = model
+        if self.post_model == 'classifier':
+            self.stop_words = set(stopwords.words('english')) - {'not', 'no', 'nor', 'never'} 
+            self.lemmatizer = WordNetLemmatizer()
+```
 ### Module AI Microservice
 
+
 ### About Kafka Broker
-Kafka is set up as a single broker container (broker) configured to enable message passing between microservices.Each microservice connects to Kafka through the KAFKA_BOOTSTRAP_SERVERS environment variable pointing to broker:29092.Shared logs and utility modules are mounted as volumes (shared_logs and shared_utils) for consistent access across containers.
+Kafka is deployed as a single broker container (broker), enabling asynchronous message passing between microservices. Each microservice connects to Kafka using the KAFKA_BOOTSTRAP_SERVERS environment variable, pointing to broker:29092. Shared logs and utility modules are mounted as volumes (shared_logs and shared_utils) to ensure consistent access across all containers.
 
 ## Quick Start Guide
 
