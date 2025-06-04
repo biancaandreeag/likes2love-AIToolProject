@@ -73,13 +73,12 @@ class Post(BaseModel):
 The preprocessing logic is encapsulated in the PreprocessData class, ensuring modularity and easy maintenance. It receives batches of comments, applies the cleaning and normalization pipeline, and outputs cleaned text ready for AI analysis.
 -Supports tailored preprocessing pipelines for classifier and transformer models.Currently, it is currently set to work with transformer models by default, to change it, you can do it here: 
 ```
-#/realtime-process/preprocessing/preprocess.py
+#File Location: /realtime-process/preprocessing/preprocess.py
     def configuration(self, post_id, model="transformers"):
         self.post_id = post_id
         self.post_model = model
         if self.post_model == 'classifier':
-            self.stop_words = set(stopwords.words('english')) - {'not', 'no', 'nor', 'never'} 
-            self.lemmatizer = WordNetLemmatizer()
+            ...
 ```
 ### Module AI Microservice
 
