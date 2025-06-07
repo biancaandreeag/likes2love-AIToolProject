@@ -5,4 +5,6 @@ __pycache__/
 *.env
 .vscode/
 .idea/
-/backend/AI-module/Notebooks/*
+*.pth
+*.pkl
+*.csv
