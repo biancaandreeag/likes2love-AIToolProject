@@ -163,25 +163,19 @@ function FindMore() {
           <div className="workflow-steps-container">
             <div className="workflow-steps">
               <div className="workflow-step">
-                <h4 className="step-title">1.Select the platform you want</h4>
+                <h4 className="step-title">1.Introduce post link</h4>
                 <div className="step-circle"></div>
-                <p className="step-description">Our bot integrates with both Facebook and TikTok platforms.</p>
+                <p className="step-description">Kindly ensure careful selection of public posts.</p>
               </div>
 
               <div className="workflow-step">
-                <h4 className="step-title">2.Introduce post link</h4>
+                <h4 className="step-title">2.Choose bot statistics</h4>
                 <div className="step-circle"></div>
-                <p className="step-description">Kindly ensure careful selection of public posts</p>
+                <p className="step-description">To see the chance of the accounts to be bots</p>
               </div>
 
               <div className="workflow-step">
-                <h4 className="step-title">3.Choose the prefered language</h4>
-                <div className="step-circle"></div>
-                <p className="step-description">Select EN for English/multilingual or RO for Romanian posts</p>
-              </div>
-
-              <div className="workflow-step">
-                <h4 className="step-title">4.Generate dashboard</h4>
+                <h4 className="step-title">3.Generate dashboard</h4>
                 <div className="step-circle"></div>
                 <p className="step-description">Assess the generated details and confirm if the post meets the guidelines</p>
               </div>

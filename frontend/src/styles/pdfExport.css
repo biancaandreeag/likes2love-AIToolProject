@@ -1,46 +1,49 @@
-/* Stiluri pentru loading indicator și toast messages pentru export PDF */
+/* Stiluri pentru loading indicator și toast messages */
 
 .pdf-export-loader {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99999;
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .loader-backdrop {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .loader-content {
-  background: white;
+  background-color: white;
+  padding: 30px 40px;
   border-radius: 12px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  min-width: 250px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: #333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .loader-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #667eea;
-  border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 auto 15px;
 }
 
 @keyframes spin {
@@ -53,103 +56,72 @@
 }
 
 .loader-content p {
-  margin: 0 0 5px 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  margin: 0;
 }
 
 .loader-content small {
+  font-size: 0.85rem;
   color: #666;
-  font-size: 0.9rem;
 }
 
-/* Toast messages pentru export */
 .export-toast {
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
   padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   z-index: 10000;
-  min-width: 300px;
-  animation: slideInRight 0.3s ease;
-  border-left: 4px solid;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  animation: slideIn 0.5s forwards, fadeOut 0.5s 3.5s forwards;
 }
 
 .export-toast.success {
-  border-left-color: #22c55e;
-  background-color: rgba(34, 197, 94, 0.05);
+  border-left: 5px solid #4caf50;
 }
 
 .export-toast.error {
-  border-left-color: #ef4444;
-  background-color: rgba(239, 68, 68, 0.05);
+  border-left: 5px solid #f44336;
 }
 
 .toast-content {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
 }
 
 .toast-icon {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  margin-top: 2px;
+  font-size: 1.5rem;
 }
 
-.toast-content span {
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  white-space: pre-line;
+.export-toast span {
+  font-size: 0.95rem;
+  color: #333;
+  white-space: pre-line; /* Permite afișarea newline-urilor */
 }
 
-@keyframes slideInRight {
+@keyframes slideIn {
   from {
-    opacity: 0;
     transform: translateX(100%);
+    opacity: 0;
   }
   to {
-    opacity: 1;
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
-/* Stiluri pentru optimizarea print-ului */
-@media print {
-  .dashboard-container {
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    background: white !important;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
   }
-
-  .new-analysis-button-container {
-    display: none !important;
-  }
-
-  .engagement-metrics-container {
-    break-inside: avoid;
-  }
-
-  .sentiment-analysis-container {
-    break-inside: avoid;
-  }
-}
-
-/* Responsive pentru mobile */
-@media (max-width: 768px) {
-  .export-toast {
-    right: 10px;
-    left: 10px;
-    min-width: auto;
-  }
-
-  .loader-content {
-    margin: 0 20px;
-    min-width: auto;
+  to {
+    opacity: 0;
   }
 }

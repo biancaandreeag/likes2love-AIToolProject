@@ -1,11 +1,12 @@
 from shared_utils.kafka_producer import send_to_analysis
 from preprocessing.translator import TextTranslator
 from preprocessing.preprocess import PreprocessData
-from shared_utils.logger_config  import log
+from shared_utils.logger_config import log
 from kafka import KafkaConsumer
 import json
 import time
 import os
+
 
 class KafkaConsumerClient:
     def __init__(self, kafka_server: str = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092'),
@@ -53,36 +54,44 @@ class KafkaConsumerClient:
             log.error("[ KAFKA CONSUMER ][ Not initialized. ]")
 
     def consume_and_send(self, message):
-        data=message.value
-        message_type=data.get("type")
+        data = message.value
+        message_type = data.get("type")
 
-        if message_type=="metadata":
+        if message_type == "metadata":
             send_to_analysis(data, message.key)
-            self.translator.set_post_id(message.key) 
+            self.translator.set_post_id(message.key)
 
             self.preprocess_tool.configuration(message.key)
             log.info(f"[KAFKA CONSUMER] [ New message received. Key: {message.key} | Value: {message.value} ]")
 
-        if message_type=="comments_batch":
+        if message_type == "comments_batch":
             log.info(f"[KAFKA CONSUMER] [ New batch of comments received. Key: {message.key} ]")
-            comments_list=data.get("comments",[])
+            comments_list = data.get("comments", [])
             translated = self.translator.translate_comments(comments_list)
-            preprocessed_comments = self.preprocess_tool.preprocess_text(translated)
+            translated_texts = [item["translated_text"] for item in translated]
+
+            preprocessed_comments = self.preprocess_tool.preprocess_text(translated_texts)
+            final_comments = []
+
+            for item, preprocessed in zip(translated, preprocessed_comments):
+                item["preprocessed_text"] = preprocessed
+                final_comments.append(item)
+
             batch = {
-                "type":"comments_batch", 
-                "comments": preprocessed_comments
+                "type": "comments_batch",
+                "comments": final_comments
             }
-            #log.info(f"[ KAKFA CONSUMER - '{self.topic}' ][ Recieved and translated batch with {len(comments_list)} comments. ]")
+            # log.info(f"[ KAKFA CONSUMER - '{self.topic}' ][ Recieved and translated batch with {len(comments_list)} comments. ]")
             send_to_analysis(batch, message.key)
 
-        if message_type=="end":
+        if message_type == "end":
             end_message = {
-                "type":"end",
+                "type": "end",
             }
             send_to_analysis(end_message, message.key)
             log.info(f"[ KAKFA CONSUMER - '{self.topic}' ][ Recieved all batches with key:  {message.key}. ]")
 
-            
 
 
-            
+
+

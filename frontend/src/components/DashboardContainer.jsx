@@ -13,8 +13,11 @@ import {
   PieChart,
   Pie,
   Tooltip,
+  LineChart,
+  Line,
+  Legend,
 } from "recharts"
-import { exportDashboardToPDF, exportAnalysisDataToPDF } from "../utils/pdfExport"
+import { exportAnalysisDataToPDF } from "../utils/pdfExport"
 
 const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) => {
   const [showTooltip, setShowTooltip] = useState(false)
@@ -23,6 +26,108 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
   const [hateAnalysis, setHateAnalysis] = useState(null)
   const [cyberbullyingAnalysis, setCyberbullyingAnalysis] = useState(null)
   const [showExportMenu, setShowExportMenu] = useState(false)
+  const cyberbullyingComments = postInfo?.cyberbullyingComments || []
+  const engagementInformation = postInfo?.engagementInformation || []
+
+  const formatDateRO = (isoDate) => {
+    if (!isoDate) return "-"
+    return isoDate.split("-").reverse().join(".")
+  }
+
+  const groupedComments = cyberbullyingComments.reduce((acc, { comment, cyberbullying_label }) => {
+    if (!acc[cyberbullying_label]) acc[cyberbullying_label] = []
+    if (acc[cyberbullying_label].length < 3) acc[cyberbullying_label].push(comment)
+    return acc
+  }, {})
+
+  const topEngagementDay = (() => {
+    const daily = {}
+
+    engagementInformation.forEach((entry) => {
+      const date = new Date(entry.post_time * 1000)
+      const dayKey = date.toISOString().split("T")[0]
+
+      if (!daily[dayKey]) {
+        daily[dayKey] = { likes: 0, replies: 0, count: 0 }
+      }
+
+      daily[dayKey].likes += entry.likes
+      daily[dayKey].replies += entry.no_replies
+      daily[dayKey].count += 1
+    })
+
+    // Returnează ziua cu cel mai mare scor
+    return Object.entries(daily)
+      .map(([day, val]) => ({
+        date: day,
+        totalEngagement: val.likes + val.replies + val.count,
+      }))
+      .sort((a, b) => b.totalEngagement - a.totalEngagement)[0]?.date
+  })()
+
+  const hourlyEngagement = (() => {
+    if (!topEngagementDay) return []
+
+    const labels = ["positive", "neutral", "negative", "age", "gender", "religion", "ethnicity", "other_cyberbullying"]
+
+    const hourMap = {}
+
+    engagementInformation.forEach((entry) => {
+      const dateObj = new Date(entry.post_time * 1000)
+      const dayKey = dateObj.toISOString().split("T")[0]
+
+      if (dayKey !== topEngagementDay) return
+
+      const hour = dateObj.getHours()
+      const label = labels.includes(entry.label) ? entry.label : "other"
+
+      if (!hourMap[hour]) {
+        hourMap[hour] = {
+          hour: `${String(hour).padStart(2, "0")}:00`,
+          positive: 0,
+          neutral: 0,
+          negative: 0,
+          age: 0,
+          gender: 0,
+          religion: 0,
+          ethnicity: 0,
+          other_cyberbullying: 0,
+          other: 0,
+        }
+      }
+
+      hourMap[hour][label] += 1
+    })
+
+    return Object.values(hourMap).sort((a, b) => Number.parseInt(a.hour) - Number.parseInt(b.hour))
+  })()
+
+  const engagementByDay = (() => {
+    if (!engagementInformation || engagementInformation.length === 0) return []
+
+    const resultByDay = {}
+
+    engagementInformation.forEach((entry) => {
+      const dateObj = new Date(entry.post_time * 1000)
+      const dateKey = dateObj.toISOString().split("T")[0]
+
+      if (!resultByDay[dateKey]) {
+        resultByDay[dateKey] = {
+          date: dateKey,
+          likes: 0,
+          replies: 0,
+          totalComments: 0,
+        }
+      }
+
+      resultByDay[dateKey].likes += entry.likes
+      resultByDay[dateKey].replies += entry.no_replies
+      resultByDay[dateKey].totalComments += 1
+    })
+
+    const sorted = Object.values(resultByDay).sort((a, b) => new Date(a.date) - new Date(b.date))
+    return sorted.slice(0, 7)
+  })()
 
   useEffect(() => {
     if (analysis) {
@@ -54,6 +159,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     comments: postInfo?.comments ?? "-",
     shares: postInfo?.shares ?? "-",
     saves: postInfo?.saves ?? "-",
+    plays: postInfo?.views ?? "-",
   }
 
   const handleNewAnalysis = () => {
@@ -62,7 +168,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     }
   }
 
-  const handleExportPDF = async (type = "full") => {
+  const handleExportPDF = async () => {
     setShowExportMenu(false)
 
     const postTitle = extractTikTokInfo(postLink).username
@@ -75,25 +181,20 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
         ? "Facebook"
         : "Unknown"
 
-    const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, "-")
-    const filename = `analysis-${platform.toLowerCase()}-${timestamp}.pdf`
-
     try {
-      if (type === "full") {
-        await exportDashboardToPDF({
-          filename,
-          postTitle,
-          postLink,
-          platform,
-          analysisData: generalAnalysis,
-        })
-      } else if (type === "data") {
-        await exportAnalysisDataToPDF(generalAnalysis, {
-          title: postTitle,
-          platform,
-          link: postLink,
-        })
-      }
+      await exportAnalysisDataToPDF({
+        generalAnalysis,
+        hateAnalysis,
+        cyberbullyingAnalysis,
+        engagementMetrics,
+        groupedComments,
+        engagementByDay,
+        hourlyEngagement,
+        topEngagementDay,
+        postLink,
+        platform,
+        postTitle,
+      })
     } catch (error) {
       console.error("Export failed:", error)
     }
@@ -135,7 +236,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     cyberbullyingAnalysis.result.average_probabilities &&
     cyberbullyingAnalysis.result.label_counts
 
-  // Pregătim datele pentru barchart - REORDONAT: Positive, Neutral, Negative
+
   const prepareChartData = () => {
     if (!hasAnalysisData) {
       return []
@@ -148,7 +249,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
         name: "Positive",
         value: percent_counts.positive || 0,
         averageScore: average_scores.positive || 0,
-        color: "#59CD90", // Înapoi la verde pentru positive
+        color: "#59CD90",
         emoji: "😊",
         icon: (
           <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -194,7 +295,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     return chartData
   }
 
-  // Pregătim datele pentru cyberbullying chart
+
   const prepareCyberbullyingData = () => {
     if (!hasCyberbullyingData) {
       return []
@@ -202,7 +303,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
 
     const { average_probabilities, label_counts } = cyberbullyingAnalysis.result
 
-    // Convertim probabilitățile în procente și le ordonăm descrescător
+
     const cyberbullyingData = [
       {
         name: "Other",
@@ -239,9 +340,8 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
         color: "#1ABC9C",
         icon: "‍🌍‍",
       },
-    ].sort((a, b) => b.value - a.value) // Sortăm descrescător după valoare
+    ].sort((a, b) => b.value - a.value)
 
-    // Adăugăm valoarea maximă pentru fiecare element
     const maxCount = Math.max(...cyberbullyingData.map((d) => d.count)) || 10
 
     return cyberbullyingData.map((item) => ({
@@ -250,7 +350,6 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     }))
   }
 
-  // Pregătim datele pentru pie chart (offensive comments)
   const preparePieData = () => {
     if (!hasHateAnalysisData) {
       return []
@@ -288,11 +387,11 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
   const cyberbullyingData = prepareCyberbullyingData()
   const pieData = preparePieData()
 
-  // Custom Tooltip pentru pie chart
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload
-      // Folosim culori mai plăcute
+
       const colors = ["#5B9BD5", "#FF6B6B"]
       const color = colors[pieData.findIndex((item) => item.name === data.name) % colors.length]
 
@@ -325,7 +424,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     return null
   }
 
-  // Custom Tooltip pentru cyberbullying chart
+
   const CyberbullyingTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload
@@ -366,21 +465,19 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     return null
   }
 
-  // Custom Label pentru pie chart - fără cerc, doar text alb
+
   const CustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const RADIAN = Math.PI / 180
     const radius = outerRadius + 30
     const x = cx + radius * Math.cos(-midAngle * RADIAN)
     const y = cy + radius * Math.sin(-midAngle * RADIAN)
 
-    // Linia de la pie la label
     const lineRadius = outerRadius + 10
     const lineX = cx + lineRadius * Math.cos(-midAngle * RADIAN)
     const lineY = cy + lineRadius * Math.sin(-midAngle * RADIAN)
 
     return (
       <g>
-        {/* Linia de conectare */}
         <line
           x1={cx + outerRadius * Math.cos(-midAngle * RADIAN)}
           y1={cy + outerRadius * Math.sin(-midAngle * RADIAN)}
@@ -398,7 +495,6 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
           strokeWidth="1"
         />
 
-        {/* Textul cu procentul */}
         <text
           x={x > cx ? x + 5 : x - 5}
           y={y}
@@ -414,15 +510,100 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
     )
   }
 
+  const lineChartLegendMap = {
+    likes: { name: "Likes", emoji: "❤️", color: "#8884d8" },
+    replies: { name: "Replies", emoji: "💬", color: "#82ca9d" },
+    totalComments: { name: "Total Comments", emoji: "📝", color: "#f7cbe1" },
+  }
+
+  const barChartLegendMap = {
+    positive: { name: "Positive", emoji: "😊", color: "#59CD90" },
+    neutral: { name: "Neutral", emoji: "😐", color: "#FFD93D" },
+    negative: { name: "Negative", emoji: "😢", color: "#FF6B6B" },
+    age: { name: "Age", emoji: "🎂", color: "#3498DB" },
+    gender: { name: "Gender", emoji: "👥", color: "#9B59B6" },
+    religion: { name: "Religion", emoji: "⛪️", color: "#E67E22" },
+    ethnicity: { name: "Ethnicity", emoji: "🌍", color: "#1ABC9C" },
+    other_cyberbullying: { name: "Other Cyberbullying", emoji: "🌐", color: "#EF4444" },
+  }
+
+
+  const EngagementOverTimeTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            background: "white",
+            padding: "12px 16px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+            border: `2px solid rgba(63, 94, 251, 0.5)`,
+            fontSize: "14px",
+            minWidth: "180px",
+          }}
+        >
+          <p className="font-bold text-gray-800 mb-2">Date: {formatDateRO(label)}</p>
+          {payload.map((entry, index) => {
+            const item = lineChartLegendMap[entry.dataKey]
+            if (!item) return null
+            return (
+              <div key={`item-${index}`} className="flex items-center gap-2 py-1">
+                <span className="text-lg">{item.emoji}</span>
+                <span className="font-medium" style={{ color: item.color }}>
+                  {item.name}: <strong>{entry.value}</strong>
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      )
+    }
+    return null
+  }
+
+
+  const HourlyEngagementTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            background: "white",
+            padding: "12px 16px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+            border: `2px solid rgba(252, 70, 107, 0.5)`,
+            fontSize: "14px",
+            minWidth: "200px",
+          }}
+        >
+          <p className="font-bold text-gray-800 mb-2">Hour: {label}</p>
+          {payload.map((entry, index) => {
+            const item = barChartLegendMap[entry.dataKey]
+            if (!item) return null
+            return (
+              <div key={`item-${index}`} className="flex items-center gap-2 py-1">
+                <span className="text-lg">{item.emoji}</span>
+                <span className="font-medium" style={{ color: item.color }}>
+                  {item.name}: <strong>{entry.value}</strong>
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      )
+    }
+    return null
+  }
+
   return (
     <div className="dashboard-container">
-      {/* Butoanele Export PDF și New Analysis pe aceeași linie */}
+
       <div className="new-analysis-button-container" style={{ display: "flex", alignItems: "center" }}>
         {/* Buton Export PDF */}
         <div style={{ position: "relative", marginRight: "10px" }}>
           <button
             className="new-analysis-button"
-            onClick={() => setShowExportMenu(!showExportMenu)}
+            onClick={() => handleExportPDF()}
             onMouseEnter={() => setShowExportTooltip(true)}
             onMouseLeave={() => setShowExportTooltip(false)}
           >
@@ -444,7 +625,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
             {showExportTooltip && <span className="tooltip">Export PDF</span>}
           </button>
 
-          {/* Export Menu cu text negru-gri */}
+
           {showExportMenu && (
             <div
               style={{
@@ -460,38 +641,9 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
                 marginTop: "5px",
               }}
             >
+
               <button
-                onClick={() => handleExportPDF("full")}
-                style={{
-                  width: "100%",
-                  background: "none",
-                  border: "none",
-                  padding: "10px 16px",
-                  textAlign: "left",
-                  cursor: "pointer",
-                  fontSize: "0.9rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  color: "rgba(0, 0, 0, 0.8)",
-                  transition: "background-color 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "rgba(0, 0, 0, 0.05)"
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "transparent"
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                  <polyline points="21,15 16,10 5,21"></polyline>
-                </svg>
-                Full Dashboard
-              </button>
-              <button
-                onClick={() => handleExportPDF("data")}
+                onClick={() => handleExportPDF()}
                 style={{
                   width: "100%",
                   background: "none",
@@ -520,13 +672,12 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
                   <line x1="16" y1="17" x2="8" y2="17"></line>
                   <polyline points="10,9 9,9 8,9"></polyline>
                 </svg>
-                Data Only
+                Export Data
               </button>
             </div>
           )}
         </div>
 
-        {/* Buton New Analysis */}
         <button
           className="new-analysis-button"
           onMouseEnter={() => setShowTooltip(true)}
@@ -550,7 +701,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
           {showTooltip && <span className="tooltip">New analysis</span>}
         </button>
       </div>
-      {/* Dashboard header */}
+
       <div className="dashboard-header">
         <div className="dashboard-title-wrapper">
           <div className="dashboard-icon">
@@ -580,7 +731,6 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
         </div>
       </div>
 
-      {/* Info simplificată despre post cu engagement metrics */}
       {postLink && (
         <div className="current-analysis">
           <div className="tiktok-post-container">
@@ -605,7 +755,6 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
               <div className="url-display">{postLink}</div>
             </div>
 
-            {/* TikTok-style engagement metrics cu gradient - redesigned */}
             <div className="engagement-metrics-container">
               <div className="engagement-metrics">
                 <div className="metric-item">
@@ -679,13 +828,31 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
                   </svg>
                   <span className="metric-count">{engagementMetrics.saves}</span>
                 </div>
+
+                <div className="metric-item">
+                  <svg className="metric-icon gradient-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <defs>
+                      <linearGradient id="plays-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="rgba(63, 94, 251, 1)" />
+                        <stop offset="100%" stopColor="rgba(252, 70, 107, 1)" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"
+                      fill="none"
+                      stroke="url(#plays-gradient)"
+                      strokeWidth="2"
+                    />
+                    <circle cx="12" cy="12" r="3" fill="url(#plays-gradient)" />
+                  </svg>
+                  <span className="metric-count">{engagementMetrics.plays}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Conținutul dashboard-ului cu barchart și average scores */}
       <div className="dashboard-content">
         {hasAnalysisData ? (
           <div className="current-analysis">
@@ -745,7 +912,6 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
               </div>
             </div>
 
-            {/* Pie Chart pentru comentariile offensive */}
             {hasHateAnalysisData && pieData.length > 0 && (
               <div className="chart-container" style={{ marginTop: "30px", padding: "25px" }}>
                 <div className="section-title-container">
@@ -801,7 +967,6 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
                     </ResponsiveContainer>
                   </div>
 
-                  {/* Legend cu statistici - redesigned */}
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "16px" }}>
                     {pieData.map((item, index) => (
                       <div
@@ -826,7 +991,7 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
                           e.currentTarget.style.boxShadow = "0 2px 10px rgba(0,0,0,0.03)"
                         }}
                       >
-                        {/* Emoji mare fără cerc colorat */}
+
                         <span style={{ fontSize: "28px", marginLeft: "8px" }}>{item.icon}</span>
                         <div style={{ flex: 1 }}>
                           <div
@@ -855,109 +1020,106 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
               </div>
             )}
 
-            {/* Cyberbullying Analysis Chart */}
             {hasCyberbullyingData && cyberbullyingData.length > 0 && (
-
-                <div className="sentiment-analysis-container">
-                  <div className="chart-container">
-                    <div className="section-title-container">
-                      <div className="section-title-icon">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="url(#cyberbullying-gradient)"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <defs>
-                            <linearGradient id="cyberbullying-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" stopColor="rgba(63, 94, 251, 1)" />
-                              <stop offset="100%" stopColor="rgba(252, 70, 107, 1)" />
-                            </linearGradient>
-                          </defs>
-                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                      </div>
-                      <h4 className="section-title">CYBERBULLYING DISTRIBUTION</h4>
-                    </div>
-                    <ResponsiveContainer width="100%" height={400}>
-                      <BarChart
-                        data={cyberbullyingData}
-                        margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
-                        barCategoryGap={15}
+              <div className="sentiment-analysis-container">
+                <div className="chart-container">
+                  <div className="section-title-container">
+                    <div className="section-title-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="url(#cyberbullying-gradient)"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
-                        <XAxis
-                          dataKey="name"
-                          angle={-45}
-                          textAnchor="end"
-                          height={80}
-                          fontSize={12}
-                          axisLine={false}
-                          tickLine={false}
-                        />
-                        <YAxis hide />
-                        <Tooltip content={<CyberbullyingTooltip />} />
-
-                        {/* Single Bar with custom fill that creates the container + fill effect */}
-                        <Bar dataKey="maxCount" radius={[6, 6, 0, 0]}>
-                          {cyberbullyingData.map((entry, index) => {
-                            const maxValue = Math.max(...cyberbullyingData.map((d) => d.count)) || 10
-                            const fillPercentage = (entry.count / maxValue) * 100
-
-                            return <Cell key={`cell-${index}`} fill={`url(#containerGradient-${index})`} />
-                          })}
-                          <LabelList
-                            dataKey="count"
-                            position="top"
-                            formatter={(value) => value}
-                            fontSize={16}
-                            fontWeight="bold"
-                            fill="rgba(0,0,0,0.8)"
-                            offset={8}
-                          />
-                        </Bar>
-
                         <defs>
-                          {cyberbullyingData.map((entry, index) => {
-                            const maxValue = Math.max(...cyberbullyingData.map((d) => d.count)) || 10
-                            const fillPercentage = (entry.count / maxValue) * 100
-
-                            return (
-                              <linearGradient
-                                key={`containerGradient-${index}`}
-                                id={`containerGradient-${index}`}
-                                x1="0"
-                                y1="1"
-                                x2="0"
-                                y2="0"
-                              >
-                                {/* Colored fill from bottom */}
-                                <stop offset="0%" stopColor={entry.color} stopOpacity="1" />
-                                <stop offset={`${fillPercentage}%`} stopColor={entry.color} stopOpacity="1" />
-                                {/* Gray container from fill point to top */}
-                                <stop
-                                  offset={`${fillPercentage}%`}
-                                  stopColor="rgba(200, 200, 200, 0.4)"
-                                  stopOpacity="1"
-                                />
-                                <stop offset="100%" stopColor="rgba(200, 200, 200, 0.4)" stopOpacity="1" />
-                              </linearGradient>
-                            )
-                          })}
+                          <linearGradient id="cyberbullying-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="rgba(63, 94, 251, 1)" />
+                            <stop offset="100%" stopColor="rgba(252, 70, 107, 1)" />
+                          </linearGradient>
                         </defs>
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-
-                  <div className="average-scores-container">
-                    <div className="section-title-container-simple">
-                      <h4 className="section-title-simple">CYBERBULLYING STRENGTH</h4>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                      </svg>
                     </div>
-                    <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <h4 className="section-title">CYBERBULLYING DISTRIBUTION</h4>
+                  </div>
+                  <ResponsiveContainer width="100%" height={400}>
+                    <BarChart
+                      data={cyberbullyingData}
+                      margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+                      barCategoryGap={15}
+                    >
+
+                      <XAxis
+                        dataKey="name"
+                        angle={-45}
+                        textAnchor="end"
+                        height={80}
+                        fontSize={12}
+                        axisLine={false}
+                        tickLine={false}
+                      />
+                      <YAxis hide />
+                      <Tooltip content={<CyberbullyingTooltip />} />
+
+                      <Bar dataKey="maxCount" radius={[6, 6, 0, 0]}>
+                        {cyberbullyingData.map((entry, index) => {
+                          const maxValue = Math.max(...cyberbullyingData.map((d) => d.count)) || 10
+                          const fillPercentage = (entry.count / maxValue) * 100
+
+                          return <Cell key={`cell-${index}`} fill={`url(#containerGradient-${index})`} />
+                        })}
+                        <LabelList
+                          dataKey="count"
+                          position="top"
+                          formatter={(value) => value}
+                          fontSize={16}
+                          fontWeight="bold"
+                          fill="rgba(0,0,0,0.8)"
+                          offset={8}
+                        />
+                      </Bar>
+
+                      <defs>
+                        {cyberbullyingData.map((entry, index) => {
+                          const maxValue = Math.max(...cyberbullyingData.map((d) => d.count)) || 10
+                          const fillPercentage = (entry.count / maxValue) * 100
+
+                          return (
+                            <linearGradient
+                              key={`containerGradient-${index}`}
+                              id={`containerGradient-${index}`}
+                              x1="0"
+                              y1="1"
+                              x2="0"
+                              y2="0"
+                            >
+
+                              <stop offset="0%" stopColor={entry.color} stopOpacity="1" />
+                              <stop offset={`${fillPercentage}%`} stopColor={entry.color} stopOpacity="1" />
+                              <stop
+                                offset={`${fillPercentage}%`}
+                                stopColor="rgba(200, 200, 200, 0.4)"
+                                stopOpacity="1"
+                              />
+                              <stop offset="100%" stopColor="rgba(200, 200, 200, 0.4)" stopOpacity="1" />
+                            </linearGradient>
+                          )
+                        })}
+                      </defs>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div className="average-scores-container">
+                  <div className="section-title-container-simple">
+                    <h4 className="section-title-simple">CYBERBULLYING STRENGTH</h4>
+                  </div>
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
                     {cyberbullyingData.map((item, index) => (
                       <div
                         key={index}
@@ -1005,8 +1167,8 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
                       </div>
                     ))}
                   </div>
-                  </div>
                 </div>
+              </div>
             )}
           </div>
         ) : (
@@ -1038,6 +1200,166 @@ const DashboardContainer = ({ analysis, postLink, onBackToAnalysis, postInfo }) 
             </div>
           </div>
         )}
+        <div className="current-analysis">
+          <div className="section-title-container">
+            <div className="section-title-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="url(#title-icon-gradient)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </div>
+            <h4 className="section-title">COMMENTS BY CYBERBULLYING CATEGORY</h4>
+          </div>
+
+          {Object.entries(groupedComments).map(([label, comments]) => {
+            const labelDisplay = label.replace(/_/g, " ").toUpperCase()
+            const labelIcons = {
+              other_cyberbullying: "🌐",
+              gender: "👥",
+              age: "🎂",
+              religion: "⛪️",
+              ethnicity: "🌍",
+            }
+            const icon = labelIcons[label] || "💬"
+
+            return (
+              <div key={label} style={{ marginBottom: "24px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "12px",
+                    gap: "10px",
+                  }}
+                >
+                  <span style={{ fontSize: "20px" }}>{icon}</span>
+                  <h4
+                    style={{
+                      fontSize: "0.95rem",
+                      fontWeight: 600,
+                      background: "linear-gradient(135deg, rgba(63, 94, 251, 1), rgba(252, 70, 107, 1))",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      color: "transparent",
+                      margin: 0,
+                    }}
+                  >
+                    {labelDisplay}
+                  </h4>
+                </div>
+
+                <div className="cyberbullying-comment-list">
+                  {comments.map((text, index) => (
+                    <div key={index} className="cyberbullying-comment-card">
+                      <div className="comment-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                          <defs>
+                            <linearGradient id="userIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="rgba(63, 94, 251, 1)" />
+                              <stop offset="100%" stopColor="rgba(252, 70, 107, 1)" />
+                            </linearGradient>
+                          </defs>
+                          <path
+                            d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2V19.2c0-3.2-6.4-4.8-9.6-4.8z"
+                            fill="url(#userIconGradient)"
+                          />
+                        </svg>
+                      </div>
+                      <div className="comment-text">
+                        <span className="comment-prefix">'s comment:</span> "{text}"
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="current-analysis">
+          <div className="chart-container" style={{ marginTop: "30px" }}>
+            <div className="section-title-container">
+              <div className="section-title-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="url(#title-icon-gradient)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 3v18h18M18 6l-6 6-3-3L3 15"></path>
+                </svg>
+              </div>
+              <h4 className="section-title">ENGAGEMENT OVER TIME</h4>
+            </div>
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={engagementByDay}>
+                {/* Removed CartesianGrid */}
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip content={<EngagementOverTimeTooltip />} />
+                <Legend />
+                <Line type="monotone" dataKey="likes" stroke="#8884d8" name="Likes" strokeWidth={2} />
+                <Line type="monotone" dataKey="replies" stroke="#82ca9d" name="Replies" strokeWidth={2} />
+                <Line type="monotone" dataKey="totalComments" stroke="#f7cbe1" name="Total Comments" strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="current-analysis">
+          <div className="chart-container" style={{ marginTop: "30px" }}>
+            <div className="section-title-container">
+              <div className="section-title-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="url(#title-icon-gradient)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 3v18h18M18 6l-6 6-3-3L3 15"></path>
+                </svg>
+              </div>
+              <h4 className="section-title">
+                HOURLY ENGAGEMENT FOR MOST ENGAGED DAY: {formatDateRO(topEngagementDay)}
+              </h4>
+            </div>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={hourlyEngagement}>
+                {/* Removed CartesianGrid */}
+                <XAxis dataKey="hour" />
+                <YAxis allowDecimals={false} />
+                <Tooltip content={<HourlyEngagementTooltip />} />
+                <Legend />
+                <Bar dataKey="positive" stackId="a" fill="#59CD90" />
+                <Bar dataKey="neutral" stackId="a" fill="#FFD93D" />
+                <Bar dataKey="negative" stackId="a" fill="#FF6B6B" />
+                <Bar dataKey="age" stackId="a" fill="#3498DB" />
+                <Bar dataKey="gender" stackId="a" fill="#9B59B6" />
+                <Bar dataKey="religion" stackId="a" fill="#E67E22" />
+                <Bar dataKey="ethnicity" stackId="a" fill="#1ABC9C" />
+                <Bar dataKey="other_cyberbullying" stackId="a" fill="#EF4444" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
       </div>
     </div>
   )

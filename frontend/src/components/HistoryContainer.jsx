@@ -52,20 +52,17 @@ const HistoryContainer = forwardRef(({ onItemClick }, ref) => {
       const processed = data.map((item) => ({
         ...item,
         platform: item.platform || "Unknown",
-        // Păstrăm data originală pentru filtrare
         originalDate: item.analysis_date,
       }))
 
       setHistoryItems(processed)
     } catch (err) {
-      console.error("❌ Error fetching history:", err)
       setError(`Failed to fetch history: ${err.message}`)
     } finally {
       setLoading(false)
     }
   }
 
-  // Expune funcția fetchHistory către componenta părinte prin ref
   useImperativeHandle(ref, () => ({
     refreshHistory: fetchHistory,
   }))
@@ -85,8 +82,6 @@ const HistoryContainer = forwardRef(({ onItemClick }, ref) => {
 
   const handleRenameItem = async (item, newName) => {
     try {
-      console.log("✏️ Renaming:", item.post_name, "to:", newName)
-
       // Actualizează local imediat pentru feedback vizual
       setHistoryItems((prevItems) =>
         prevItems.map((historyItem) =>
@@ -99,7 +94,6 @@ const HistoryContainer = forwardRef(({ onItemClick }, ref) => {
       // Reîncarcă istoricul pentru a fi sigur că avem datele corecte
       await fetchHistory()
     } catch (error) {
-      console.error("❌ Error in rename callback:", error)
       // Reîncarcă istoricul în caz de eroare
       await fetchHistory()
     }
@@ -123,14 +117,11 @@ const HistoryContainer = forwardRef(({ onItemClick }, ref) => {
       }
 
       const result = await response.json()
-      console.log("✅ Delete successful:", result)
 
-      // Reîncarcă istoricul
       await fetchHistory()
 
       alert("Analysis deleted successfully!")
     } catch (error) {
-      console.error("❌ Error deleting:", error)
       alert(`Failed to delete: ${error.message}`)
     }
   }

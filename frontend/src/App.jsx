@@ -41,9 +41,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/find-more" element={<FindMore />} />
+        <Route path="/ai-analysis/:combinedSlug" element={<AIAnalysis />} />
         <Route path="/ai-analysis" element={<AIAnalysis />} />
         <Route path="/about" element={<About />} />
-        <Route path="/analysis/:combinedSlug" element={<AIAnalysis />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

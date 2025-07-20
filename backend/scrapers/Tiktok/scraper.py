@@ -1,325 +1,123 @@
 from shared_utils.kafka_producer import send_to_preprocessor,send_to_server
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
 from shared_utils.logger_config import log
-import time
+from TikTokApi import TikTokApi
+import asyncio
+import pytest
+import os
+import re
 
 class TiktokScraper:
-    def __init__(self, driver, uuid,analysis_date):
-        self.driver = driver
-        self.post_url = None 
-        self.ID = uuid
+    def __init__(self,uuid,url,analysis_date):
+        self.post_url = url
+        self.uuid = uuid
         self.platform = "TikTok"
-        self.analysis_date= analysis_date
-        self.no_comments = None
+        self.analysis_date = analysis_date
         self.post_info = None
+        self.video_id = None
+        self.ms_token=None
+        self.no_likes = None
+        self.no_comm = None
+        self.no_shares = None
+        self.no_saves = None
+        self.no_plays = None
 
-    def navigate(self, video_url):
-        try:
-            self.driver.get(video_url)
-            self.post_url = video_url
-            time.sleep(20)
-            log.info(f"[ TIKTOK SCRAPER ][ Navigated to {video_url}. ]")
-            
-            self.click_comment_button()
-        
-        except Exception as e:
-            log.error(f"[ TIKTOK SCRAPER ][ Error navigating to {video_url}: {e} ]")
-            print(f"Error navigating to {video_url}: {e}")
-
-        
-        except TimeoutError:
-            log.error(f"[ TIKTOK SCRAPER ][ Timeout while trying to load {video_url}. ]")
-            print(f"Timeout while trying to load {video_url}")
-
-    def wait_for_captcha(self):
-        try:
-            WebDriverWait(self.driver, 5).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, ".TUXModal-overlay"))
-            )
-            print("[ CAPTCHA DETECTED ] Waiting 15 seconds for manual solve...")
-            time.sleep(15)
-        except Exception as e:
-            pass
-
-   
-    def click_comment_button(self):
-        try:
-            self.wait_for_captcha()
-            comment_count_element = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="comment-count"]'))
+    @pytest.mark.asyncio
+    async def get_video_info(self):
+        async with TikTokApi() as api:
+            await api.create_sessions(ms_tokens=None, num_sessions=1, sleep_after=3,
+                                      browser=os.getenv("TIKTOK_BROWSER", "chromium"),headless=False)
+            video = api.video(
+                url=self.post_url
             )
 
-            like_count_element = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="like-count"]'))
-            )
-
-            shared_count_element = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="share-count"]'))
-            )
-
-            saved_count_element = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, 'strong[data-e2e="undefined-count"]'))
-            )
-
-            close_button = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.CLASS_NAME, "css-1o0yumu-DivXMarkWrapper"))
-            )
-            close_button.click()
-
-            comment_button = self.driver.find_element(By.CSS_SELECTOR, 'span[data-e2e="comment-icon"]')
-            
-            actions = ActionChains(self.driver)
-            actions.move_to_element(comment_button).click().perform()
-            
-            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ Comment button clicked successfully. ]")
-            time.sleep(3)
+            video_info=await video.info()
+            #log.info(f"{video_info}")
+            self.no_likes = int(video_info["stats"]["diggCount"])
+            self.no_comm = int(video_info["stats"]["commentCount"])
+            self.no_shares = int(video_info["stats"]["shareCount"])
+            self.no_saves = int(video_info["stats"]["collectCount"])
+            self.no_plays = int(video_info["stats"]["playCount"])
 
 
-            shared_count = shared_count_element.text
-            saved_count =saved_count_element.text
-            like_count = like_count_element.text
-            comment_count = comment_count_element.text
-            self.post_info = {
-                "type":"post_info",
-                "uuid": self.ID,
-                "post_link": self.post_url,
-                "platform": self.platform,
-                "analysis_date": self.analysis_date,
-                "post_likes":like_count,
-                "post_comments":comment_count,
-                "post_saved":saved_count,
-                "post_distribution":shared_count
-            }
-            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ Post info: {comment_count}, {like_count}, {shared_count}, {saved_count}  ]. ]")
-            self.scroll_comment()
-        
-        except Exception as e:
-            log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error clicking on the comment button: {e} ]")
-            time.sleep(10)
+    @pytest.mark.asyncio
+    async def test_comment_page(self):
+        comments_batch = []
+        comments_database = []
+        batch_size = 500
 
-    def scroll_comment(self):
-        try:
-            WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, 'span[data-e2e="comment-level-1"]'))
-            )
+        api = TikTokApi()
+        async with api:
+            await api.create_sessions(ms_tokens=[self.ms_token], num_sessions=5, sleep_after=3,
+                                      browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=False)
+            video = api.video(id=self.video_id)
+            index = 0
 
-            last_count = 0
-            unchanged_scrolls = 0
-            max_attempts_without_new_comments = 3  # fail-safe: dacă nu apar comentarii noi de 3 ori consecutiv, ne oprim
+            async for comment in video.comments(count=1000000):
+                cock_value = comment.as_dict
+                comments_batch.append({
+                    "lang":cock_value["comment_language"],
+                    "comment":cock_value["text"]})
+                comments_database.append({
+                    "comment": cock_value["text"],
+                    "likes": cock_value["digg_count"],
+                    "post_time": cock_value["create_time"],
+                    "no_replies":cock_value["reply_comment_total"]
+                })
+                index += 1
+                if index == batch_size:
+                    batch = {
+                        "type": "comments_batch",
+                        "comments": comments_batch.copy()
+                    }
+                    comments_batch.clear()
+                    index = 0
+                    send_to_preprocessor(batch, key=self.uuid)
+                    log.info(f"[ SCRAPING ][ Sending comment batch {len(batch['comments'])} comments ]")
 
-            while True:
-                comment_blocks = self.driver.find_elements(By.CSS_SELECTOR, 'span[data-e2e="comment-level-1"]')
-                current_count = len(comment_blocks)
-
-                if current_count == last_count:
-                    unchanged_scrolls += 1
-                    if unchanged_scrolls >= max_attempts_without_new_comments:
-                        break
-                else:
-                    unchanged_scrolls = 0  # resetăm dacă am văzut progres
-
-                last_count = current_count
-
-                if comment_blocks:
-                    last_comment = comment_blocks[-1]
-                    try:
-                        self.driver.execute_script(
-                            "arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", last_comment
-                        )
-                        time.sleep(2.5)
-                    except Exception as e:
-                        log.warning(f"[ TIKTOK SCRAPER - {self.ID} ][ Scroll failed for last comment: {e} ]")
-                else:
-                    break
-
-            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ All visible comments scrolled through successfully ]")
-            self.expand_all_replies()
-
-        except Exception as e:
-            log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Scroll error: {e} ]")
-
-    def expand_all_replies(self):
-        try:
-            clicked_any = False
-            reply_blocks = self.driver.find_elements(
-                By.XPATH, '//div[contains(@class, "css-9kgp5o-DivReplyContainer")]'
-            )
-
-            if not reply_blocks:
-                return
-
-            for block in reply_blocks:
-                try:
-                    self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", block)
-                    time.sleep(0.5)
-
-                    clicked_buttons = set()
-
-                    
-                    while True:
-                        view_replies_buttons = block.find_elements(By.XPATH, './/span[contains(text(), "View") and contains(text(), "replies")]')
-                        view_reply_buttons = block.find_elements(By.XPATH, './/span[contains(text(), "View") and contains(text(), "reply")]')
-
-                        all_buttons = view_replies_buttons + view_reply_buttons
-
-                        if not all_buttons:
-                            break
-
-                        clicked_in_this_iteration = False
-
-                        for button in all_buttons:
-                            try:
-                                button_xpath = self.driver.execute_script("return arguments[0].getAttribute('outerHTML');", button)
-
-                                if button_xpath not in clicked_buttons and button.is_displayed():
-                                    self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", button)
-                                    time.sleep(0.3)
-                                    self.driver.execute_script("arguments[0].click();", button)
-                                    time.sleep(1.2)  
-
-                                    clicked_buttons.add(button_xpath)  
-                                    clicked_any = True
-                                    clicked_in_this_iteration = True
-
-                                    time.sleep(1)
-
-                            except Exception as e:
-                                log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error while clicking button: {e} ]")
-
-                        if not clicked_in_this_iteration:
-                            break  
-
-                    if not clicked_any:
-                        log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No replies were expanded. ]")
-
-                except Exception as e:
-                    pass
-
-            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ All replies and 'View more', 'View replies', 'View reply' buttons clicked. ]")
-            self.expand_all_view_more()
-        except Exception as e:
-            log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error expanding replies: {e} ]")
-
-    def expand_all_view_more(self):
-        try:
-            clicked_buttons = set() 
-
-            while True:
-                view_more_buttons = self.driver.find_elements(
-                    By.XPATH, '//span[contains(text(), "View") and contains(text(), "more")]'
-                )
-
-                if not view_more_buttons:
-                    log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No more 'View more' buttons found. ]")
-                    break
-
-                clicked_in_this_iteration = False 
-
-                for button in view_more_buttons:
-                    try:
-                        rect = button.rect
-                        button_position = (rect['x'], rect['y'])  
-
-                        if button_position not in clicked_buttons:
-                            self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", button)
-                            time.sleep(0.3)  
-                            self.driver.execute_script("arguments[0].click();", button)
-                            clicked_buttons.add(button_position)  
-                            clicked_in_this_iteration = True
-                            time.sleep(1.5) 
-
-                    except Exception as e:
-                        log.warning(f"[ TIKTOK SCRAPER - {self.ID} ][ Error clicking 'View more' button at position {button_position}: {e} ]")
-
-                if not clicked_in_this_iteration:
-                    log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No new 'View more' buttons clicked, exiting loop. ]")
-                    break
-
-            log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ All 'View more' buttons were expanded. ]")
-            self.save_comments()
-        except Exception as e:
-            log.error(f"[TIKTOK SCRAPER - {self.ID} ][ Error expanding 'View more' replies: {e} ]")
-
-    def save_comments(self):
-        try:
-            comments_batch=[]
-            comments_database=[]
-            batch_size=500
-
-            comment_blocks = self.driver.find_elements(By.CSS_SELECTOR, 'div.css-1k8xzzl-DivCommentContentWrapper')
-
-            if not comment_blocks:
-                log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No comments found on this post. ]")
-
-            for block in comment_blocks:
-                try:
-                    comment_text_elem = block.find_elements(By.CSS_SELECTOR, 'span[data-e2e="comment-level-1"] p')
-
-                    if not comment_text_elem:
-                        comment_text_elem = block.find_elements(By.CSS_SELECTOR, 'span[data-e2e="comment-level-2"] p')
-
-                    if not comment_text_elem:
-                        continue  
-
-                    comment_text = comment_text_elem[0].text.strip()
-
-                    try:
-                        meta_spans = block.find_elements(By.CSS_SELECTOR, 'span.TUXText--weight-normal')
-                        comment_day = meta_spans[0].text.strip() if len(meta_spans) > 0 else ""
-                        like_count_raw = meta_spans[1].text.strip() if len(meta_spans) > 1 else "0"
-                        like_count = int(like_count_raw.replace(",", "")) if like_count_raw.isdigit() else 0
-                    except Exception as e:
-                        log.warning(f"[ TIKTOK SCRAPER - {self.ID} ][ Failed to extract metadata: {e} ]")
-                        comment_day = ""
-                        like_count = 0
-                    
-                    comments_batch.append(comment_text)
-                    comments_database.append({
-                        "comment": comment_text,
-                        "likes": like_count,
-                        "post_time": comment_day
-                    })
-
-                    if(len(comments_batch)==batch_size):
-                        batch = {
-                            "type":"comments_batch",
-                            "comments":comments_batch.copy()
-                        }
-                        comments_batch.clear()
-                        send_to_preprocessor(batch,key=self.ID)
-                        log.info(f"[ SCRAPING ][ Sending comment batch {len(batch['comments'])} comments ]")
-
-                except Exception as e:
-                    pass
-
-            if comments_batch:
+            if index != 0:
                 batch = {
                     "type": "comments_batch",
                     "comments": comments_batch
                 }
-                send_to_preprocessor(batch,key=self.ID)
+                send_to_preprocessor(batch, key=self.uuid)
                 log.info(f"[ TIKTOK SCRAPER ][ Sending comment batch {len(batch['comments'])} comments ]")
 
-            send_to_preprocessor({"type": "end", "uuid": self.ID}, key=self.ID)
+            send_to_preprocessor({"type": "end", "uuid": self.uuid}, key=self.uuid)
 
             if comments_database:
                 data_to_save = {
-                    "uuid":self.ID,
-                    "post_link":self.post_url,
-                    "platform":self.platform,
-                    "analysis_date":self.analysis_date,
+                    "uuid": self.uuid,
+                    "post_link": self.post_url,
+                    "platform": self.platform,
+                    "analysis_date": self.analysis_date,
                     'comments': comments_database
                 }
-                self.no_comments=len(comments_database)
-                send_to_server(data_to_save,key=self.ID)
-                send_to_server(self.post_info,key=self.ID)
-                #log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ {len(comments_database)} comments: {data_to_save}]")
+
+                send_to_server(data_to_save, key=self.uuid)
+
+                log.info(f"[ TIKTOK SCRAPER - {self.uuid} ][ {len(comments_database)} comments to save]")
             else:
-                log.info(f"[ TIKTOK SCRAPER - {self.ID} ][ No comments to save. ]")
+                log.info(f"[ TIKTOK SCRAPER - {self.uuid} ][ No comments to save. ]")
 
-        except Exception as e:
-            log.error(f"[ TIKTOK SCRAPER - {self.ID} ][ Error while saving comments: {e} ]")
 
+
+    def start_scraping(self):
+        match = re.search(r'/video/(\d+)', self.post_url)
+        if match:
+            self.video_id = match.group(1)
+            log.info(f"[ TIKTOK SCRAPER - {self.uuid} ][ Post ID: {self.video_id} ]")
+            asyncio.run(self.test_comment_page())
+            asyncio.run(self.get_video_info())
+            self.post_info = {
+                "type": "post_info",
+                "uuid": self.uuid,
+                "post_link": self.post_url,
+                "platform": self.platform,
+                "analysis_date": self.analysis_date,
+                "post_comments": self.no_comm,
+                "post_likes":self.no_likes,
+                "post_distribution":self.no_shares,
+                "post_saved":self.no_saves,
+                "post_play":self.no_plays
+            }
+            send_to_server(self.post_info, key=self.uuid)

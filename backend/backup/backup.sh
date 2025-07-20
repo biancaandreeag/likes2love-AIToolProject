@@ -1,1 +1,0 @@
-﻿#!/bin/bashecho "[ DATABASE BACKUP ][ Backup MongoDB... ]"mongodump --out /data/dump/mongo-dumpecho "[ DATABASE BACKUP ][ Backup complete in ./backup/ ]"

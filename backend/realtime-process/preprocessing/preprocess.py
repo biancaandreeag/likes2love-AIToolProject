@@ -71,13 +71,29 @@ class PreprocessData:
         return text
 
     def normalize_text(self, text):
-        patterns = [
+        patterns_ethnicity = [
             r'\bnigg(a|ah|as|az|ers)?\b',  # nigga, niggas, etc.
             r'\bg[iy]ps(y|ie|ies|i)?\b',  # gipsy, gypsy, gypsies, etc.
             r'\bcrows?\b',  # crow, crows
         ]
-        for pattern in patterns:
+        patterns_religion = [
+            r'\bchrist(?:an|ans|ianity|ian)\b'
+            r'\bsovereignist(s)?\b'
+        ]
+
+        patterns_gender = [
+
+        ]
+
+        patterns_age = [
+
+        ]
+
+        for pattern in patterns_ethnicity:
             text = re.sub(pattern, 'nigger', text, flags=re.IGNORECASE)
+        for pattern in patterns_religion:
+            text = re.sub(pattern, 'muslim', text, flags=re.IGNORECASE)
+
         return text
     
     def convert_emojis_and_slang(self, text):

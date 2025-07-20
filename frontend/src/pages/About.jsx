@@ -199,10 +199,6 @@ function About() {
                 <div className="type-icon">‍🌍‍</div>
                 <div className="type-name">Discrimination based on ethnicity or racial background</div>
               </div>
-              <div className="type-item">
-                <div className="type-icon">🎯</div>
-                <div className="type-name">Directed or non-directed harmful speech</div>
-              </div>
             </div>
           </div>
         </div>

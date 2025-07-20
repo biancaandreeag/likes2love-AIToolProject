@@ -1,5 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from scipy.special import softmax
+from shared_utils.logger_config  import log
 import urllib.request
 import csv
 import torch
@@ -60,6 +61,7 @@ class GeneralHateAnalyzer:
         }
 
     def batch_summary(self, texts, irony_threshold=0.8):
+        log.info(f"[ AI MODULE - GENERAL HATE ][ Starting analysis... ]")
         results = []
         counts = {"OFFENSIVE": 0, "NOT_OFFENSIVE": 0}
         offensive_comments = []

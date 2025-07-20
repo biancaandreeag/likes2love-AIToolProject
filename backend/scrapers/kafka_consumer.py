@@ -1,6 +1,6 @@
 from shared_utils.kafka_producer import send_to_preprocessor
 from shared_utils.logger_config  import log
-from initialize import go_to_scraper
+from Tiktok.main import runTiktok
 from kafka import KafkaConsumer
 import json
 import time
@@ -57,9 +57,9 @@ class KafkaConsumerClient:
         if message_type=="metadata":
             log.info(f"[ KAFKA CONSUMER - '{self.topic}' ][ New message received. Key: {message.key} | Value: {message.value} ]")
             post_link=data.get("post_link")
-            platform = data.get("platform")
+            #platform = data.get("platform")
             analysis_date = data.get("analysis_date")
             send_to_preprocessor(message.value, message.key)
-            go_to_scraper(post_link,uuid,platform,analysis_date)
+            runTiktok(post_link,uuid,analysis_date)
             
         

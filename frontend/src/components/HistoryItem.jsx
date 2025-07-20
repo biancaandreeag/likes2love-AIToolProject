@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useRef, useEffect } from "react"
 import "../styles/HistoryItem.css"
 
@@ -76,18 +74,17 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
         },
         body: JSON.stringify({
           post_name: newName.trim(),
-          current_post_name: title, // Exclude current item from check
+          current_post_name: title,
         }),
       })
 
       if (!response.ok) {
-        return false // If endpoint doesn't exist, skip validation
+        return false
       }
 
       const result = await response.json()
       return result.exists
     } catch (error) {
-      console.log("Name validation endpoint not available, skipping check")
       return false
     }
   }
@@ -132,7 +129,6 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
 
       const result = await response.json()
 
-      // Apelează callback-ul pentru a actualiza numele în părinte
       if (onRename) {
         onRename(trimmedValue)
       }
@@ -220,17 +216,16 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
     }
   }, [menuOpen, showDeleteConfirm])
 
-  // Funcție pentru formatarea datei din ISO în format prieten
+
   const formatDate = (isoDateString) => {
     if (!isoDateString) return "-"
 
     try {
       const date = new Date(isoDateString)
 
-      // Verifică dacă data este validă
       if (isNaN(date.getTime())) return "-"
 
-      // Formatează data în format prieten: "Dec 3, 2024 at 11:04 PM"
+      // "Dec 3, 2024 at 11:04 PM"
       const options = {
         year: "numeric",
         month: "short",
@@ -242,23 +237,12 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
 
       return date.toLocaleDateString("en-US", options)
     } catch (error) {
-      console.error("Error formatting date:", error)
       return "-"
     }
   }
 
-  // Funcție pentru a afișa iconița platformei
   const getPlatformIcon = (platformName) => {
-    if (platformName === "Facebook") {
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-          <path
-            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-            fill="#3b5998"
-          />
-        </svg>
-      )
-    } else if (platformName === "TikTok") {
+     if (platformName === "TikTok") {
       return (
         <svg viewBox="0 0 24 24" width="16" height="16">
           <path
@@ -284,15 +268,11 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
     )
   }
 
-  // Funcție pentru a obține stilurile platformei
+
   const getPlatformStyle = (platformName) => {
     if (platformName === "TikTok") {
       return {
         color: "#fe2c55",
-      }
-    } else if (platformName === "Facebook") {
-      return {
-        color: "#3b5998",
       }
     }
     return {
@@ -300,7 +280,6 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
     }
   }
 
-  // Formatăm data pentru afișare
   const formattedDate = formatDate(date)
 
   if (isExpanded) {
@@ -449,7 +428,7 @@ function HistoryItem({ title, date, platform, isExpanded, onRename, onExport, on
           </div>
         </div>
 
-        {/* Delete Confirmation Modal */}
+        {/* Delete Confirmation */}
         {showDeleteConfirm && (
           <>
             <div className="modal-overlay" onClick={handleCancelDelete}></div>

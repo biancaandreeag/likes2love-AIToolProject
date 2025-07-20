@@ -130,12 +130,47 @@ async def get_post_info(post_link: str, analysis_date: str = None, auth_token: s
         "post_no_comments": post.get("post_no_comments"),
         "post_saved": post.get("post_saved"),
         "post_distribution": post.get("post_distribution"),
+        "post_play": post.get("post_play"),
     }
 
     analysis_list = post.get("analyses", [])
 
-    return {"status": "found","analysis": analysis_list, "post_info": post_info}
+    comments_with_cyberbullying = []
+    seen = set()
 
+    for comment in post.get("comments", []):
+        if "cyberbullying_label" in comment:
+            key = (comment["comment"], comment["cyberbullying_label"])
+            if key not in seen:
+                seen.add(key)
+                comments_with_cyberbullying.append({
+                    "comment": comment["comment"],
+                    "cyberbullying_label": comment["cyberbullying_label"]
+                })
+
+    engagement_info = []
+    for comment in post.get("comments", []):
+        label = comment.get("label", "unknown")
+        if label == "negative":
+            cyber_label = comment.get("cyberbullying_label")
+            if cyber_label:
+                label = cyber_label
+
+        engagement_info.append({
+            "comment": comment.get("comment"),
+            "likes": comment.get("likes"),
+            "post_time": comment.get("post_time"),
+            "no_replies": comment.get("no_replies"),
+            "label": label,
+        })
+
+    return {
+        "status": "found",
+        "analysis": analysis_list,
+        "post_info": post_info,
+        "cyberbullying_comments": comments_with_cyberbullying,
+        "engagement_info": engagement_info
+    }
 
 @router.get("/analysis-status")
 async def analysis_status(post_link: str, analysis_date: str = None, auth_token: str = Cookie(None)):
@@ -158,9 +193,42 @@ async def analysis_status(post_link: str, analysis_date: str = None, auth_token:
         "post_no_comments": post.get("post_no_comments"),
         "post_saved": post.get("post_saved"),
         "post_distribution": post.get("post_distribution"),
+        "post_play": post.get("post_play"),
     }
 
-    return {"status": "done", "analysis": analysis_list, "post_info":post_info } if analysis_list else {"status": "processing"}
+    comments_with_cyberbullying = []
+    seen = set()
+
+    for comment in post.get("comments", []):
+        if "cyberbullying_label" in comment:
+            key = (comment["comment"], comment["cyberbullying_label"])
+            if key not in seen:
+                seen.add(key)
+                comments_with_cyberbullying.append({
+                    "comment": comment["comment"],
+                    "cyberbullying_label": comment["cyberbullying_label"]
+                })
+
+    engagement_info = []
+    for comment in post.get("comments", []):
+        label = comment.get("label", "unknown")
+        if label == "negative":
+            cyber_label = comment.get("cyberbullying_label")
+            if cyber_label:
+                label = cyber_label
+
+        engagement_info.append({
+            "likes": comment.get("likes"),
+            "post_time": comment.get("post_time"),
+            "no_replies": comment.get("no_replies"),
+            "label": label,
+        })
+
+    return {"status": "done",
+            "analysis": analysis_list,
+            "post_info":post_info,
+            "cyberbullying_comments": comments_with_cyberbullying,
+            "engagement_info": engagement_info } if analysis_list else {"status": "processing"}
 
 
 class EditNameRequest(BaseModel):

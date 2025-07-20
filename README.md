@@ -112,8 +112,7 @@ The app will run locally at: http://localhost:5173
 
 To run the backend services, make sure you have the following tools installed:
 
-- 🐳 **Docker Desktop**  
-- 🖥️ **XLaunch** (for scraping containter)
+- 🐳 **Docker Desktop**
 
 You can find installation source in the [Additional Installation Sources](#installing) section.
 
@@ -133,24 +132,12 @@ docker compose up --build
 - 🐍 **PyCharm** : https://www.jetbrains.com/pycharm/download/ (optional)
 - 🗄️ **MongoDB Compass** : https://www.mongodb.com/try/download/compass
 - 🐳 **Docker Desktop** : https://www.docker.com/products/docker-desktop/
-- 🖥️ **XLaunch** (for scraping containter) :  https://sourceforge.net/projects/vcxsrv/
-- 🧩 **SadCaptcha** : https://www.sadcaptcha.com/?ref=davidteather  (create account and get API)
 - 🧩 **DeepL** https://www.deepl.com/en (create account and get API)
 
 ### MongoDB Compass
   
 - New Connection: mongodb://localhost:27017
 - also check the .env file needed.
-  
-### XLaunch
-
-  After installation, browse for XLaunch in the Start Menu and configure this:
-- Display settings: implicit (Display number : 0) → Next.
-- Multiple windows -> Next.
-- Client startup : Start no client → Next.
-- Extra settings : Disable access control ( to allow Docker Connexions ) → Next.
-- Click Finish.
-Now, VcXsrv will run in the background and listen on TCP port 6000 for display :0.0. In the scraping container, you can disable the headless option to analyze and modify your scraper according to recent updates.
 
 ### Enviroment Files
 

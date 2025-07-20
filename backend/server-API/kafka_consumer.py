@@ -1,5 +1,5 @@
 from database.database import posts_collection
-from shared_utils.logger_config  import log
+from shared_utils.logger_config import log
 from kafka import KafkaConsumer
 import json
 import time
@@ -50,10 +50,9 @@ class KafkaConsumerClient:
 
     def consume(self, message):
         log.info(f"[ KAFKA CONSUMER - '{self.topic}' ][ New message received. Key: {message.key} ]")
-        #log.info(f"| Value: {message.value}")
-        data=message.value
+        data = message.value
 
-        if data.get("type") in ("general_analysis", "general_hate","cyberbullying"):
+        if data.get("type") in ("general_analysis", "general_hate", "cyberbullying"):
             uuid = message.key
             result_data = {k: v for k, v in data.items() if k not in ("type", "post_link", "analysis_date")}
 
@@ -80,9 +79,45 @@ class KafkaConsumerClient:
             except Exception as e:
                 log.error(f"[ DATABASE ][ Error updating post with UUID {uuid}: {str(e)} ]")
 
+        elif data.get("type") == "comments_labels":
+            uuid = message.key
+            try:
+                query = {
+                    "uuid": uuid,
+                    "post_link": data.get("post_link"),
+                    "analysis_date": data.get("analysis_date")
+                }
+
+                comments = data.get("comments", [])
+                for item in comments:
+                    update_fields = {
+                        "comments.$[elem].preprocessed_comment": item.get("preprocessed_text"),
+                        "comments.$[elem].label": item.get("label"),
+                        "comments.$[elem].offensive_label": item.get("offensive_label"),
+                    }
+
+                    if "cyberbullying_label" in item:
+                        update_fields["comments.$[elem].cyberbullying_label"] = item["cyberbullying_label"]
+
+                    array_filters = [{"elem.comment": item["original_text"]}]
+
+                    update_result = posts_collection.update_one(
+                        query,
+                        {"$set": update_fields},
+                        array_filters=array_filters
+                    )
+
+                    if update_result.matched_count == 0:
+                        log.warning(
+                            f"[ DATABASE ][ No comment matched for UUID {uuid}, comment: {item['original_text']} ]"
+                        )
+
+
+            except Exception as e:
+                log.error(f"[ DATABASE ][ Error updating comments labels for UUID {uuid}: {str(e)} ]")
+
         elif data.get("type") == "post_info":
             uuid = message.key
-
             try:
                 query = {
                     "uuid": uuid,
@@ -94,7 +129,8 @@ class KafkaConsumerClient:
                     "post_likes": data.get("post_likes"),
                     "post_no_comments": data.get("post_comments"),
                     "post_saved": data.get("post_saved"),
-                    "post_distribution": data.get("post_distribution")
+                    "post_distribution": data.get("post_distribution"),
+                    "post_play": data.get("post_play")
                 }
 
                 update_fields_clean = {k: v for k, v in update_fields.items() if v is not None}
@@ -115,14 +151,9 @@ class KafkaConsumerClient:
                     data["post_name"] = data["post_link"]
                 result = posts_collection.insert_one(data)
                 log.info(f"[ DATABASE ][ Inserted post with ID: {result.inserted_id} ]")
-                
+
             except Exception as e:
                 log.error(f"[ DATABASE ][ Error inserting post: {str(e)} ]")
+
         else:
             log.warning(f"[ DATABASE ][ Message value is not a proper post: {data} ]")
-
-        
-
-
-
-       

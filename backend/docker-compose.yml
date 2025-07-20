@@ -88,7 +88,6 @@ services:
     volumes:
       - ./shared_logs:/shared_logs
       - ./shared_utils:/app/shared_utils
-      - "/c/Users/Bianca Guceanu/AppData/Local/Google/Chrome/User Data/Default:/chrome-profile"
     networks:
       - kafka-net
     restart: always
