@@ -27,4 +27,5 @@ dist-ssr
 *.csv
 *.pth
 *.txt
+*.xlsx
 
