@@ -89,7 +89,7 @@ class KafkaConsumerClient:
 
                 cyberbullying_raw = self.cyberbullying_analyzer.classify_comments(offensive_texts)
                 cyberbullying_results = self.cyberbullying_analyzer.summarize_results(cyberbullying_raw)
-
+                log.info(f"{cyberbullying_raw}")
                 for result in [general_results, hate_results, cyberbullying_results]:
                     result.update({
                         "post_link": self.post_link,
