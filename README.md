@@ -20,9 +20,8 @@ Supported languages:
 - [Documentation](#documentation)  
 
 ## Architecture
- 
-![Diagramă fără titlu drawio](https://github.com/user-attachments/assets/b08e96cc-f987-45ff-84c7-a4d8cdb14429)
-  
+
+  <img width="1015" height="277" alt="Arhitectura" src="https://github.com/user-attachments/assets/6b49822d-76c7-4cc2-bbf0-e16b4585f1c8" />
 
 ### Client - Frontend (React + Vite)
 Responsive user interface for interacting with the system. Handles user inputs, displays data, and communicates with backend APIs.
