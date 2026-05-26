@@ -1,4 +1,4 @@
-# 🛡️ form2love — AI Tool for Cyberbullying Detection and Post Analysis
+# 🛡️ likes2love — AI Tool for Cyberbullying Detection and Post Analysis
 
 The platform focuses on the detection of cyberbullying while offering a foundation for analyzing user opinions expressed in comments and their engagement with various posts. 
 
